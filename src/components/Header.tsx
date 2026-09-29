@@ -14,6 +14,7 @@ import {
   GraduationCap,
   Building2,
   Lock,
+  LogOut,
 } from 'lucide-react';
 import { IndigenousLanguage } from '../types';
 import { SUPPORTED_LANGUAGES, UI_LOCALIZATION } from '../data/languages';
@@ -33,6 +34,8 @@ interface HeaderProps {
   onOpenRoleSwitch?: () => void;
   currentRole?: UserRole;
   onOpenHybridConfig?: () => void;
+  onLogout?: () => void;
+  onOpenDatabaseGuide?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -48,6 +51,8 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenRoleSwitch,
   currentRole = 'teacher',
   onOpenHybridConfig,
+  onLogout,
+  onOpenDatabaseGuide,
 }) => {
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -226,10 +231,22 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={onOpenRoleSwitch}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition cursor-pointer shadow-sm ${roleInfo.style}`}
-              title="Switch user role (Teacher / Student / Official PIN)"
+              title="Switch user persona (Teacher / Student / Official PIN)"
             >
               <span>{roleInfo.label}</span>
             </button>
+
+            {/* Database Architecture Blueprint Modal Trigger */}
+            {onOpenDatabaseGuide && (
+              <button
+                onClick={onOpenDatabaseGuide}
+                className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-950/40 hover:bg-amber-900/60 border border-amber-500/40 text-amber-300 text-xs font-semibold transition cursor-pointer shadow-sm"
+                title="Database Connectivity & Architecture Blueprint"
+              >
+                <Database className="w-3.5 h-3.5 text-amber-400" />
+                <span className="hidden xl:inline">DB Architecture</span>
+              </button>
+            )}
 
             {/* Hybrid Engine & Voice Cache Settings */}
             <button
@@ -260,17 +277,17 @@ export const Header: React.FC<HeaderProps> = ({
               {isOffline && <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>}
             </button>
 
-            {/* Offline Cache Storage Inspector Trigger */}
-            <button
-              onClick={onOpenOfflineCache}
-              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950/40 hover:bg-emerald-900/50 border border-emerald-500/30 text-emerald-300 text-xs font-medium transition cursor-pointer"
-              title="Inspect NIPUN Bharat & Flashcard Pure Offline Cache Storage"
-            >
-              <Database className="w-3.5 h-3.5 text-emerald-400" />
-              <span className="hidden md:inline">Storage</span>
-            </button>
-
-            {/* PWA In-App Install Prompt */}
+            {/* Logout / Switch User Action */}
+            {onLogout && (
+              <button
+                onClick={onLogout}
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-red-950/40 hover:bg-red-900/60 border border-red-500/30 text-red-300 hover:text-red-200 text-xs font-semibold transition cursor-pointer"
+                title="Log out or switch user account"
+              >
+                <LogOut className="w-3.5 h-3.5 text-red-400" />
+                <span className="hidden md:inline">Logout</span>
+              </button>
+            )}
             <PWAInstallButton compact={true} />
 
             {/* Dynamic Learn Modal Trigger (Only for Teachers) */}

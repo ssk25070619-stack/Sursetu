@@ -17,20 +17,25 @@ import { OfficialDashboard } from './components/OfficialDashboard';
 import { BarakhadiWallChart } from './components/BarakhadiWallChart';
 import { LearningDiagnosticsView } from './components/LearningDiagnosticsView';
 import { InteractiveCompanion } from './components/InteractiveCompanion';
+import { LoginPage } from './components/LoginPage';
+import { DatabaseGuideModal } from './components/DatabaseGuideModal';
+import { RestrictedAccessView } from './components/RestrictedAccessView';
 import { loadLearnedWords } from './engine/nlpEngine';
-import { ShieldCheck, Heart, Sparkles, BookOpen, WifiOff, Globe, Layers } from 'lucide-react';
+import { ShieldCheck, Heart, Sparkles, BookOpen, WifiOff, Globe, Layers, Database } from 'lucide-react';
 import { IndigenousLanguage } from './types';
 import { SUPPORTED_LANGUAGES } from './data/languages';
-import { rbacService, UserRole } from './services/rbacService';
+import { rbacService, UserRole, ROLE_CONFIGS } from './services/rbacService';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<string>('reader');
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(rbacService.isAuthenticated());
+  const [activeTab, setActiveTab] = useState<string>(rbacService.getDefaultTab());
   const [selectedLanguage, setSelectedLanguage] = useState<IndigenousLanguage>('santali');
   const [currentRole, setCurrentRole] = useState<UserRole>(rbacService.getRole());
   const [isLearnModalOpen, setIsLearnModalOpen] = useState<boolean>(false);
   const [isOfflineCacheOpen, setIsOfflineCacheOpen] = useState<boolean>(false);
   const [isRoleSwitchOpen, setIsRoleSwitchOpen] = useState<boolean>(false);
   const [isHybridConfigOpen, setIsHybridConfigOpen] = useState<boolean>(false);
+  const [isDatabaseGuideOpen, setIsDatabaseGuideOpen] = useState<boolean>(false);
   const [learnedCount, setLearnedCount] = useState<number>(loadLearnedWords().length);
   const [saathiQuery, setSaathiQuery] = useState<string>('');
   const [worksheetType, setWorksheetType] = useState<string>('counting');
@@ -48,6 +53,7 @@ export default function App() {
 
     const unsubscribe = rbacService.subscribe((profile) => {
       setCurrentRole(profile.role);
+      setIsAuthenticated(profile.isAuthenticated);
     });
 
     return () => {
@@ -75,18 +81,50 @@ export default function App() {
 
   const handleRoleChanged = (newRole: UserRole) => {
     setCurrentRole(newRole);
-    if (newRole === 'student' && !['reader', 'flashcards', 'tribal_quest', 'barakhadi', 'speech'].includes(activeTab)) {
-      setActiveTab('reader');
-    } else if (newRole === 'official' && !['official_dashboard', 'reader', 'worksheets', 'translate', 'architecture'].includes(activeTab)) {
-      setActiveTab('official_dashboard');
+    const defaultTab = ROLE_CONFIGS[newRole].defaultTab;
+    if (!rbacService.canAccess(activeTab)) {
+      setActiveTab(defaultTab);
     }
   };
+
+  const handleLoginSuccess = (role: UserRole, targetTab?: string) => {
+    setCurrentRole(role);
+    setIsAuthenticated(true);
+    setActiveTab(targetTab || ROLE_CONFIGS[role].defaultTab);
+  };
+
+  const handleLogout = () => {
+    rbacService.logout();
+    setIsAuthenticated(false);
+  };
+
+  // If user is not authenticated, render the rich Login & Persona Gate
+  if (!isAuthenticated) {
+    return (
+      <>
+        <LoginPage
+          onLoginSuccess={handleLoginSuccess}
+          selectedLanguage={selectedLanguage}
+          onSelectLanguage={setSelectedLanguage}
+          onOpenDatabaseGuide={() => setIsDatabaseGuideOpen(true)}
+        />
+        <DatabaseGuideModal
+          isOpen={isDatabaseGuideOpen}
+          onClose={() => setIsDatabaseGuideOpen(false)}
+        />
+      </>
+    );
+  }
+
+  // Check if current tab is permitted for active role
+  const isCurrentTabAllowed = rbacService.canAccess(activeTab);
 
   return (
     <div className="min-h-screen aurora-bg text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-white relative overflow-x-hidden">
       {/* Ambient background glows */}
       <div className="fixed top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow" />
       <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+
       {/* Global Navigation Header with Language Toggle & RBAC Badge */}
       <Header
         activeTab={activeTab}
@@ -101,70 +139,84 @@ export default function App() {
         onOpenRoleSwitch={() => setIsRoleSwitchOpen(true)}
         currentRole={currentRole}
         onOpenHybridConfig={() => setIsHybridConfigOpen(true)}
+        onLogout={handleLogout}
+        onOpenDatabaseGuide={() => setIsDatabaseGuideOpen(true)}
       />
 
       {/* Main Content Viewport */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {/* 1. Bilingual Story Reader */}
-        {activeTab === 'reader' && (
-          <BilingualReader
-            language={selectedLanguage}
-            onNavigateToWorksheets={() => setActiveTab('worksheets')}
+        {/* If user tries to access a restricted tab */}
+        {!isCurrentTabAllowed ? (
+          <RestrictedAccessView
+            currentRole={currentRole}
+            attemptedTab={activeTab}
+            onSwitchRole={() => setIsRoleSwitchOpen(true)}
+            onNavigateHome={() => setActiveTab(ROLE_CONFIGS[currentRole].defaultTab)}
           />
-        )}
+        ) : (
+          <>
+            {/* 1. Bilingual Story Reader */}
+            {activeTab === 'reader' && (
+              <BilingualReader
+                language={selectedLanguage}
+                onNavigateToWorksheets={() => setActiveTab('worksheets')}
+              />
+            )}
 
-        {/* 2. Speech Studio */}
-        {activeTab === 'speech' && (
-          <SpeechStudio onNavigateToSaathi={handleNavigateToSaathi} />
-        )}
+            {/* 2. Speech Studio */}
+            {activeTab === 'speech' && (
+              <SpeechStudio onNavigateToSaathi={handleNavigateToSaathi} />
+            )}
 
-        {/* 3. Translation Hub */}
-        {activeTab === 'translate' && (
-          <TranslationHub language={selectedLanguage} />
-        )}
+            {/* 3. Translation Hub */}
+            {activeTab === 'translate' && (
+              <TranslationHub language={selectedLanguage} />
+            )}
 
-        {/* 4. Sur Saathi AI Co-Pilot */}
-        {activeTab === 'assistant' && (
-          <SursetuSaathi
-            initialQuery={saathiQuery}
-            onNavigateToWorksheets={handleNavigateToWorksheets}
-            language={selectedLanguage}
-          />
-        )}
+            {/* 4. Sur Saathi AI Co-Pilot */}
+            {activeTab === 'assistant' && (
+              <SursetuSaathi
+                initialQuery={saathiQuery}
+                onNavigateToWorksheets={handleNavigateToWorksheets}
+                language={selectedLanguage}
+              />
+            )}
 
-        {/* 5. Worksheet Studio */}
-        {activeTab === 'worksheets' && (
-          <WorksheetStudio initialType={worksheetType} />
-        )}
+            {/* 5. Worksheet Studio */}
+            {activeTab === 'worksheets' && (
+              <WorksheetStudio initialType={worksheetType} />
+            )}
 
-        {/* 6. 3D Flashcards */}
-        {activeTab === 'flashcards' && (
-          <FlashcardDeck language={selectedLanguage} />
-        )}
+            {/* 6. 3D Flashcards */}
+            {activeTab === 'flashcards' && (
+              <FlashcardDeck language={selectedLanguage} />
+            )}
 
-        {/* 7. Barakhadi Chart */}
-        {activeTab === 'barakhadi' && (
-          <BarakhadiWallChart />
-        )}
+            {/* 7. Barakhadi Chart */}
+            {activeTab === 'barakhadi' && (
+              <BarakhadiWallChart />
+            )}
 
-        {/* 8. Tribal Quest Game */}
-        {activeTab === 'tribal_quest' && (
-          <TribalQuest />
-        )}
+            {/* 8. Tribal Quest Game */}
+            {activeTab === 'tribal_quest' && (
+              <TribalQuest />
+            )}
 
-        {/* 9. Learning Diagnostics & Misconception Engine */}
-        {activeTab === 'diagnostics' && (
-          <LearningDiagnosticsView />
-        )}
+            {/* 9. Learning Diagnostics & Misconception Engine */}
+            {activeTab === 'diagnostics' && (
+              <LearningDiagnosticsView />
+            )}
 
-        {/* 10. Official District Dashboard */}
-        {activeTab === 'official_dashboard' && (
-          <OfficialDashboard isOnline={!isEffectivelyOffline} />
-        )}
+            {/* 10. Official District Dashboard */}
+            {activeTab === 'official_dashboard' && (
+              <OfficialDashboard isOnline={!isEffectivelyOffline} />
+            )}
 
-        {/* 11. Architecture & API Playground */}
-        {activeTab === 'architecture' && (
-          <ApiPlayground />
+            {/* 11. Architecture & API Playground */}
+            {activeTab === 'architecture' && (
+              <ApiPlayground />
+            )}
+          </>
         )}
       </main>
 
@@ -197,6 +249,12 @@ export default function App() {
         isOnline={!isEffectivelyOffline}
       />
 
+      {/* Database Architecture Blueprint Guide Modal */}
+      <DatabaseGuideModal
+        isOpen={isDatabaseGuideOpen}
+        onClose={() => setIsDatabaseGuideOpen(false)}
+      />
+
       {/* Live Interactive Learning Companion & Soundscape */}
       <InteractiveCompanion />
 
@@ -227,6 +285,14 @@ export default function App() {
               className="hover:text-emerald-400 transition cursor-pointer flex items-center gap-1 text-[11px]"
             >
               <span>Role: <strong className="text-slate-200 capitalize">{currentRole}</strong></span>
+            </button>
+            <span>•</span>
+            <button
+              onClick={() => setIsDatabaseGuideOpen(true)}
+              className="hover:text-amber-300 transition cursor-pointer flex items-center gap-1 text-[11px]"
+            >
+              <Database className="w-3 h-3 text-amber-400" />
+              <span>Database Architecture</span>
             </button>
             <span>•</span>
             <button

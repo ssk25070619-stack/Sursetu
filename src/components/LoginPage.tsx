@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { UserRole, ROLE_CONFIGS, rbacService, RegisteredAccount, DEMO_DURATION_SECONDS } from '../services/rbacService';
+import { SecurityService } from '../services/securityService';
 import { IndigenousLanguage } from '../types';
 import { SUPPORTED_LANGUAGES } from '../data/languages';
 import { 
@@ -74,19 +75,21 @@ export const LoginPage: React.FC<LoginPageProps> = ({
   
   // Demo Quota & Lockout state
   const [demoStatus, setDemoStatus] = useState(rbacService.getDemoStatus());
+  const [rateLimitStatus, setRateLimitStatus] = useState(SecurityService.checkRateLimit());
   const [showDemoLimitModal, setShowDemoLimitModal] = useState<boolean>(false);
   const [adminResetPin, setAdminResetPin] = useState<string>('');
   const [adminResetError, setAdminResetError] = useState<string>('');
   const [registeredAccounts, setRegisteredAccounts] = useState<RegisteredAccount[]>([]);
 
-  // Refresh demo status periodically
+  // Refresh demo & rate limit status periodically
   useEffect(() => {
     const updateStatus = () => {
       setDemoStatus(rbacService.getDemoStatus());
       setRegisteredAccounts(rbacService.getRegisteredAccounts());
+      setRateLimitStatus(SecurityService.checkRateLimit());
     };
     updateStatus();
-    const interval = setInterval(updateStatus, 1500);
+    const interval = setInterval(updateStatus, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -106,17 +109,27 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     setName(account.name);
     setSchoolName(account.schoolName);
     setDistrict(account.district);
-    setPin(account.pinHash);
+    setPin(''); // Security hardening: Never prefill PIN! User must supply PIN.
     if (account.grade) setStudentGrade(account.grade);
     if (account.avatar) setStudentAvatar(account.avatar);
     setErrorMessage('');
-    setSuccessMessage(`Loaded database profile for ${account.name}`);
+    setSuccessMessage(
+      account.role === 'student'
+        ? `Loaded profile for ${account.name}`
+        : `Loaded profile for ${account.name}. Please enter your 4-digit PIN.`
+    );
   };
 
   const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     setErrorMessage('');
     setSuccessMessage('');
+
+    const rateCheck = SecurityService.checkRateLimit();
+    if (rateCheck.isLocked) {
+      setErrorMessage(`Security Lockout Active: Too many failed PIN attempts. Please wait ${rateCheck.remainingSeconds}s.`);
+      return;
+    }
 
     if (!name.trim()) {
       setErrorMessage('Please enter your full name.');
@@ -187,9 +200,9 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     }
   };
 
-  const handleQuickDemoLogin = (role: UserRole) => {
+  const handleQuickDemoLogin = async (role: UserRole) => {
     handleRoleSelect(role);
-    const res = rbacService.loginWithDemo(role);
+    const res = await rbacService.loginWithDemo(role);
     if (!res.success) {
       if (res.isDemoLimitReached) {
         setShowDemoLimitModal(true);
@@ -231,6 +244,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
   };
 
   const currentRoleConfig = ROLE_CONFIGS[selectedRole];
+
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-center items-center py-10 px-4 sm:px-6 relative overflow-hidden font-sans">
@@ -287,6 +301,21 @@ export const LoginPage: React.FC<LoginPageProps> = ({
           </div>
         )}
 
+        {/* Anti-Brute-Force Rate Limiting Lockout Banner */}
+        {rateLimitStatus.isLocked && (
+          <div className="p-3.5 rounded-2xl bg-red-950/80 border border-red-500/70 flex items-center justify-between gap-3 text-xs text-red-200 shadow-xl animate-pulse">
+            <div className="flex items-center gap-2.5">
+              <Lock className="w-4 h-4 text-red-400 shrink-0" />
+              <span>
+                <strong>Anti-Brute-Force Lockout Active:</strong> Too many failed PIN attempts detected. Login is locked for your security ({rateLimitStatus.remainingSeconds}s cooldown remaining).
+              </span>
+            </div>
+            <span className="font-mono font-bold text-red-400 bg-red-900/50 px-2 py-0.5 rounded-lg border border-red-500/30">
+              {rateLimitStatus.remainingSeconds}s
+            </span>
+          </div>
+        )}
+
         {demoStatus.hasActiveSession && (
           <div className="p-3.5 rounded-2xl bg-emerald-950/70 border border-emerald-500/50 flex items-center justify-between gap-3 text-xs text-emerald-200 shadow-lg">
             <div className="flex items-center gap-2.5">
@@ -304,6 +333,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             </button>
           </div>
         )}
+
 
         {/* 3-Persona Bento Selection Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -766,9 +796,11 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             <div className="pt-3 flex flex-col sm:flex-row items-center gap-3">
               <button
                 type="submit"
-                disabled={isLoading}
-                className={`w-full sm:flex-1 py-3.5 px-6 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition shadow-xl cursor-pointer ${
-                  selectedRole === 'teacher'
+                disabled={isLoading || rateLimitStatus.isLocked}
+                className={`w-full sm:flex-1 py-3.5 px-6 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition shadow-xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed ${
+                  rateLimitStatus.isLocked
+                    ? 'bg-slate-800 text-slate-400 border border-slate-700'
+                    : selectedRole === 'teacher'
                     ? 'bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-500 hover:from-emerald-500 hover:to-teal-500 text-white shadow-emerald-950/80 glow-emerald'
                     : selectedRole === 'student'
                     ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 shadow-amber-950/80 font-extrabold glow-amber'
@@ -777,6 +809,11 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               >
                 {isLoading ? (
                   <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : rateLimitStatus.isLocked ? (
+                  <>
+                    <Lock className="w-4 h-4 text-red-400" />
+                    <span>Locked ({rateLimitStatus.remainingSeconds}s)</span>
+                  </>
                 ) : (
                   <>
                     <span>{authMode === 'register' ? 'Register Local Account' : `Enter ${currentRoleConfig.badge}`}</span>
@@ -784,6 +821,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   </>
                 )}
               </button>
+
 
               {/* 1-Click Demo Button with Quota / Timer Guard */}
               <button

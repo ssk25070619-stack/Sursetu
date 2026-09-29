@@ -36,13 +36,13 @@ export const RoleSwitchModal: React.FC<RoleSwitchModalProps> = ({
 
   if (!isOpen) return null;
 
-  const handleSelectRole = (role: UserRole) => {
+  const handleSelectRole = async (role: UserRole) => {
     setSelectedTargetRole(role);
     setErrorMessage('');
 
     // If switching to student, no PIN needed
     if (role === 'student') {
-      rbacService.setRole('student');
+      await rbacService.setRole('student');
       onRoleChanged('student');
       setIsSuccess(true);
       setTimeout(() => {
@@ -56,7 +56,7 @@ export const RoleSwitchModal: React.FC<RoleSwitchModalProps> = ({
     if (currentRole === 'student') {
       setIsPinStep(true);
     } else {
-      rbacService.setRole(role);
+      await rbacService.setRole(role);
       onRoleChanged(role);
       setIsSuccess(true);
       setTimeout(() => {
@@ -66,13 +66,19 @@ export const RoleSwitchModal: React.FC<RoleSwitchModalProps> = ({
     }
   };
 
-  const handleVerifyPinAndSwitch = () => {
-    if (!rbacService.verifyPin(pinInput)) {
-      setErrorMessage('Incorrect 4-digit PIN. (Default PIN is 1234)');
+  const handleVerifyPinAndSwitch = async () => {
+    const isValid = await rbacService.verifyPin(pinInput);
+    if (!isValid) {
+      setErrorMessage('Incorrect security PIN.');
       return;
     }
 
-    rbacService.setRole(selectedTargetRole, pinInput);
+    const success = await rbacService.setRole(selectedTargetRole, pinInput);
+    if (!success) {
+      setErrorMessage('Failed to authenticate role switch.');
+      return;
+    }
+
     onRoleChanged(selectedTargetRole);
     setIsSuccess(true);
     setTimeout(() => {
@@ -82,6 +88,7 @@ export const RoleSwitchModal: React.FC<RoleSwitchModalProps> = ({
       onClose();
     }, 600);
   };
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fadeIn">
@@ -142,7 +149,7 @@ export const RoleSwitchModal: React.FC<RoleSwitchModalProps> = ({
               )}
 
               <p className="text-[11px] text-center text-slate-500">
-                (Default Offline School PIN: <span className="font-mono text-slate-300">1234</span>)
+                (Enter your registered 4-digit security PIN)
               </p>
             </div>
 
@@ -260,9 +267,10 @@ export const RoleSwitchModal: React.FC<RoleSwitchModalProps> = ({
 
             {/* School Info Footer */}
             <div className="pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
-              <span>School: <strong className="text-slate-300">{profile.schoolName}</strong></span>
-              <span>PIN: <strong className="text-slate-300">•••• (1234)</strong></span>
+              <span>School: <strong className="text-slate-300">{profile.schoolName || 'Govt. Ashram School'}</strong></span>
+              <span>Status: <strong className="text-emerald-400">Encrypted Role</strong></span>
             </div>
+
           </div>
         )}
       </div>

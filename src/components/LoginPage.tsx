@@ -151,7 +151,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
         ᱚ ᱛ ᱜ ᱝ ᱞ
       </div>
       <div className="absolute bottom-12 right-12 text-7xl text-amber-500/5 font-bold font-olchiki select-none pointer-events-none">
-        ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ
+        ᱥᱩᱨ ᱥᱮᱛᱩ
       </div>
 
       <div className="max-w-4xl w-full z-10 space-y-8">
@@ -167,7 +167,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               SurSetu
             </span>
             <span className="text-2xl sm:text-3xl text-slate-400 font-normal font-olchiki">
-              (ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ)
+              (ᱥᱩᱨ ᱥᱮᱛᱩ • सुर सेतु)
             </span>
           </h1>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">

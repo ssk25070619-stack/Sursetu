@@ -10,7 +10,7 @@
 ---
 
 ## 1. Project Title & Baseline Information
-- **Project Title:** SurSetu (पलाश सेतु • ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ • ପଳାଶ ସେତୁ) — Indigenous Language Translation & Foundational Learning Platform.
+- **Project Title:** SurSetu (सुर सेतु • ᱥᱩᱨ ᱥᱮᱛᱩ • ପଳାଶ ସେତୁ) — Indigenous Language Translation & Foundational Learning Platform.
 - **Focus Category:** Indigenous Language Technology, Digital Inclusion, Mother-Tongue Primary Education, Offline Edge Computing.
 - **Beneficiary Target:** Students in Grades 1 to 5, Primary School Teachers, Eklavya Model Residential Schools (EMRS), Ashram Schools, Kasturba Gandhi Balika Vidyalayas (KGBVs) in Tribal Sub-Plan areas.
 

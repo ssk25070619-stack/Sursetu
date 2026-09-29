@@ -1,4 +1,4 @@
-﻿# 🌿 SURSETU (पलाश सेतु • ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ • ପଳାଶ ସᱮତୁ)
+﻿# 🌿 SURSETU (सुर सेतु • ᱥᱩᱨ ᱥᱮᱛᱩ • ପଳାଶ ସᱮତୁ)
 ## Technical Design Document & Engineering Dossier
 **An Offline-First Indigenous Translation & Primary Education Platform for Tribal India**
 

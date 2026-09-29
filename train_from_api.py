@@ -1062,7 +1062,7 @@ def fetch_neural_translation(text, memory=None):
     try:
         pair = f"{sl}|sat"
         url = f"https://api.mymemory.translated.net/get?q={urllib.parse.quote(clean_txt)}&langpair={pair}"
-        req = urllib.request.Request(url, headers={"User-Agent": "PALASH-Setu/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "SurSetu/1.0"})
         with urllib.request.urlopen(req, timeout=6.0) as res:
             if res.status == 200:
                 raw_json = json.loads(res.read().decode("utf-8"))

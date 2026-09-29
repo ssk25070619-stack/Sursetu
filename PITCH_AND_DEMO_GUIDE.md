@@ -4,7 +4,7 @@
 ---
 
 ## Slide 1: Title & Hook
-**Title:** 🌿 **SURSETU** (पलाश सेतु • ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ • ପଳᱟଶ ସେତୁ)  
+**Title:** 🌿 **SURSETU** (सुर सेतु • ᱥᱩᱨ ᱥᱮᱛᱩ • ପଳᱟଶ ସେତୁ)  
 **Subtitle:** Offline-First Indigenous Translation & Primary Education Platform for Tribal India  
 **Tagline:** *Preserving Indigenous Heritage • Empowering Every Tribal Classroom • 100% Offline*  
 **Presenter:** Project Lead & Engineering Team  

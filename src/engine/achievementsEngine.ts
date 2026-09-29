@@ -1,4 +1,4 @@
-﻿import { AchievementBadge, QuestStats } from '../types';
+import { AchievementBadge, QuestStats } from '../types';
 
 const STORAGE_KEY_STATS = 'sursetu_tribal_quest_stats_v2';
 
@@ -34,7 +34,7 @@ export const INITIAL_ACHIEVEMENT_DEFINITIONS: Omit<AchievementBadge, 'isUnlocked
     description: 'Score 5 bulls-eyes in Birsa Archer mode identifying indigenous words.',
     category: 'combat',
     tier: 'silver',
-    tierLabel: 'SurSetu Silver (ᱯᱟᱞᱟᱥ)',
+    tierLabel: 'SurSetu Silver (ᱥᱩᱨ ᱥᱮᱛᱩ)',
     tokenDesign: {
       primaryColor: '#059669',
       secondaryColor: '#047857',
@@ -80,7 +80,7 @@ export const INITIAL_ACHIEVEMENT_DEFINITIONS: Omit<AchievementBadge, 'isUnlocked
     description: 'Decipher 5 spoken tribal words in Mandar Drum listening mode.',
     category: 'rhythm',
     tier: 'silver',
-    tierLabel: 'SurSetu Silver (ᱯᱟᱞᱟᱥ)',
+    tierLabel: 'SurSetu Silver (ᱥᱩᱨ ᱥᱮᱛᱩ)',
     tokenDesign: {
       primaryColor: '#0284c7',
       secondaryColor: '#0369a1',
@@ -149,7 +149,7 @@ export const INITIAL_ACHIEVEMENT_DEFINITIONS: Omit<AchievementBadge, 'isUnlocked
     description: 'Achieve a 5x answer streak without a single mistake.',
     category: 'streak',
     tier: 'silver',
-    tierLabel: 'SurSetu Silver (ᱯᱟᱞᱟᱥ)',
+    tierLabel: 'SurSetu Silver (ᱥᱩᱨ ᱥᱮᱛᱩ)',
     tokenDesign: {
       primaryColor: '#ea580c',
       secondaryColor: '#9a3412',
@@ -195,7 +195,7 @@ export const INITIAL_ACHIEVEMENT_DEFINITIONS: Omit<AchievementBadge, 'isUnlocked
     description: 'Harvest 25 sacred Sal leaves through accurate quiz answers.',
     category: 'mastery',
     tier: 'silver',
-    tierLabel: 'SurSetu Silver (ᱯᱟᱞᱟᱥ)',
+    tierLabel: 'SurSetu Silver (ᱥᱩᱨ ᱥᱮᱛᱩ)',
     tokenDesign: {
       primaryColor: '#16a34a',
       secondaryColor: '#166534',
@@ -270,8 +270,8 @@ export const INITIAL_ACHIEVEMENT_DEFINITIONS: Omit<AchievementBadge, 'isUnlocked
       secondaryColor: '#9d174d',
       glowColor: 'rgba(236, 72, 153, 0.65)',
       ringColor: '#f472b6',
-      olChikiGlyph: 'ᱯ',
-      glyphMeaning: 'SurSetu (ᱯᱟᱞᱟᱥ - Flame of the Forest Sacred Totem)',
+      olChikiGlyph: 'ᱥ',
+      glyphMeaning: 'SurSetu (ᱥᱩᱨ ᱥᱮᱛᱩ - Bridge of Knowledge Sacred Totem)',
       iconType: 'diamond',
     },
     requirement: {

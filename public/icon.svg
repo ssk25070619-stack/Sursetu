@@ -34,8 +34,8 @@
     <!-- Inner Flame Highlight -->
     <path d="M0,10 C-35,-15 -50,-80 0,-145 C50,-80 35,-15 0,10 Z" fill="#fef08a" opacity="0.9" />
 
-    <!-- Ol Chiki glyph "ᱯ" (Pa for Palash / ᱯᱟᱞᱟᱥ) -->
-    <text x="0" y="-45" font-family="'Noto Sans Ol Chiki', sans-serif" font-size="52" font-weight="bold" fill="#022c22" text-anchor="middle" dominant-baseline="middle">ᱯ</text>
+    <!-- Ol Chiki glyph "ᱥ" (Sa for SurSetu / ᱥᱩᱨ ᱥᱮᱛᱩ) -->
+    <text x="0" y="-45" font-family="'Noto Sans Ol Chiki', sans-serif" font-size="52" font-weight="bold" fill="#022c22" text-anchor="middle" dominant-baseline="middle">ᱥ</text>
   </g>
 
   <!-- Base Bridge Arch (Setu - सेतु) -->
@@ -43,5 +43,5 @@
   <path d="M140,415 Q256,365 372,415" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" opacity="0.8" />
 
   <!-- Title Monogram -->
-  <text x="256" y="460" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="800" fill="#ecfdf5" letter-spacing="4" text-anchor="middle">PALASH SETU</text>
+  <text x="256" y="460" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="800" fill="#ecfdf5" letter-spacing="4" text-anchor="middle">SURSETU</text>
 </svg>

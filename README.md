@@ -1,4 +1,4 @@
-# 🌿 SurSetu (पलाश सेतु • ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ • ପଳᱟଶ ସᱮତୁ)
+# 🌿 SurSetu (सुर सेतु • ᱥᱩᱨ ᱥᱮᱛᱩ • ସୁର ସᱮତୁ)
 
 > **Offline-First Indigenous Translation & Primary Education Platform**  
 > Bridging tribal education across Santali (*Ol Chiki* ᱚᱞ ᱪᱤᱠᱤ & *Odia Script* ଓଡ଼ିଆ), Mundari, Ho, Hindi, and English.

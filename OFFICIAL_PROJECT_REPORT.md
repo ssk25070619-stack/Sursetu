@@ -1,4 +1,4 @@
-﻿# 🌿 PROJECT SURSETU (पलाश सेतु • ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ • ପଳାଶ ସᱮᱛᱩ)
+﻿# 🌿 PROJECT SURSETU (सुर सेतु • ᱥᱩᱨ ᱥᱮᱛᱩ • ପଳାଶ ସᱮᱛᱩ)
 ## Official Comprehensive Project Report & Technical Dossier
 **An Offline-First Indigenous AI Translation & Primary Education Platform for Tribal India**
 

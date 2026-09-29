@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-**SurSetu (पलाश सेतु • ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ • ପଳᱟଶ ସେତୁ)** is an offline-first, edge-native Indigenous Language AI Platform designed to bridge the severe linguistic and pedagogical gap in primary tribal education across Eastern India.
+**SurSetu (सुर सेतु • ᱥᱩᱨ ᱥᱮᱛᱩ • ପଳᱟଶ ସେତୁ)** is an offline-first, edge-native Indigenous Language AI Platform designed to bridge the severe linguistic and pedagogical gap in primary tribal education across Eastern India.
 
 The platform provides non-native primary school teachers with real-time speech translation, continuous vocabulary adaptation, multi-script transliteration, an offline pedagogical AI co-pilot (**Sur Saathi**), and an automated Foundational Literacy & Numeracy (**FLN**) study material generator aligned with India's **National Education Policy (NEP 2020)** and **NIPUN Bharat**.
 

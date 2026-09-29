@@ -55,7 +55,7 @@ export interface UILabels {
 
 export const UI_LOCALIZATION: Record<IndigenousLanguage, UILabels> = {
   santali: {
-    bannerBadge: 'ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ',
+    bannerBadge: 'ᱥᱩᱨ ᱥᱮᱛᱩ',
     nativeBadge: 'ᱥᱟᱱᱛᱟᱲᱤ (Santali)',
     subTitle: 'Indigenous Language AI & Offline Pedagogical Assistant for Eastern India (Santali • ᱥᱟᱱᱛᱟᱲᱤ)',
     learnWord: 'Learn Word',

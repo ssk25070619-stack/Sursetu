@@ -19,9 +19,10 @@ import { LearningDiagnosticsView } from './components/LearningDiagnosticsView';
 import { InteractiveCompanion } from './components/InteractiveCompanion';
 import { LoginPage } from './components/LoginPage';
 import { DatabaseGuideModal } from './components/DatabaseGuideModal';
+import { SupabaseModal } from './components/SupabaseModal';
 import { RestrictedAccessView } from './components/RestrictedAccessView';
 import { loadLearnedWords } from './engine/nlpEngine';
-import { ShieldCheck, Heart, Sparkles, BookOpen, WifiOff, Globe, Layers, Database } from 'lucide-react';
+import { ShieldCheck, Heart, Sparkles, BookOpen, WifiOff, Globe, Layers, Database, Cloud } from 'lucide-react';
 import { IndigenousLanguage } from './types';
 import { SUPPORTED_LANGUAGES } from './data/languages';
 import { rbacService, UserRole, ROLE_CONFIGS } from './services/rbacService';
@@ -36,6 +37,7 @@ export default function App() {
   const [isRoleSwitchOpen, setIsRoleSwitchOpen] = useState<boolean>(false);
   const [isHybridConfigOpen, setIsHybridConfigOpen] = useState<boolean>(false);
   const [isDatabaseGuideOpen, setIsDatabaseGuideOpen] = useState<boolean>(false);
+  const [isSupabaseModalOpen, setIsSupabaseModalOpen] = useState<boolean>(false);
   const [learnedCount, setLearnedCount] = useState<number>(loadLearnedWords().length);
   const [saathiQuery, setSaathiQuery] = useState<string>('');
   const [worksheetType, setWorksheetType] = useState<string>('counting');
@@ -107,10 +109,15 @@ export default function App() {
           selectedLanguage={selectedLanguage}
           onSelectLanguage={setSelectedLanguage}
           onOpenDatabaseGuide={() => setIsDatabaseGuideOpen(true)}
+          onOpenSupabase={() => setIsSupabaseModalOpen(true)}
         />
         <DatabaseGuideModal
           isOpen={isDatabaseGuideOpen}
           onClose={() => setIsDatabaseGuideOpen(false)}
+        />
+        <SupabaseModal
+          isOpen={isSupabaseModalOpen}
+          onClose={() => setIsSupabaseModalOpen(false)}
         />
       </>
     );
@@ -141,6 +148,7 @@ export default function App() {
         onOpenHybridConfig={() => setIsHybridConfigOpen(true)}
         onLogout={handleLogout}
         onOpenDatabaseGuide={() => setIsDatabaseGuideOpen(true)}
+        onOpenSupabase={() => setIsSupabaseModalOpen(true)}
       />
 
       {/* Main Content Viewport */}
@@ -255,6 +263,12 @@ export default function App() {
         onClose={() => setIsDatabaseGuideOpen(false)}
       />
 
+      {/* Supabase PostgreSQL Cloud Gateway Modal */}
+      <SupabaseModal
+        isOpen={isSupabaseModalOpen}
+        onClose={() => setIsSupabaseModalOpen(false)}
+      />
+
       {/* Live Interactive Learning Companion & Soundscape */}
       <InteractiveCompanion />
 
@@ -292,7 +306,15 @@ export default function App() {
               className="hover:text-amber-300 transition cursor-pointer flex items-center gap-1 text-[11px]"
             >
               <Database className="w-3 h-3 text-amber-400" />
-              <span>Database Architecture</span>
+              <span>DB Architecture</span>
+            </button>
+            <span>•</span>
+            <button
+              onClick={() => setIsSupabaseModalOpen(true)}
+              className="hover:text-emerald-400 transition cursor-pointer flex items-center gap-1 text-[11px]"
+            >
+              <Cloud className="w-3 h-3 text-emerald-400" />
+              <span>Supabase Cloud</span>
             </button>
             <span>•</span>
             <button

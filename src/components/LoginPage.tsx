@@ -28,7 +28,8 @@ import {
   LogIn,
   AlertTriangle,
   RotateCcw,
-  Users
+  Users,
+  Cloud
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -37,6 +38,7 @@ interface LoginPageProps {
   selectedLanguage: IndigenousLanguage;
   onSelectLanguage: (lang: IndigenousLanguage) => void;
   onOpenDatabaseGuide?: () => void;
+  onOpenSupabase?: () => void;
 }
 
 const STUDENT_AVATARS = [
@@ -52,7 +54,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({
   onLoginSuccess,
   selectedLanguage,
   onSelectLanguage,
-  onOpenDatabaseGuide
+  onOpenDatabaseGuide,
+  onOpenSupabase
 }) => {
   const [authMode, setAuthMode] = useState<'signin' | 'register'>('signin');
   const [selectedRole, setSelectedRole] = useState<UserRole>('teacher');
@@ -841,6 +844,17 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               >
                 <Database className="w-3.5 h-3.5" />
                 <span>Database Connectivity Architecture</span>
+              </button>
+            )}
+
+            {onOpenSupabase && (
+              <button
+                type="button"
+                onClick={onOpenSupabase}
+                className="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 hover:underline cursor-pointer"
+              >
+                <Cloud className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Supabase Cloud Sync</span>
               </button>
             )}
           </div>

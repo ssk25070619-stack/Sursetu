@@ -16,7 +16,8 @@ import {
   Lock,
   LogOut,
   Clock,
-  Timer
+  Timer,
+  Cloud
 } from 'lucide-react';
 import { IndigenousLanguage } from '../types';
 import { SUPPORTED_LANGUAGES, UI_LOCALIZATION } from '../data/languages';
@@ -38,6 +39,7 @@ interface HeaderProps {
   onOpenHybridConfig?: () => void;
   onLogout?: () => void;
   onOpenDatabaseGuide?: () => void;
+  onOpenSupabase?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -55,6 +57,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenHybridConfig,
   onLogout,
   onOpenDatabaseGuide,
+  onOpenSupabase,
 }) => {
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [demoRemaining, setDemoRemaining] = useState<number>(0);
@@ -282,6 +285,18 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <Database className="w-3.5 h-3.5 text-amber-400" />
                 <span className="hidden xl:inline">DB Architecture</span>
+              </button>
+            )}
+
+            {/* Supabase Cloud Sync Modal Trigger */}
+            {onOpenSupabase && (
+              <button
+                onClick={onOpenSupabase}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-500/40 text-emerald-300 text-xs font-semibold transition cursor-pointer shadow-sm"
+                title="Supabase PostgreSQL Cloud Sync Gateway"
+              >
+                <Cloud className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="hidden md:inline">Supabase</span>
               </button>
             )}
 

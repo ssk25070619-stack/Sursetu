@@ -174,7 +174,7 @@ Synthesizes speech audio for Santali, Hindi, or English text.
 
 ---
 
-## 4. AI Assistant (PALASH Saathi) Endpoints
+## 4. AI Assistant (Sur Saathi) Endpoints
 
 ### `POST /api/assistant/chat`
 Answers pedagogical queries for lesson planning, classroom instructions, bilingual storytelling, and FLN math.

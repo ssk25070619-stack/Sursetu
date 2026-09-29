@@ -62,7 +62,7 @@ export const UI_LOCALIZATION: Record<IndigenousLanguage, UILabels> = {
     tabs: {
       speech: 'Speech Studio',
       translate: '6-Layer Translation Hub',
-      assistant: 'PALASH Saathi (Co-Pilot)',
+      assistant: 'Sur Saathi (Co-Pilot)',
       worksheets: 'NIPUN Bharat FLN Studio',
       flashcards: '3D Flashcards',
       tribalQuest: 'Tribal Quest (Gamified)',
@@ -81,7 +81,7 @@ export const UI_LOCALIZATION: Record<IndigenousLanguage, UILabels> = {
     tabs: {
       speech: 'Speech Studio (काजी)',
       translate: '6-Layer Translation (उलथा)',
-      assistant: 'PALASH Saathi (हो साती)',
+      assistant: 'Sur Saathi (हो साती)',
       worksheets: 'NIPUN FLN Studio (कामी साकाम)',
       flashcards: '3D Flashcards (चितिर कार्ड)',
       tribalQuest: 'Tribal Quest (ईनूं खेल)',
@@ -100,7 +100,7 @@ export const UI_LOCALIZATION: Record<IndigenousLanguage, UILabels> = {
     tabs: {
       speech: 'Speech Studio (कजी)',
       translate: '6-Layer Translation (उलथा)',
-      assistant: 'PALASH Saathi (मुण्डारी साती)',
+      assistant: 'Sur Saathi (मुण्डारी साती)',
       worksheets: 'NIPUN FLN Studio (कामी साकाम)',
       flashcards: '3D Flashcards (चितिर कार्ड)',
       tribalQuest: 'Tribal Quest (ईनूं खेल)',

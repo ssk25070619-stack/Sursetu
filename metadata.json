@@ -1,6 +1,6 @@
-﻿{
+{
   "name": "SurSetu — Indigenous Language AI Platform & Offline Pedagogical Assistant",
-  "description": "Edge-native Indigenous Language AI platform for primary tribal education across Eastern India (Santali, Ho, Mundari). Featuring real-time speech translation, 6-layer hybrid NLP engine, Ol Chiki transliteration, PALASH Saathi pedagogical co-pilot, NIPUN Bharat FLN study materials, 3D flashcards, and gamified Tribal Quest.",
+  "description": "Edge-native Indigenous Language AI platform for primary tribal education across Eastern India (Santali, Ho, Mundari). Featuring real-time speech translation, 6-layer hybrid NLP engine, Ol Chiki transliteration, Sur Saathi pedagogical co-pilot, NIPUN Bharat FLN study materials, 3D flashcards, and gamified Tribal Quest.",
   "requestFramePermissions": ["microphone"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

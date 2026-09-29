@@ -702,7 +702,7 @@ def api_generate_worksheet():
 
 
 # ---------------------------------------------------------------------------
-# AI Assistant (PALASH Saathi) Chat Endpoint
+# AI Assistant (Sur Saathi) Chat Endpoint
 # ---------------------------------------------------------------------------
 try:
     from assistant_engine import ai_assistant
@@ -712,7 +712,7 @@ except ImportError:
 
 @app.route("/api/assistant/chat", methods=["POST"])
 def api_assistant_chat():
-    """Inbuilt AI Teaching Assistant (PALASH Saathi) endpoint."""
+    """Inbuilt AI Teaching Assistant (Sur Saathi) endpoint."""
     data = request.get_json() or {}
     message = data.get("message", "").strip()
     target_lang = data.get("target_lang", "sat_Olck")

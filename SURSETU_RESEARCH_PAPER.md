@@ -135,7 +135,7 @@ The system is architected as an edge-native, zero-cloud pipeline composed of a c
 |  ├─────────────────────────────────────────────────────────────────────────┤  |
 |  │ 4. Multi-Script Transducer (Ol Chiki ⇄ Odia ⇄ Devanagari)               │  |
 |  ├─────────────────────────────────────────────────────────────────────────┤  |
-|  │ 5. PALASH Saathi Pedagogical Assistant & Print-Ready FLN Generator      │  |
+|  │ 5. Sur Saathi Pedagogical Assistant & Print-Ready FLN Generator         │  |
 |  └─────────────────────────────────────────────────────────────────────────┘  |
 +-------------------------------------------------------------------------------+
 ```

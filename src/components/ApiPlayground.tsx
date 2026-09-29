@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Terminal, Send, CheckCircle, RefreshCw, Cpu, Layers, Server, ShieldCheck, Zap } from 'lucide-react';
 import { translateText, transduceOlChikiToScripts, classifyMayurbhanjOdiaSantali, loadLearnedWords } from '../engine/nlpEngine';
 import { generateAssistantResponse } from '../engine/assistantEngine';
@@ -44,7 +44,7 @@ export const ApiPlayground: React.FC = () => {
     },
     {
       id: 'POST /api/assistant/chat',
-      desc: 'PALASH Saathi Pedagogical Dialogue',
+      desc: 'Sur Saathi Pedagogical Dialogue',
       defaultPayload: JSON.stringify({
         message: "कक्षा 1 के लिए पाठ योजना बनाओ",
         target_lang: "sat_Olck",

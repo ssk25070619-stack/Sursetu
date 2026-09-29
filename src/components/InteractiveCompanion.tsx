@@ -139,7 +139,7 @@ export const InteractiveCompanion: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-bold text-sm text-white flex items-center gap-1.5">
-                  Palash Co-Pilot
+                  Sur Saathi Co-Pilot
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                 </h4>
                 <span className="text-[10px] text-emerald-400 font-medium">Live Indigenous Companion</span>
@@ -265,7 +265,7 @@ export const InteractiveCompanion: React.FC = () => {
         className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-gradient-to-r from-emerald-600 via-teal-600 to-amber-600 hover:from-emerald-500 hover:to-amber-500 text-white font-bold text-xs shadow-2xl shadow-emerald-950/80 border-2 border-amber-400/40 hover:scale-105 active:scale-95 transition-all cursor-pointer glow-emerald"
       >
         <span className="text-lg">🦜</span>
-        <span className="hidden sm:inline">Palash Companion</span>
+        <span className="hidden sm:inline">Sur Saathi Companion</span>
         <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-950/80 text-amber-300 text-[10px] font-mono border border-amber-400/40">
           <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
           <span>{xpPoints} XP</span>

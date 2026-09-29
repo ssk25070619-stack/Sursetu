@@ -1,4 +1,4 @@
-﻿# 🌿 SurSetu (SurSetu) — Master Project Documentation Dossier
+# 🌿 SurSetu (SurSetu) — Master Project Documentation Dossier
 ## Offline-First Indigenous Language AI Platform for Primary Tribal Education
 ### Bridging Santali (*Ol Chiki* ᱚᱞ ᱪᱤᱠᱤ & *Odia Script* ଓଡ଼ିଆ), Ho (ᱦᱳ), Mundari (ᱢᱩᱱᱰᱟᱨᱤ), Hindi, and English
 
@@ -11,7 +11,7 @@
 4. [Key Architectural Innovations](#4-key-architectural-innovations)
 5. [The 6-Layer Hybrid NLP & Multi-Script Engine](#5-the-6-layer-hybrid-nlp--multi-script-engine)
 6. [Offline Speech-to-Text Studio (Edge ASR)](#6-offline-speech-to-text-studio-edge-asr)
-7. [PALASH Saathi — Pedagogical AI Co-Pilot](#7-sursetu-saathi--pedagogical-ai-co-pilot)
+7. [Sur Saathi — Pedagogical AI Co-Pilot](#7-sur-saathi--pedagogical-ai-co-pilot)
 8. [NIPUN Bharat FLN Study Material & Worksheet Studio](#8-nipun-bharat-fln-study-material--worksheet-studio)
 9. [Tribal Quest — Gamified Literacy Game](#9-tribal-quest--gamified-literacy-game)
 10. [Performance Benchmarks & Latency Profiling](#10-performance-benchmarks--latency-profiling)
@@ -116,7 +116,7 @@ In primary schools across tribal regions:
 
 ---
 
-## 7. PALASH Saathi — Pedagogical AI Co-Pilot
+## 7. Sur Saathi — Pedagogical AI Co-Pilot
 
 Specialized offline pedagogical assistant supporting non-native teachers:
 - 📋 **NIPUN Bharat Lesson Plans:** 15-minute 3-step structured lesson matrix (Welcome Circle ➔ Object Identification ➔ Action Rhyme).
@@ -179,7 +179,7 @@ Interactive game reinforcing multi-script vocabulary:
 | `/api/asr/record_hardware_mic` | `POST` | Hardware mic recording & ASR | `{"duration": 3.5, "target_lang": "sat_Olck"}` |
 | `/api/transduce_script` | `POST` | Ol Chiki ⇄ Odia ⇄ Devanagari | `{"text": "ᱥᱟᱱᱟᱢ ᱠᱚ", "src_script": "ol_chiki", "tgt_script": "odia"}` |
 | `/api/classify_odia_santali` | `POST` | Mayurbhanj LID (`sat` vs `ori`) | `{"text": "ଆମ ଓଲଗ ପଢ଼ହବ"}` ➔ `sat (95%)` |
-| `/api/assistant/chat` | `POST` | PALASH Saathi pedagogical AI | `{"message": "पाठ योजना", "target_lang": "sat_Olck"}` |
+| `/api/assistant/chat` | `POST` | Sur Saathi pedagogical AI | `{"message": "पाठ योजना", "target_lang": "sat_Olck"}` |
 | `/api/worksheets/generate` | `POST` | Study material generator | `{"type": "matching", "grade": "Grade 1"}` |
 | `/api/learn` | `POST` | Register continuous edge memory | `{"hindi": "कंप्यूटर", "santali": "ᱥᱟᱝᱜᱤᱧ ᱚᱞ"}` |
 | `/api/tts` | `GET/POST`| Loud speech synthesis | `/api/tts?text=ᱫᱟᱨᱮ&lang=sat_Olck` |

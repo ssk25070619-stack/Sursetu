@@ -1,5 +1,5 @@
-﻿"""
-SurSetu - AI Pedagogical Assistant Engine (PALASH Saathi / ᱯᱟᱞᱟᱥ ᱜᱩᱨᱩ)
+"""
+SurSetu - AI Pedagogical Assistant Engine (Sur Saathi / ᱥᱩᱨ ᱥᱟᱛᱷᱤ)
 -----------------------------------------------------------------------
 A specialized AI Teaching Co-Pilot for primary school educators delivering
 Mother Tongue-Based Multilingual Education (MTB-MLE) in Jharkhand & Regional Schools.
@@ -32,7 +32,7 @@ except ImportError:
 class SurSetuAiAssistant:
     def __init__(self, translator_engine=None):
         self.translator = translator_engine or (UnsupervisedSantaliTranslator() if UnsupervisedSantaliTranslator else None)
-        self.name = "PALASH Saathi (पलाश साथी • ᱯᱟᱞᱟᱥ ᱥᱟᱛᱷᱤ)"
+        self.name = "Sur Saathi (सुर साथी • ᱥᱩᱨ ᱥᱟᱛᱷᱤ)"
 
     def answer_query(self, user_message: str, target_lang="sat_Olck", grade="Grade 1") -> dict:
         """
@@ -94,7 +94,7 @@ class SurSetuAiAssistant:
         return {
             "title": "🙏 जोहार शिक्षक साथी! (Johar Teacher!)",
             "reply_text": (
-                "**जोहार! (Johar!)** मैं आपका AI शिक्षक सहायक **PALASH Saathi** हूँ।\n\n"
+                "**जोहार! (Johar!)** मैं आपका AI शिक्षक सहायक **Sur Saathi** हूँ।\n\n"
                 "मैं प्राथमिक विद्यालयों में संताली (Ol Chiki ᱚᱞ ᱪᱤᱠᱤ & Odia Script), हो (Ho) और मुंडारी (Mundari) में मातृभाषा आधारित शिक्षण (MTB-MLE) को सहज बनाने के लिए तैयार हूँ।\n\n"
                 "**आप मुझसे पूछ सकते हैं:**\n"
                 "- 🌅 *'कक्षा 1 के लिए संताली में मॉर्निंग सर्कल पाठ योजना बनाओ'* \n"
@@ -339,7 +339,7 @@ class SurSetuAiAssistant:
 
         if gemini_insight:
             reply_text = (
-                f"### ✨ PALASH Saathi AI Pedagogical Guidance\n\n"
+                f"### ✨ Sur Saathi AI Pedagogical Guidance\n\n"
                 f"{gemini_insight}\n\n"
                 + (f"**त्वरित अनुवाद ({target_lang}):** **`{trans_res}`**\n" if trans_res else "")
             )
@@ -352,7 +352,7 @@ class SurSetuAiAssistant:
             )
 
         return {
-            "title": "✨ AI शिक्षण सहायक (PALASH Saathi)",
+            "title": "✨ AI शिक्षण सहायक (Sur Saathi)",
             "reply_text": reply_text,
             "suggested_chips": [
                 "📋 इस विषय पर पाठ योजना बनाओ",

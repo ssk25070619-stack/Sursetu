@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Bot, Send, Volume2, Sparkles, BookOpen, Clock, CheckCircle, Copy, Share2, HelpCircle, Mic, MicOff, AlertCircle } from 'lucide-react';
 import { generateAssistantResponse } from '../engine/assistantEngine';
 import { speechEngine } from '../engine/speechEngine';
@@ -168,7 +168,7 @@ export const SursetuSaathi: React.FC<SursetuSaathiProps> = ({
               </span>
             </div>
             <h2 className="text-2xl font-bold text-white tracking-tight">
-              PALASH Saathi — Teaching Co-Pilot for Non-Native Educators
+              Sur Saathi — Teaching Co-Pilot for Non-Native Educators
             </h2>
             <p className="text-slate-400 text-sm mt-1 max-w-2xl">
               Provides NIPUN Bharat 15-minute lesson matrices, bilingual command tables, folk storytelling, and oral assessment rubrics with 0ms edge response.
@@ -206,7 +206,7 @@ export const SursetuSaathi: React.FC<SursetuSaathiProps> = ({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-              placeholder={`Ask PALASH Saathi for ${currentLangConfig.name} (e.g. 'कक्षा 1 के लिए पाठ योजना', 'गिनती गतिविधि')...`}
+              placeholder={`Ask Sur Saathi for ${currentLangConfig.name} (e.g. 'कक्षा 1 के लिए पाठ योजना', 'गिनती गतिविधि')...`}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-4 pr-12 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 text-sm"
             />
             {/* Inline mic toggle button inside input field */}

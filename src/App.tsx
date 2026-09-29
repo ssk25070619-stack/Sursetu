@@ -123,7 +123,7 @@ export default function App() {
           <TranslationHub language={selectedLanguage} />
         )}
 
-        {/* 4. PALASH Saathi AI Co-Pilot */}
+        {/* 4. Sur Saathi AI Co-Pilot */}
         {activeTab === 'assistant' && (
           <SursetuSaathi
             initialQuery={saathiQuery}

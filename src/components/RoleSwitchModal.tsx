@@ -194,7 +194,7 @@ export const RoleSwitchModal: React.FC<RoleSwitchModalProps> = ({
                     </h4>
                   </div>
                   <p className="text-xs text-slate-400 mt-1">
-                    Full access: Speech Studio, Translation Hub, PALASH Saathi, Worksheet Generator, Continuous Memory Learning, and Barakhadi.
+                    Full access: Speech Studio, Translation Hub, Sur Saathi, Worksheet Generator, Continuous Memory Learning, and Barakhadi.
                   </p>
                 </div>
               </button>

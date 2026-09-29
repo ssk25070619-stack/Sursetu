@@ -1,4 +1,4 @@
-﻿# 🎙️ SurSetu — Offline Speech Studio & PALASH Saathi AI Assistant
+# 🎙️ SurSetu — Offline Speech Studio & Sur Saathi AI Assistant
 
 ## 1. Offline Speech-to-Text Studio (Edge ASR)
 
@@ -53,9 +53,9 @@ The UI features a streaming audio visualizer built on HTML5 Canvas:
 
 ---
 
-## 3. PALASH Saathi (AI Pedagogical Co-Pilot)
+## 3. Sur Saathi (AI Pedagogical Co-Pilot)
 
-**PALASH Saathi (पलाश साथी • ᱯᱟᱞᱟᱥ ᱥᱟᱛᱷᱤ)** is a specialized AI teaching co-pilot created specifically for non-tribal primary educators teaching in multilingual tribal schools.
+**Sur Saathi (सुर साथी • ᱥᱩᱨ ᱥᱟᱛᱷᱤ)** is a specialized AI teaching co-pilot created specifically for non-tribal primary educators teaching in multilingual tribal schools.
 
 ```
                   Teacher Query (Voice / Text)
@@ -76,7 +76,7 @@ The UI features a streaming audio visualizer built on HTML5 Canvas:
                                ▼
         ┌──────────────────────────────────────────────┐
         │   Multi-Script Formatter & Phonetic Guide    │
-        │   - Ol Chiki (ᱚᱞ ᱪᱤᱠᱤ) + Odia Script (ଓଡ଼ିଆ) │
+        │   - Ol Chiki (ᱚᱞ ᱪᱤᱠᱤ) + Odia Script (ଓଡ଼ᱤଆ) │
         │   - Devanagari + Latin Pronunciation Guide  │
         │   - Spoken Tribal Audio Synthesis Button     │
         └──────────────────────────────────────────────┘
@@ -94,6 +94,6 @@ The UI features a streaming audio visualizer built on HTML5 Canvas:
 | **`CULTURE_FESTIVAL`** | "बाहा परब (Baha Festival) के बारे में बताओ" | Cultural significance of tribal spring festival with traditional greetings. |
 
 ### 3.2 100% Offline Edge Intelligence Guarantee
-PALASH Saathi operates through a dual-redundancy engine:
+Sur Saathi operates through a dual-redundancy engine:
 1. **Server AI Engine (`assistant_engine.py`):** Structured rule and knowledge-base generator in Python.
-2. **Browser Client Fallback (`app.js`):** Pure JavaScript mirror engine that immediately answers in **0.1 ms** if the network or local backend is temporarily unreachable.
+2. **Browser Client Fallback (`src/engine/assistantEngine.ts`):** Pure TypeScript mirror engine that immediately answers in **0.1 ms** if the network or local backend is temporarily unreachable.

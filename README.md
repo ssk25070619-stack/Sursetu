@@ -1,4 +1,4 @@
-﻿# 🌿 SurSetu (पलाश सेतु • ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ • ପଳᱟଶ ସᱮତୁ)
+# 🌿 SurSetu (पलाश सेतु • ᱯᱟᱞᱟᱥ ᱥᱮᱛᱩ • ପଳᱟଶ ସᱮତୁ)
 
 > **Offline-First Indigenous Translation & Primary Education Platform**  
 > Bridging tribal education across Santali (*Ol Chiki* ᱚᱞ ᱪᱤᱠᱤ & *Odia Script* ଓଡ଼ିଆ), Mundari, Ho, Hindi, and English.
@@ -13,7 +13,7 @@
 
 ## 🌟 Key Highlights & Capabilities
 
-1. **🤖 Inbuilt AI Pedagogical Assistant (PALASH Saathi • ᱯᱟᱞᱟᱥ ᱥᱟᱛᱷᱤ)**
+1. **🤖 Inbuilt AI Pedagogical Assistant (Sur Saathi • ᱥᱩᱨ ᱥᱟᱛᱷᱤ)**
    - Specialized offline AI teaching co-pilot for non-native Hindi educators.
    - Interactive voice & text chat for instant lesson planning, bilingual storytelling, classroom management commands, and diagnostic assessment questions.
    - 100% on-device edge intelligence with sub-millisecond response latency and spoken audio feedback.
@@ -67,12 +67,16 @@ To maintain technical credibility with evaluators, researchers, and grant commit
 ```powershell
 # 1. Install dependencies
 pip install -r requirements.txt
+npm install
 
-# 2. Run the application
+# 2. Run backend API & speech service
 python server.py
 
-# 3. Open browser
-http://localhost:8000
+# 3. In a separate terminal, launch the React frontend
+npm run dev
+
+# 4. Open browser
+http://localhost:3000
 ```
 
 ---
@@ -109,7 +113,7 @@ For national hackathons, government evaluations (Ministry of Tribal Affairs / Mi
    - [📄 Executive Summary](docs/EXECUTIVE_SUMMARY.md) — Strategic impact, problem statement, and policy alignment.
    - [🏛️ System Architecture & Edge Topology](docs/ARCHITECTURE_AND_SYSTEM_DESIGN.md) — Offline runtime, data structures, and fault tolerance.
    - [🌐 Linguistics & 6-Layer NLP Engine](docs/LINGUISTICS_AND_NLP_ENGINE.md) — SVO-to-SOV grammar rules, Trie matching, and script transducers.
-   - [🎙️ Speech Studio & AI Assistant](docs/SPEECH_AND_AI_ASSISTANT.md) — Vosk speech recognition and PALASH Saathi pedagogical co-pilot.
+   - [🎙️ Speech Studio & AI Assistant](docs/SPEECH_AND_AI_ASSISTANT.md) — Vosk speech recognition and Sur Saathi pedagogical co-pilot.
    - [📝 NIPUN Bharat FLN & Worksheet Studio](docs/WORKSHEETS_AND_FLN_PEDAGOGY.md) — 8 automated printable study material formats.
    - [🛠️ User & Deployment Manual](docs/USER_AND_DEPLOYMENT_MANUAL.md) — Quickstart, local setup, and Cloudflare live publishing.
    - [🔌 REST API Reference](docs/API_REFERENCE.md) — Complete REST API specification and payload examples.
@@ -121,20 +125,19 @@ For national hackathons, government evaluations (Ministry of Tribal Affairs / Mi
 ## 📁 Repository Structure
 
 ```
-├── TECHNICAL_DESIGN_DOCUMENT.md     # Master Technical Design & Project Document
-├── SYSTEM_ARCHITECTURE.md           # Deep-Dive Engineering & Linguistics Spec
-├── PITCH_AND_DEMO_GUIDE.md          # Official Pitch Deck & Presentation Guide
-├── GOVERNMENT_SUBMISSION_PROPOSAL.md# Formal Government & State Grant Proposal
+├── src/                             # Modern React 19 + TypeScript + Tailwind CSS PWA Frontend
+│   ├── components/                  # UI Components (Speech Studio, Translation Hub, Sur Saathi, etc.)
+│   ├── engine/                      # Client-side 6-Layer NLP, ASR, Quiz & Worksheet Generators
+│   ├── data/                        # Parallel Corpus, Barakhadi, Multilingual Dictionaries
+│   └── services/                    # Audio Caching, Offline Storage & PDF/DOCX Export
 ├── server.py                        # High-performance Flask API Server & Vosk Speech Handler
+├── assistant_engine.py              # Sur Saathi AI Pedagogical Co-Pilot Engine
 ├── translation_engine.py            # 6-Layer Hybrid Rule-Based & Dictionary Engine
 ├── test_translation.py             # Verified Primary Education Dictionary & Test Suite
-├── index.html                       # Modern Responsive Glassmorphism UI (6 Tabs)
-├── style.css                        # Design System, Neon Equalizer, Radiant Gradients
-├── app.js                           # Web Audio API Engine, Continuous ASR & Live Translation
-├── datasets/
-│   ├── santali_dictionary.json     # Verified Multilingual Triplets (Deva ⇄ Ol Chiki ⇄ Odia)
-│   └── learned_memory.json         # Dynamic Continuous Learning Store
-├── vercel.json                      # Vercel Configuration
-├── Procfile                         # Cloud Web Service Configuration
-└── requirements.txt                 # Dependencies
+├── datasets/                        # Parallel Corpora, Benchmark Data & Continuous Learning
+├── models/                          # Compact Edge NMT Model & Vocabulary Weights
+├── worksheets/                      # Automated NIPUN Bharat FLN Worksheet Generators
+├── docs/                            # Deep-Dive Modular Technical Documentation
+├── SURSETU_RESEARCH_PAPER.md        # Comprehensive Academic Research Paper
+└── vite.config.ts                   # Vite + PWA + API Proxy Configuration
 ```

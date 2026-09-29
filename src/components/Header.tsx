@@ -342,7 +342,7 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           )}
 
-          {/* 4. PALASH Saathi AI Co-Pilot */}
+          {/* 4. Sur Saathi AI Co-Pilot */}
           {rbacService.canAccess('assistant') && (
             <button
               onClick={() => setActiveTab('assistant')}

@@ -47,10 +47,18 @@ const CONFIG_STORAGE_KEY = 'sursetu_supabase_config_v1';
 const DEFAULT_URL = import.meta.env.VITE_SUPABASE_URL || '';
 const DEFAULT_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
+function cleanSupabaseUrl(rawUrl: string): string {
+  if (!rawUrl) return '';
+  let cleaned = rawUrl.trim();
+  cleaned = cleaned.replace(/\/rest\/v1\/?$/, '');
+  cleaned = cleaned.replace(/\/+$/, '');
+  return cleaned;
+}
+
 class SupabaseService {
   private client: SupabaseClient | null = null;
   private config: SupabaseConfig = {
-    url: DEFAULT_URL,
+    url: cleanSupabaseUrl(DEFAULT_URL),
     anonKey: DEFAULT_ANON_KEY,
     autoSync: true,
   };
@@ -66,7 +74,12 @@ class SupabaseService {
     try {
       const stored = localStorage.getItem(CONFIG_STORAGE_KEY);
       if (stored) {
-        this.config = { ...this.config, ...JSON.parse(stored) };
+        const parsed = JSON.parse(stored);
+        this.config = {
+          ...this.config,
+          ...parsed,
+          url: cleanSupabaseUrl(parsed.url || this.config.url)
+        };
       }
     } catch {
       // ignore
@@ -74,9 +87,10 @@ class SupabaseService {
   }
 
   private initClient() {
-    if (this.config.url && this.config.anonKey) {
+    const cleanedUrl = cleanSupabaseUrl(this.config.url);
+    if (cleanedUrl && this.config.anonKey) {
       try {
-        this.client = createClient(this.config.url, this.config.anonKey, {
+        this.client = createClient(cleanedUrl, this.config.anonKey.trim(), {
           auth: {
             persistSession: true,
             autoRefreshToken: true,
@@ -92,11 +106,17 @@ class SupabaseService {
   }
 
   getConfig(): SupabaseConfig {
-    return { ...this.config };
+    return { ...this.config, url: cleanSupabaseUrl(this.config.url) };
   }
 
   saveConfig(newConfig: Partial<SupabaseConfig>): boolean {
-    this.config = { ...this.config, ...newConfig };
+    const cleanedUrl = newConfig.url !== undefined ? cleanSupabaseUrl(newConfig.url) : this.config.url;
+    this.config = {
+      ...this.config,
+      ...newConfig,
+      url: cleanedUrl,
+      anonKey: newConfig.anonKey !== undefined ? newConfig.anonKey.trim() : this.config.anonKey
+    };
     try {
       localStorage.setItem(CONFIG_STORAGE_KEY, JSON.stringify(this.config));
       this.initClient();

@@ -59,6 +59,8 @@ export interface RoleConfig {
   features: string[];
 }
 
+import { supabaseService, CloudUserRecord } from './supabaseService';
+
 export const ROLE_CONFIGS: Record<UserRole, RoleConfig> = {
   teacher: {
     id: 'teacher',
@@ -123,20 +125,19 @@ export const ROLE_CONFIGS: Record<UserRole, RoleConfig> = {
 const STORAGE_KEY = 'sursetu_user_profile_v3';
 const DEMO_STORAGE_KEY = 'sursetu_device_demo_v2';
 const ACCOUNTS_STORAGE_KEY = 'sursetu_registered_accounts_v2';
-const DEFAULT_PIN = '1234';
-export const DEMO_DURATION_SECONDS = 600; // 10 minutes demo timer
+export const DEMO_DURATION_SECONDS = 600;
 
 const DEFAULT_PROFILE: UserProfile = {
-  isAuthenticated: true,
+  isAuthenticated: false, // Default to not authenticated; require real database login
   role: 'teacher',
-  name: 'Santhal Primary Educator',
+  name: '',
   avatar: '🧑‍🏫',
   grade: 'Grade 1',
-  schoolName: 'Govt. Primary Ashram School, Baripada',
-  district: 'Mayurbhanj',
+  schoolName: '',
+  district: '',
   state: 'Odisha',
-  emailOrId: 'teacher.baripada@odisha.gov.in',
-  pinHash: DEFAULT_PIN,
+  emailOrId: '',
+  pinHash: '',
   loginTimestamp: Date.now(),
   isDemoSession: false,
 };
@@ -243,7 +244,6 @@ class RBACService {
       };
     }
 
-    // If demo was used in the past and session expired -> Locked out (Just Once Rule)
     const isLockedOut = demoState.demoUsed || demoState.demoLoginCount >= 1;
     return {
       isLockedOut,
@@ -261,7 +261,6 @@ class RBACService {
   } {
     const demoStatus = this.getDemoStatus();
 
-    // Check "Just Once" device rule
     if (demoStatus.isLockedOut && !demoStatus.hasActiveSession) {
       return {
         success: false,
@@ -294,7 +293,7 @@ class RBACService {
       district: 'Mayurbhanj',
       state: 'Odisha',
       emailOrId: `guest.demo.${role}@sursetu.local`,
-      pinHash: DEFAULT_PIN,
+      pinHash: '1234',
       loginTimestamp: now,
       isDemoSession: true,
       demoExpiresAt: expiresAt,
@@ -311,7 +310,6 @@ class RBACService {
     this.demoTimerInterval = setInterval(() => {
       if (this.currentProfile.isAuthenticated && this.currentProfile.isDemoSession && this.currentProfile.demoExpiresAt) {
         if (Date.now() >= this.currentProfile.demoExpiresAt) {
-          // Demo timer reached 0! Gracefully terminate demo session
           this.logout();
         }
       }
@@ -330,7 +328,7 @@ class RBACService {
     return false;
   }
 
-  // --- REGISTERED LOCAL ACCOUNTS STORE ---
+  // --- REGISTERED LOCAL ACCOUNTS STORE & SUPABASE SYNC ---
 
   getRegisteredAccounts(): RegisteredAccount[] {
     try {
@@ -344,7 +342,7 @@ class RBACService {
     return [];
   }
 
-  registerAccount(accountData: {
+  async registerAccount(accountData: {
     role: UserRole;
     name: string;
     avatar?: string;
@@ -353,7 +351,7 @@ class RBACService {
     district: string;
     state?: string;
     pin: string;
-  }): { success: boolean; error?: string } {
+  }): Promise<{ success: boolean; error?: string }> {
     if (!accountData.name.trim()) {
       return { success: false, error: 'Full name is required.' };
     }
@@ -364,11 +362,11 @@ class RBACService {
     const accounts = this.getRegisteredAccounts();
     const existing = accounts.find((a) => a.name.toLowerCase() === accountData.name.trim().toLowerCase() && a.role === accountData.role);
     if (existing) {
-      return { success: false, error: 'An account with this name and role already exists on this device.' };
+      return { success: false, error: 'An account with this name and role already exists.' };
     }
 
     const newAccount: RegisteredAccount = {
-      id: `acc_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+      id: `usr_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
       role: accountData.role,
       name: accountData.name.trim(),
       avatar: accountData.avatar || ROLE_CONFIGS[accountData.role].avatar,
@@ -376,10 +374,11 @@ class RBACService {
       schoolName: accountData.schoolName.trim() || 'Govt. Primary Ashram School',
       district: accountData.district.trim() || 'Mayurbhanj',
       state: accountData.state || 'Odisha',
-      pinHash: accountData.pin || DEFAULT_PIN,
+      pinHash: accountData.pin || '',
       createdAt: Date.now(),
     };
 
+    // 1. Save to local edge database
     accounts.push(newAccount);
     try {
       localStorage.setItem(ACCOUNTS_STORAGE_KEY, JSON.stringify(accounts));
@@ -387,7 +386,23 @@ class RBACService {
       // ignore
     }
 
-    // Automatically log in to newly created account (Permanent, no demo restrictions)
+    // 2. Also register to Supabase Cloud if configured
+    if (supabaseService.isConfigured()) {
+      await supabaseService.registerUserInCloud({
+        id: newAccount.id,
+        role: newAccount.role,
+        name: newAccount.name,
+        school_name: newAccount.schoolName,
+        district: newAccount.district,
+        grade: newAccount.grade,
+        avatar: newAccount.avatar,
+        pin_hash: newAccount.pinHash,
+        created_at: new Date().toISOString(),
+        last_active_at: new Date().toISOString(),
+      });
+    }
+
+    // Log in to newly created database account
     this.currentProfile = {
       isAuthenticated: true,
       role: newAccount.role,
@@ -408,7 +423,7 @@ class RBACService {
     return { success: true };
   }
 
-  login(params: {
+  async login(params: {
     role: UserRole;
     name: string;
     avatar?: string;
@@ -418,42 +433,78 @@ class RBACService {
     state?: string;
     emailOrId?: string;
     pin?: string;
-  }): { success: boolean; error?: string } {
-    // Check if account is in registered accounts
-    const accounts = this.getRegisteredAccounts();
-    const matchedAccount = accounts.find(
-      (a) => a.name.toLowerCase() === params.name.trim().toLowerCase() && a.role === params.role
-    );
+  }): Promise<{ success: boolean; error?: string }> {
+    const trimmedName = params.name ? params.name.trim() : '';
+    if (!trimmedName) {
+      return { success: false, error: 'Please enter your registered full name.' };
+    }
 
-    if (matchedAccount) {
-      if (params.role !== 'student' && params.pin !== matchedAccount.pinHash && params.pin !== DEFAULT_PIN) {
-        return { success: false, error: 'Incorrect Security PIN for this account.' };
-      }
-    } else if (params.role !== 'student' && params.pin) {
-      if (params.pin !== DEFAULT_PIN && params.pin !== this.currentProfile.pinHash && params.pin.trim() !== '1234') {
-        return { success: false, error: 'Invalid Security PIN. (Default demo PIN is 1234)' };
+    // 1. First priority: Check Supabase Cloud Database (if connected)
+    if (supabaseService.isConfigured()) {
+      const cloudLookup = await supabaseService.findUserInCloud(trimmedName, params.role);
+      if (cloudLookup.found && cloudLookup.user) {
+        const dbUser = cloudLookup.user;
+        if (params.role !== 'student' && dbUser.pin_hash && params.pin !== dbUser.pin_hash) {
+          return { success: false, error: 'Incorrect Security PIN for this database account.' };
+        }
+
+        this.currentProfile = {
+          isAuthenticated: true,
+          role: dbUser.role,
+          name: dbUser.name,
+          avatar: dbUser.avatar || ROLE_CONFIGS[dbUser.role].avatar,
+          grade: dbUser.grade || 'Grade 1',
+          schoolName: dbUser.school_name || 'Govt. Ashram School',
+          district: dbUser.district || 'Mayurbhanj',
+          state: 'Odisha',
+          emailOrId: `${dbUser.role}@sursetu.gov.in`,
+          pinHash: dbUser.pin_hash || '',
+          loginTimestamp: Date.now(),
+          isDemoSession: false,
+          demoExpiresAt: undefined,
+        };
+
+        this.saveProfile();
+        return { success: true };
       }
     }
 
-    this.currentProfile = {
-      ...this.currentProfile,
-      isAuthenticated: true,
-      role: params.role,
-      name: params.name || (params.role === 'teacher' ? 'Primary Educator' : params.role === 'student' ? 'Tribal Learner' : 'District Education Officer'),
-      avatar: params.avatar || ROLE_CONFIGS[params.role].avatar,
-      grade: params.grade || 'Grade 1',
-      schoolName: params.schoolName || this.currentProfile.schoolName,
-      district: params.district || this.currentProfile.district,
-      state: params.state || this.currentProfile.state,
-      emailOrId: params.emailOrId || `${params.role}@sursetu.gov.in`,
-      pinHash: params.pin || this.currentProfile.pinHash,
-      loginTimestamp: Date.now(),
-      isDemoSession: false, // Standard account logins are not temporary demo sessions
-      demoExpiresAt: undefined,
-    };
+    // 2. Second priority: Check local edge registered accounts database
+    const accounts = this.getRegisteredAccounts();
+    const matchedAccount = accounts.find(
+      (a) => a.name.toLowerCase() === trimmedName.toLowerCase() && a.role === params.role
+    );
 
-    this.saveProfile();
-    return { success: true };
+    if (matchedAccount) {
+      if (params.role !== 'student' && params.pin !== matchedAccount.pinHash) {
+        return { success: false, error: 'Incorrect Security PIN for this account.' };
+      }
+
+      this.currentProfile = {
+        isAuthenticated: true,
+        role: matchedAccount.role,
+        name: matchedAccount.name,
+        avatar: matchedAccount.avatar || ROLE_CONFIGS[matchedAccount.role].avatar,
+        grade: matchedAccount.grade || 'Grade 1',
+        schoolName: matchedAccount.schoolName,
+        district: matchedAccount.district,
+        state: matchedAccount.state || 'Odisha',
+        emailOrId: `${matchedAccount.role}@sursetu.gov.in`,
+        pinHash: matchedAccount.pinHash,
+        loginTimestamp: Date.now(),
+        isDemoSession: false,
+        demoExpiresAt: undefined,
+      };
+
+      this.saveProfile();
+      return { success: true };
+    }
+
+    // 3. User not found in either database
+    return {
+      success: false,
+      error: `No registered account found in the database for "${trimmedName}". Please check the spelling or create a new account under "Create Account".`,
+    };
   }
 
   logout() {
@@ -468,7 +519,7 @@ class RBACService {
 
   setRole(newRole: UserRole, pin?: string): boolean {
     if (this.currentProfile.role === 'student' && newRole !== 'student') {
-      if (pin !== this.currentProfile.pinHash && pin !== DEFAULT_PIN && pin !== '1234') {
+      if (pin !== this.currentProfile.pinHash) {
         return false;
       }
     }
@@ -480,11 +531,11 @@ class RBACService {
   }
 
   verifyPin(inputPin: string): boolean {
-    return inputPin === this.currentProfile.pinHash || inputPin === DEFAULT_PIN || inputPin === '1234';
+    return inputPin === this.currentProfile.pinHash;
   }
 
   updateProfile(updates: Partial<UserProfile>, currentPin?: string): boolean {
-    if (updates.pinHash && currentPin !== this.currentProfile.pinHash && currentPin !== DEFAULT_PIN && currentPin !== '1234') {
+    if (updates.pinHash && currentPin !== this.currentProfile.pinHash) {
       return false;
     }
     this.currentProfile = { ...this.currentProfile, ...updates };
@@ -506,4 +557,5 @@ class RBACService {
 }
 
 export const rbacService = new RBACService();
+
 

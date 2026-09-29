@@ -247,6 +247,65 @@ class SupabaseService {
     }
   }
 
+  /**
+   * Look up a user in Supabase Cloud Database by Name and Role
+   */
+  async findUserInCloud(name: string, role: UserRole): Promise<{
+    found: boolean;
+    user?: CloudUserRecord;
+    error?: string;
+  }> {
+    if (!this.client) {
+      return { found: false, error: 'Database not connected.' };
+    }
+
+    try {
+      const { data, error } = await this.client
+        .from('sursetu_users')
+        .select('*')
+        .ilike('name', name.trim())
+        .eq('role', role)
+        .limit(1);
+
+      if (error) {
+        return { found: false, error: error.message };
+      }
+
+      if (data && data.length > 0) {
+        return { found: true, user: data[0] as CloudUserRecord };
+      }
+
+      return { found: false };
+    } catch (err: any) {
+      return { found: false, error: err?.message || 'Database lookup error' };
+    }
+  }
+
+  /**
+   * Register a new user in Supabase Cloud Database
+   */
+  async registerUserInCloud(record: CloudUserRecord): Promise<{
+    success: boolean;
+    error?: string;
+  }> {
+    if (!this.client) {
+      return { success: false, error: 'Database not connected.' };
+    }
+
+    try {
+      const { error } = await this.client
+        .from('sursetu_users')
+        .upsert([record], { onConflict: 'id' });
+
+      if (error) {
+        return { success: false, error: error.message };
+      }
+      return { success: true };
+    } catch (err: any) {
+      return { success: false, error: err?.message || 'Database insert error' };
+    }
+  }
+
   subscribeConnection(listener: (isConnected: boolean) => void): () => void {
     this.listeners.add(listener);
     listener(this.lastConnectedStatus);

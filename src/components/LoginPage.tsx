@@ -59,10 +59,10 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 }) => {
   const [authMode, setAuthMode] = useState<'signin' | 'register'>('signin');
   const [selectedRole, setSelectedRole] = useState<UserRole>('teacher');
-  const [name, setName] = useState<string>('Santhal Primary Educator');
-  const [schoolName, setSchoolName] = useState<string>('Govt. Primary Ashram School, Baripada');
-  const [district, setDistrict] = useState<string>('Mayurbhanj');
-  const [pin, setPin] = useState<string>('1234');
+  const [name, setName] = useState<string>('');
+  const [schoolName, setSchoolName] = useState<string>('');
+  const [district, setDistrict] = useState<string>('');
+  const [pin, setPin] = useState<string>('');
   const [showPin, setShowPin] = useState<boolean>(false);
   const [studentAvatar, setStudentAvatar] = useState<string>('🦉');
   const [studentGrade, setStudentGrade] = useState<string>('Grade 1');
@@ -90,27 +90,15 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     return () => clearInterval(interval);
   }, []);
 
-  // Switch form defaults when role changes
+  // Switch form defaults when role changes (Blank fields - No default mock info)
   const handleRoleSelect = (role: UserRole) => {
     setSelectedRole(role);
     setErrorMessage('');
     setSuccessMessage('');
-    if (role === 'teacher') {
-      setName('Santhal Primary Educator');
-      setSchoolName('Govt. Primary Ashram School, Baripada');
-      setDistrict('Mayurbhanj');
-      setPin('1234');
-    } else if (role === 'student') {
-      setName('Sunaram Murmu');
-      setSchoolName('Baripada Tribal Primary Ashram');
-      setDistrict('Mayurbhanj');
-      setPin('');
-    } else if (role === 'official') {
-      setName('Dr. A. K. Patnaik');
-      setSchoolName('Dept. of School & Mass Education');
-      setDistrict('Mayurbhanj District HQ');
-      setPin('1234');
-    }
+    setName('');
+    setSchoolName('');
+    setDistrict('');
+    setPin('');
   };
 
   const handleSelectExistingAccount = (account: RegisteredAccount) => {
@@ -122,77 +110,81 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     if (account.grade) setStudentGrade(account.grade);
     if (account.avatar) setStudentAvatar(account.avatar);
     setErrorMessage('');
-    setSuccessMessage(`Loaded profile for ${account.name}`);
+    setSuccessMessage(`Loaded database profile for ${account.name}`);
   };
 
-  const handleSubmit = (e?: React.FormEvent) => {
+  const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     setErrorMessage('');
     setSuccessMessage('');
+
+    if (!name.trim()) {
+      setErrorMessage('Please enter your full name.');
+      return;
+    }
+
+    if (selectedRole !== 'student' && (!pin || pin.trim().length < 4)) {
+      setErrorMessage('Please enter your 4-digit Security PIN.');
+      return;
+    }
+
     setIsLoading(true);
 
-    setTimeout(() => {
-      if (authMode === 'register') {
-        // Handle Account Registration
-        const regRes = rbacService.registerAccount({
-          role: selectedRole,
-          name: name.trim(),
-          avatar: selectedRole === 'student' ? studentAvatar : ROLE_CONFIGS[selectedRole].avatar,
-          grade: studentGrade,
-          schoolName: schoolName.trim(),
-          district: district.trim(),
-          pin: selectedRole !== 'student' ? pin.trim() : '1234',
-        });
-
-        setIsLoading(false);
-        if (regRes.success) {
-          try {
-            confetti({
-              particleCount: 90,
-              spread: 70,
-              origin: { y: 0.65 }
-            });
-          } catch {
-            // ignore
-          }
-          onLoginSuccess(selectedRole, ROLE_CONFIGS[selectedRole].defaultTab);
-        } else {
-          setErrorMessage(regRes.error || 'Could not register account. Please check your details.');
-        }
-        return;
-      }
-
-      // Handle Regular Sign In
-      const res = rbacService.login({
+    if (authMode === 'register') {
+      const regRes = await rbacService.registerAccount({
         role: selectedRole,
-        name: name.trim() || (selectedRole === 'teacher' ? 'Primary Educator' : selectedRole === 'student' ? 'Tribal Learner' : 'District Official'),
+        name: name.trim(),
         avatar: selectedRole === 'student' ? studentAvatar : ROLE_CONFIGS[selectedRole].avatar,
         grade: studentGrade,
-        schoolName,
-        district,
-        emailOrId: selectedRole === 'official' ? officerRole : `${selectedRole}@sursetu.gov.in`,
-        pin: selectedRole !== 'student' ? pin : undefined
+        schoolName: schoolName.trim() || 'Govt. Primary Ashram School',
+        district: district.trim() || 'Mayurbhanj',
+        pin: selectedRole !== 'student' ? pin.trim() : '',
       });
 
       setIsLoading(false);
-
-      if (res.success) {
-        if (selectedRole === 'student') {
-          try {
-            confetti({
-              particleCount: 75,
-              spread: 60,
-              origin: { y: 0.7 }
-            });
-          } catch {
-            // ignore confetti fallback
-          }
-        }
+      if (regRes.success) {
+        try {
+          confetti({
+            particleCount: 90,
+            spread: 70,
+            origin: { y: 0.65 }
+          });
+        } catch {}
         onLoginSuccess(selectedRole, ROLE_CONFIGS[selectedRole].defaultTab);
       } else {
-        setErrorMessage(res.error || 'Authentication failed. Please verify your details.');
+        setErrorMessage(regRes.error || 'Could not register account in database. Please check details.');
       }
-    }, 300);
+      return;
+    }
+
+    // Direct Database Login Validation
+    const res = await rbacService.login({
+      role: selectedRole,
+      name: name.trim(),
+      avatar: selectedRole === 'student' ? studentAvatar : ROLE_CONFIGS[selectedRole].avatar,
+      grade: studentGrade,
+      schoolName,
+      district,
+      emailOrId: selectedRole === 'official' ? officerRole : `${selectedRole}@sursetu.gov.in`,
+      pin: selectedRole !== 'student' ? pin : undefined
+    });
+
+    setIsLoading(false);
+
+    if (res.success) {
+      if (selectedRole === 'student') {
+        try {
+          confetti({
+            particleCount: 75,
+            spread: 60,
+            origin: { y: 0.7 }
+          });
+        } catch {}
+      }
+      onLoginSuccess(selectedRole, ROLE_CONFIGS[selectedRole].defaultTab);
+    } else {
+      setErrorMessage(res.error || 'Authentication failed. Please verify your details or register a new account.');
+    }
   };
 
   const handleQuickDemoLogin = (role: UserRole) => {
@@ -561,7 +553,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="e.g. Sunaram Murmu"
+                        placeholder="Enter student / learner name"
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                         required
                       />
@@ -614,7 +606,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="e.g. Ramesh Chandra Murmu"
+                        placeholder="Enter registered teacher name"
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                         required
                       />
@@ -660,7 +652,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                       <label className="text-xs font-semibold text-slate-300">
                         {authMode === 'register' ? 'Set 4-Digit Security PIN' : 'Teacher Security PIN'}
                       </label>
-                      <span className="text-[10px] text-emerald-400 font-mono">Demo PIN: 1234</span>
                     </div>
                     <div className="relative flex items-center">
                       <KeyRound className="w-4 h-4 text-slate-500 absolute left-3.5" />
@@ -700,7 +691,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Dr. A. K. Patnaik"
+                        placeholder="Enter official full name"
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
                         required
                       />
@@ -735,7 +726,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type="text"
                         value={district}
                         onChange={(e) => setDistrict(e.target.value)}
-                        placeholder="Mayurbhanj District HQ"
+                        placeholder="e.g. Mayurbhanj / Dumka"
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
                       />
                     </div>
@@ -746,7 +737,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                       <label className="text-xs font-semibold text-slate-300">
                         {authMode === 'register' ? 'Set 4-Digit Security PIN' : 'Admin Security PIN'}
                       </label>
-                      <span className="text-[10px] text-indigo-400 font-mono">Demo PIN: 1234</span>
                     </div>
                     <div className="relative flex items-center">
                       <KeyRound className="w-4 h-4 text-slate-500 absolute left-3.5" />

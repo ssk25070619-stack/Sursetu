@@ -344,9 +344,12 @@ class RBACService {
     }, 2000);
   }
 
-  resetDemoQuota(adminPin: string): boolean {
+  async resetDemoQuota(adminPin: string): Promise<boolean> {
     const cleanPin = adminPin.trim();
-    if (cleanPin === '1234' || cleanPin === '9876') {
+    if (!cleanPin) return false;
+
+    // Master supervisor override passkey
+    if (cleanPin === '9876' || cleanPin === '2026') {
       try {
         localStorage.removeItem(DEMO_STORAGE_KEY);
         return true;
@@ -354,8 +357,26 @@ class RBACService {
         return false;
       }
     }
+
+    // Check against registered teacher / official credentials
+    const accounts = this.getRegisteredAccounts();
+    const authorizedAccounts = accounts.filter((a) => a.role === 'teacher' || a.role === 'official');
+
+    for (const acc of authorizedAccounts) {
+      const isMatch = await SecurityService.verifyPin(cleanPin, acc.pinHash);
+      if (isMatch) {
+        try {
+          localStorage.removeItem(DEMO_STORAGE_KEY);
+          return true;
+        } catch {
+          return false;
+        }
+      }
+    }
+
     return false;
   }
+
 
   // --- REGISTERED LOCAL ACCOUNTS STORE & SUPABASE SYNC ---
 

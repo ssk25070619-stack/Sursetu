@@ -224,18 +224,20 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     onLoginSuccess(role, ROLE_CONFIGS[role].defaultTab);
   };
 
-  const handleAdminResetDemo = (e: React.FormEvent) => {
+  const handleAdminResetDemo = async (e: React.FormEvent) => {
     e.preventDefault();
     setAdminResetError('');
-    if (rbacService.resetDemoQuota(adminResetPin)) {
+    const success = await rbacService.resetDemoQuota(adminResetPin);
+    if (success) {
       setShowDemoLimitModal(false);
       setAdminResetPin('');
       setDemoStatus(rbacService.getDemoStatus());
       setSuccessMessage('✅ Device demo trial quota successfully reset! You can now use 1-Click Demo again.');
     } else {
-      setAdminResetError('Invalid Admin PIN. (Default evaluator PIN is 1234)');
+      setAdminResetError('Invalid PIN or Supervisor Key. Enter a registered Teacher/Official PIN.');
     }
   };
+
 
   const formatRemainingTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
@@ -953,14 +955,14 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 </summary>
                 <form onSubmit={handleAdminResetDemo} className="mt-3 space-y-2">
                   <p className="text-[11px] text-slate-400">
-                    SIH Evaluators can reset the device quota using the Master PIN (<code className="text-emerald-400 font-mono">1234</code>):
+                    Enter any registered Educator / Official PIN or Supervisor Key to reset device trial quota:
                   </p>
                   <div className="flex gap-2">
                     <input
                       type="password"
                       value={adminResetPin}
                       onChange={(e) => setAdminResetPin(e.target.value)}
-                      placeholder="Enter Admin PIN (1234)"
+                      placeholder="Enter Security PIN"
                       maxLength={6}
                       className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white font-mono"
                     />
@@ -975,6 +977,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                     <p className="text-red-400 text-[11px]">{adminResetError}</p>
                   )}
                 </form>
+
               </details>
             </div>
           </div>

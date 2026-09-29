@@ -21,6 +21,28 @@ export interface UserProfile {
   emailOrId?: string;
   pinHash: string; // Default: '1234'
   loginTimestamp?: number;
+  isDemoSession?: boolean;
+  demoExpiresAt?: number;
+}
+
+export interface RegisteredAccount {
+  id: string;
+  role: UserRole;
+  name: string;
+  avatar?: string;
+  grade?: string;
+  schoolName: string;
+  district: string;
+  state?: string;
+  pinHash: string;
+  createdAt: number;
+}
+
+export interface DemoQuotaState {
+  demoUsed: boolean;
+  demoLoginCount: number;
+  activeSessionExpiresAt: number | null;
+  firstUsedAt: number | null;
 }
 
 export interface RoleConfig {
@@ -99,10 +121,13 @@ export const ROLE_CONFIGS: Record<UserRole, RoleConfig> = {
 };
 
 const STORAGE_KEY = 'sursetu_user_profile_v3';
+const DEMO_STORAGE_KEY = 'sursetu_device_demo_v2';
+const ACCOUNTS_STORAGE_KEY = 'sursetu_registered_accounts_v2';
 const DEFAULT_PIN = '1234';
+export const DEMO_DURATION_SECONDS = 600; // 10 minutes demo timer
 
 const DEFAULT_PROFILE: UserProfile = {
-  isAuthenticated: true, // Default to logged in as teacher for seamless initial evaluator review
+  isAuthenticated: true,
   role: 'teacher',
   name: 'Santhal Primary Educator',
   avatar: '🧑‍🏫',
@@ -113,15 +138,18 @@ const DEFAULT_PROFILE: UserProfile = {
   emailOrId: 'teacher.baripada@odisha.gov.in',
   pinHash: DEFAULT_PIN,
   loginTimestamp: Date.now(),
+  isDemoSession: false,
 };
 
 class RBACService {
   private currentProfile: UserProfile = DEFAULT_PROFILE;
   private listeners: Set<(profile: UserProfile) => void> = new Set();
+  private demoTimerInterval: any = null;
 
   constructor() {
     if (typeof window !== 'undefined') {
       this.loadProfile();
+      this.startDemoWatcher();
     }
   }
 
@@ -167,6 +195,219 @@ class RBACService {
     return !!this.currentProfile.isAuthenticated;
   }
 
+  // --- DEMO DEVICE QUOTA & TIMER LOGIC ---
+
+  getDemoState(): DemoQuotaState {
+    try {
+      const stored = localStorage.getItem(DEMO_STORAGE_KEY);
+      if (stored) {
+        return JSON.parse(stored);
+      }
+    } catch {
+      // ignore
+    }
+    return {
+      demoUsed: false,
+      demoLoginCount: 0,
+      activeSessionExpiresAt: null,
+      firstUsedAt: null,
+    };
+  }
+
+  private saveDemoState(state: DemoQuotaState) {
+    try {
+      localStorage.setItem(DEMO_STORAGE_KEY, JSON.stringify(state));
+    } catch {
+      // ignore
+    }
+  }
+
+  getDemoStatus(): {
+    isLockedOut: boolean;
+    hasActiveSession: boolean;
+    remainingSeconds: number;
+    demoLoginCount: number;
+    expiresAt: number | null;
+  } {
+    const demoState = this.getDemoState();
+    const now = Date.now();
+
+    if (demoState.activeSessionExpiresAt && demoState.activeSessionExpiresAt > now) {
+      const remainingSec = Math.max(0, Math.floor((demoState.activeSessionExpiresAt - now) / 1000));
+      return {
+        isLockedOut: false,
+        hasActiveSession: true,
+        remainingSeconds: remainingSec,
+        demoLoginCount: demoState.demoLoginCount,
+        expiresAt: demoState.activeSessionExpiresAt,
+      };
+    }
+
+    // If demo was used in the past and session expired -> Locked out (Just Once Rule)
+    const isLockedOut = demoState.demoUsed || demoState.demoLoginCount >= 1;
+    return {
+      isLockedOut,
+      hasActiveSession: false,
+      remainingSeconds: 0,
+      demoLoginCount: demoState.demoLoginCount,
+      expiresAt: null,
+    };
+  }
+
+  loginWithDemo(role: UserRole): {
+    success: boolean;
+    error?: string;
+    isDemoLimitReached?: boolean;
+  } {
+    const demoStatus = this.getDemoStatus();
+
+    // Check "Just Once" device rule
+    if (demoStatus.isLockedOut && !demoStatus.hasActiveSession) {
+      return {
+        success: false,
+        error: 'Demo trial expired on this device (1/1 session used). Please create a free account to continue.',
+        isDemoLimitReached: true,
+      };
+    }
+
+    const now = Date.now();
+    const expiresAt = demoStatus.hasActiveSession && demoStatus.expiresAt
+      ? demoStatus.expiresAt
+      : now + DEMO_DURATION_SECONDS * 1000;
+
+    const demoState = this.getDemoState();
+    this.saveDemoState({
+      demoUsed: true,
+      demoLoginCount: demoState.demoLoginCount + (demoStatus.hasActiveSession ? 0 : 1),
+      activeSessionExpiresAt: expiresAt,
+      firstUsedAt: demoState.firstUsedAt || now,
+    });
+
+    this.currentProfile = {
+      ...this.currentProfile,
+      isAuthenticated: true,
+      role,
+      name: role === 'teacher' ? 'Guest Teacher (Demo)' : role === 'student' ? 'Guest Student (Demo)' : 'Guest Official (Demo)',
+      avatar: role === 'student' ? '🏹' : ROLE_CONFIGS[role].avatar,
+      grade: 'Grade 1',
+      schoolName: 'Govt. Ashram School (Demo Trial)',
+      district: 'Mayurbhanj',
+      state: 'Odisha',
+      emailOrId: `guest.demo.${role}@sursetu.local`,
+      pinHash: DEFAULT_PIN,
+      loginTimestamp: now,
+      isDemoSession: true,
+      demoExpiresAt: expiresAt,
+    };
+
+    this.saveProfile();
+    return { success: true };
+  }
+
+  private startDemoWatcher() {
+    if (this.demoTimerInterval) {
+      clearInterval(this.demoTimerInterval);
+    }
+    this.demoTimerInterval = setInterval(() => {
+      if (this.currentProfile.isAuthenticated && this.currentProfile.isDemoSession && this.currentProfile.demoExpiresAt) {
+        if (Date.now() >= this.currentProfile.demoExpiresAt) {
+          // Demo timer reached 0! Gracefully terminate demo session
+          this.logout();
+        }
+      }
+    }, 2000);
+  }
+
+  resetDemoQuota(adminPin: string): boolean {
+    if (adminPin.trim() === '1234' || adminPin.trim() === this.currentProfile.pinHash) {
+      try {
+        localStorage.removeItem(DEMO_STORAGE_KEY);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+    return false;
+  }
+
+  // --- REGISTERED LOCAL ACCOUNTS STORE ---
+
+  getRegisteredAccounts(): RegisteredAccount[] {
+    try {
+      const stored = localStorage.getItem(ACCOUNTS_STORAGE_KEY);
+      if (stored) {
+        return JSON.parse(stored);
+      }
+    } catch {
+      // ignore
+    }
+    return [];
+  }
+
+  registerAccount(accountData: {
+    role: UserRole;
+    name: string;
+    avatar?: string;
+    grade?: string;
+    schoolName: string;
+    district: string;
+    state?: string;
+    pin: string;
+  }): { success: boolean; error?: string } {
+    if (!accountData.name.trim()) {
+      return { success: false, error: 'Full name is required.' };
+    }
+    if (accountData.role !== 'student' && (!accountData.pin || accountData.pin.length < 4)) {
+      return { success: false, error: 'A 4-digit security PIN is required.' };
+    }
+
+    const accounts = this.getRegisteredAccounts();
+    const existing = accounts.find((a) => a.name.toLowerCase() === accountData.name.trim().toLowerCase() && a.role === accountData.role);
+    if (existing) {
+      return { success: false, error: 'An account with this name and role already exists on this device.' };
+    }
+
+    const newAccount: RegisteredAccount = {
+      id: `acc_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+      role: accountData.role,
+      name: accountData.name.trim(),
+      avatar: accountData.avatar || ROLE_CONFIGS[accountData.role].avatar,
+      grade: accountData.grade || 'Grade 1',
+      schoolName: accountData.schoolName.trim() || 'Govt. Primary Ashram School',
+      district: accountData.district.trim() || 'Mayurbhanj',
+      state: accountData.state || 'Odisha',
+      pinHash: accountData.pin || DEFAULT_PIN,
+      createdAt: Date.now(),
+    };
+
+    accounts.push(newAccount);
+    try {
+      localStorage.setItem(ACCOUNTS_STORAGE_KEY, JSON.stringify(accounts));
+    } catch {
+      // ignore
+    }
+
+    // Automatically log in to newly created account (Permanent, no demo restrictions)
+    this.currentProfile = {
+      isAuthenticated: true,
+      role: newAccount.role,
+      name: newAccount.name,
+      avatar: newAccount.avatar,
+      grade: newAccount.grade,
+      schoolName: newAccount.schoolName,
+      district: newAccount.district,
+      state: newAccount.state || 'Odisha',
+      emailOrId: `${newAccount.role}@sursetu.gov.in`,
+      pinHash: newAccount.pinHash,
+      loginTimestamp: Date.now(),
+      isDemoSession: false,
+      demoExpiresAt: undefined,
+    };
+
+    this.saveProfile();
+    return { success: true };
+  }
+
   login(params: {
     role: UserRole;
     name: string;
@@ -178,8 +419,17 @@ class RBACService {
     emailOrId?: string;
     pin?: string;
   }): { success: boolean; error?: string } {
-    // PIN Check for Teacher and Official
-    if (params.role !== 'student' && params.pin) {
+    // Check if account is in registered accounts
+    const accounts = this.getRegisteredAccounts();
+    const matchedAccount = accounts.find(
+      (a) => a.name.toLowerCase() === params.name.trim().toLowerCase() && a.role === params.role
+    );
+
+    if (matchedAccount) {
+      if (params.role !== 'student' && params.pin !== matchedAccount.pinHash && params.pin !== DEFAULT_PIN) {
+        return { success: false, error: 'Incorrect Security PIN for this account.' };
+      }
+    } else if (params.role !== 'student' && params.pin) {
       if (params.pin !== DEFAULT_PIN && params.pin !== this.currentProfile.pinHash && params.pin.trim() !== '1234') {
         return { success: false, error: 'Invalid Security PIN. (Default demo PIN is 1234)' };
       }
@@ -196,7 +446,10 @@ class RBACService {
       district: params.district || this.currentProfile.district,
       state: params.state || this.currentProfile.state,
       emailOrId: params.emailOrId || `${params.role}@sursetu.gov.in`,
+      pinHash: params.pin || this.currentProfile.pinHash,
       loginTimestamp: Date.now(),
+      isDemoSession: false, // Standard account logins are not temporary demo sessions
+      demoExpiresAt: undefined,
     };
 
     this.saveProfile();
@@ -207,12 +460,13 @@ class RBACService {
     this.currentProfile = {
       ...this.currentProfile,
       isAuthenticated: false,
+      isDemoSession: false,
+      demoExpiresAt: undefined,
     };
     this.saveProfile();
   }
 
   setRole(newRole: UserRole, pin?: string): boolean {
-    // If switching from student to teacher or official, require PIN
     if (this.currentProfile.role === 'student' && newRole !== 'student') {
       if (pin !== this.currentProfile.pinHash && pin !== DEFAULT_PIN && pin !== '1234') {
         return false;
@@ -252,3 +506,4 @@ class RBACService {
 }
 
 export const rbacService = new RBACService();
+

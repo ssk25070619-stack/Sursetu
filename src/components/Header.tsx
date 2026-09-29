@@ -15,6 +15,8 @@ import {
   Building2,
   Lock,
   LogOut,
+  Clock,
+  Timer
 } from 'lucide-react';
 import { IndigenousLanguage } from '../types';
 import { SUPPORTED_LANGUAGES, UI_LOCALIZATION } from '../data/languages';
@@ -55,10 +57,34 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenDatabaseGuide,
 }) => {
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+  const [demoRemaining, setDemoRemaining] = useState<number>(0);
+  const [isDemo, setIsDemo] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const currentLang = SUPPORTED_LANGUAGES.find((l) => l.id === selectedLanguage) || SUPPORTED_LANGUAGES[0];
   const labels = UI_LOCALIZATION[selectedLanguage] || UI_LOCALIZATION.santali;
+
+  useEffect(() => {
+    const checkDemo = () => {
+      const profile = rbacService.getProfile();
+      setIsDemo(!!profile.isDemoSession);
+      if (profile.isDemoSession && profile.demoExpiresAt) {
+        const left = Math.max(0, Math.floor((profile.demoExpiresAt - Date.now()) / 1000));
+        setDemoRemaining(left);
+      } else {
+        setDemoRemaining(0);
+      }
+    };
+    checkDemo();
+    const interval = setInterval(checkDemo, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatTimer = (seconds: number) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  };
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -235,6 +261,17 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <span>{roleInfo.label}</span>
             </button>
+
+            {/* Guest Demo Session Countdown Timer (Only displayed in 1-Click Demo) */}
+            {isDemo && (
+              <div
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-950/80 border border-amber-500/60 text-amber-300 text-xs font-mono font-bold shadow-md shadow-amber-950/40 animate-pulse"
+                title="Guest Demo Trial Session: This device has a 1-time guest demo timer."
+              >
+                <Clock className="w-3.5 h-3.5 text-amber-400" />
+                <span>Demo: {formatTimer(demoRemaining)}</span>
+              </div>
+            )}
 
             {/* Database Architecture Blueprint Modal Trigger */}
             {onOpenDatabaseGuide && (

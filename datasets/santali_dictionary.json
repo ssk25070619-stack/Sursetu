@@ -1,0 +1,1771 @@
+{
+  "metadata": {
+    "dataset_name": "SurSetu Master Santali Multi-Domain Dataset",
+    "version": "2.0.0",
+    "language": "Santali (sat_Olck / sat_Deva / sat_Orya / sat_Latn)",
+    "scripts": [
+      "Ol Chiki (ᱚᱞ ᱪᱤᱠᱤ)",
+      "Devanagari (देवनागरी)",
+      "Odia Script (ଓଡ଼ିଆ ଲᱤପି)",
+      "Latin (Romanized)"
+    ],
+    "domains": [
+      "School",
+      "Math",
+      "Science",
+      "Nature",
+      "Animals",
+      "Agriculture",
+      "Health",
+      "Family",
+      "Culture",
+      "Verbs",
+      "Greetings"
+    ],
+    "total_lemmas": 165
+  },
+  "vocabulary": [
+    {
+      "id": 1,
+      "hin": "नमस्ते",
+      "sat_olchiki": "ᱡᱚᱦᱟᱨ",
+      "sat_devanagari": "जोहार",
+      "sat_odia": "ଜହାର",
+      "eng": "Hello / Greetings",
+      "phonetic": "johar",
+      "category": "Greetings"
+    },
+    {
+      "id": 2,
+      "hin": "सबको जोहार",
+      "sat_olchiki": "ᱥᱟᱱᱟᱢ ᱠᱚ ᱡᱚᱦᱟᱨ",
+      "sat_devanagari": "सनाम को जोहार",
+      "sat_odia": "ସାନାମ କ ଜହାର",
+      "eng": "Greetings to everyone",
+      "phonetic": "sanam ko johar",
+      "category": "Greetings"
+    },
+    {
+      "id": 3,
+      "hin": "धन्यवाद",
+      "sat_olchiki": "ᱥᱟᱨᱦᱟᱣ",
+      "sat_devanagari": "सरहाव",
+      "sat_odia": "ସାରହାୱ",
+      "eng": "Thank you",
+      "phonetic": "sarhaw",
+      "category": "Greetings"
+    },
+    {
+      "id": 4,
+      "hin": "स्वागत है",
+      "sat_olchiki": "ᱥᱟᱹᱜᱩᱱ ᱫᱟᱨᱟᱢ",
+      "sat_devanagari": "सगुन दाराम",
+      "sat_odia": "ସାଗୁନ ଦାରାମ",
+      "eng": "Welcome",
+      "phonetic": "sagun daram",
+      "category": "Greetings"
+    },
+    {
+      "id": 5,
+      "hin": "शुभ प्रभात",
+      "sat_olchiki": "ᱥᱟᱹᱜᱩᱱ ᱥᱮᱛᱟᱜ",
+      "sat_devanagari": "सगुन सेताग",
+      "sat_odia": "ସାଗୁନ ସେତାଗ",
+      "eng": "Good Morning",
+      "phonetic": "sagun setag",
+      "category": "Greetings"
+    },
+    {
+      "id": 6,
+      "hin": "शुभ संध्या",
+      "sat_olchiki": "ᱥᱟᱹᱜᱩᱱ ᱟᱹᱭᱩᱵ",
+      "sat_devanagari": "सगुन अयुब",
+      "sat_odia": "ସାଗୁନ ଆୟୁବ",
+      "eng": "Good Evening",
+      "phonetic": "sagun ayub",
+      "category": "Greetings"
+    },
+    {
+      "id": 7,
+      "hin": "शुभ रात्रि",
+      "sat_olchiki": "ᱥᱟᱹᱜᱩᱱ ᱧᱤᱫᱟᱹ",
+      "sat_devanagari": "सगुन ञिदा",
+      "sat_odia": "ସାଗୁନ ଞିଦା",
+      "eng": "Good Night",
+      "phonetic": "sagun nyida",
+      "category": "Greetings"
+    },
+    {
+      "id": 8,
+      "hin": "अलविदा / फिर मिलेंगे",
+      "sat_olchiki": "ᱟᱨᱦᱚᱸ ᱵᱚᱱ ᱧᱟᱯᱟᱢᱟ",
+      "sat_devanagari": "आरहों बोन ञापाम",
+      "sat_odia": "ଆରହ ବନ ଞାପାମା",
+      "eng": "See you again / Goodbye",
+      "phonetic": "arhon bon nyapama",
+      "category": "Greetings"
+    },
+    {
+      "id": 9,
+      "hin": "कृपया",
+      "sat_olchiki": "ᱫᱟᱭᱟ ᱠᱟᱛᱮ",
+      "sat_devanagari": "दया काते",
+      "sat_odia": "ଦାୟା କାତେ",
+      "eng": "Please",
+      "phonetic": "daya kate",
+      "category": "Greetings"
+    },
+    {
+      "id": 10,
+      "hin": "माफ कीजिए",
+      "sat_olchiki": "ᱤᱠᱟᱹ ᱠᱟᱹᱧ ᱢᱮ",
+      "sat_devanagari": "इकय कञ मे",
+      "sat_odia": "ଇକା କାଞ ମେ",
+      "eng": "Excuse me / Forgive me",
+      "phonetic": "ika kany me",
+      "category": "Greetings"
+    },
+    {
+      "id": 11,
+      "hin": "शिक्षक",
+      "sat_olchiki": "ᱢᱟᱪᱮᱛ",
+      "sat_devanagari": "माचेत",
+      "sat_odia": "ମାଚେତ",
+      "eng": "Teacher (Male)",
+      "phonetic": "machet",
+      "category": "School"
+    },
+    {
+      "id": 12,
+      "hin": "शिक्षिका",
+      "sat_olchiki": "ᱢᱟᱪᱮᱛᱟᱹᱱᱤ",
+      "sat_devanagari": "माचेतनि",
+      "sat_odia": "ମାଚେତାନି",
+      "eng": "Teacher (Female)",
+      "phonetic": "machetani",
+      "category": "School"
+    },
+    {
+      "id": 13,
+      "hin": "छात्र",
+      "sat_olchiki": "ᱪᱮᱛᱮᱫᱤᱭᱟᱹ",
+      "sat_devanagari": "चेतेदिया",
+      "sat_odia": "ଚେତେଦିୟା",
+      "eng": "Student (Male)",
+      "phonetic": "chetediya",
+      "category": "School"
+    },
+    {
+      "id": 14,
+      "hin": "छात्रा",
+      "sat_olchiki": "ᱪᱮᱛᱮᱫᱤᱭᱟᱹᱱᱤ",
+      "sat_devanagari": "चेतेदियनि",
+      "sat_odia": "ଚେତେଦିୟାନି",
+      "eng": "Student (Female)",
+      "phonetic": "chetediyani",
+      "category": "School"
+    },
+    {
+      "id": 15,
+      "hin": "स्कूल / विद्यालय",
+      "sat_olchiki": "ᱤᱛᱩᱱ ᱟᱥᱲᱟ",
+      "sat_devanagari": "इतुन असड़ा",
+      "sat_odia": "ଇତୁନ ଆସଡ଼ା",
+      "eng": "School",
+      "phonetic": "itun asrha",
+      "category": "School"
+    },
+    {
+      "id": 16,
+      "hin": "कक्षा / वर्ग",
+      "sat_olchiki": "ᱠᱞᱟᱥ / ᱪᱟᱱᱟᱪ",
+      "sat_devanagari": "कलास / चानाच",
+      "sat_odia": "କଲାସ / ଚାନାଚ",
+      "eng": "Class / Classroom",
+      "phonetic": "klas / chanach",
+      "category": "School"
+    },
+    {
+      "id": 17,
+      "hin": "किताब / पुस्तक",
+      "sat_olchiki": "ᱯᱩᱛᱷᱤ",
+      "sat_devanagari": "पुथि",
+      "sat_odia": "ପୁଥି",
+      "eng": "Book",
+      "phonetic": "puthi",
+      "category": "School"
+    },
+    {
+      "id": 18,
+      "hin": "कलम / पेन",
+      "sat_olchiki": "ᱠᱚᱞᱚᱢ",
+      "sat_devanagari": "कलम",
+      "sat_odia": "କଲମ",
+      "eng": "Pen",
+      "phonetic": "kolom",
+      "category": "School"
+    },
+    {
+      "id": 19,
+      "hin": "पेंसिल",
+      "sat_olchiki": "ᱯᱮᱱᱥᱤᱞ",
+      "sat_devanagari": "पेन्सिल",
+      "sat_odia": "ପେନସିଲ",
+      "eng": "Pencil",
+      "phonetic": "pensil",
+      "category": "School"
+    },
+    {
+      "id": 20,
+      "hin": "कापी / अभ्यास पुस्तिका",
+      "sat_olchiki": "ᱚᱞ ᱯᱩᱛᱷᱤ",
+      "sat_devanagari": "अल पुथि",
+      "sat_odia": "ଅଲ ପୁଥି",
+      "eng": "Notebook / Exercise book",
+      "phonetic": "ol puthi",
+      "category": "School"
+    },
+    {
+      "id": 21,
+      "hin": "श्यामपट्ट / ब्लैकबोर्ड",
+      "sat_olchiki": "ᱵᱞᱮᱠᱵᱳᱨᱰ / ᱦᱮᱸᱫᱮ ᱯᱟᱴᱟ",
+      "sat_devanagari": "हेंदे पाटा",
+      "sat_odia": "ବଲେକବୋରଡ / ହେଦେ ପାଟା",
+      "eng": "Blackboard",
+      "phonetic": "blekbord / hende pata",
+      "category": "School"
+    },
+    {
+      "id": 22,
+      "hin": "खड़िया / चॉक",
+      "sat_olchiki": "ᱪᱚᱠ",
+      "sat_devanagari": "चक",
+      "sat_odia": "ଚକ",
+      "eng": "Chalk",
+      "phonetic": "chok",
+      "category": "School"
+    },
+    {
+      "id": 23,
+      "hin": "गणित / अंक",
+      "sat_olchiki": "ᱞᱮᱠᱷᱟ",
+      "sat_devanagari": "लेखा",
+      "sat_odia": "ଲେଖା",
+      "eng": "Mathematics / Count",
+      "phonetic": "lekha",
+      "category": "School"
+    },
+    {
+      "id": 24,
+      "hin": "भाषा",
+      "sat_olchiki": "ᱯᱟᱹᱨᱥᱤ",
+      "sat_devanagari": "परसि",
+      "sat_odia": "ପାରସି",
+      "eng": "Language",
+      "phonetic": "parsi",
+      "category": "School"
+    },
+    {
+      "id": 25,
+      "hin": "मातृभाषा",
+      "sat_olchiki": "ᱡᱟᱱᱟᱢ ᱯᱟᱹᱨᱥᱤ",
+      "sat_devanagari": "जानाम परसि",
+      "sat_odia": "ଜାନାମ ପାରସି",
+      "eng": "Mother Tongue",
+      "phonetic": "janam parsi",
+      "category": "School"
+    },
+    {
+      "id": 26,
+      "hin": "पढ़ना",
+      "sat_olchiki": "ᱯᱟᱲᱦᱟᱣ",
+      "sat_devanagari": "पाड़हाव",
+      "sat_odia": "ପାଡ଼ହାୱ",
+      "eng": "To Read / Study",
+      "phonetic": "parhhaw",
+      "category": "School"
+    },
+    {
+      "id": 27,
+      "hin": "लिखना",
+      "sat_olchiki": "ᱚᱞ",
+      "sat_devanagari": "अल",
+      "sat_odia": "ଅଲ",
+      "eng": "To Write",
+      "phonetic": "ol",
+      "category": "School"
+    },
+    {
+      "id": 28,
+      "hin": "सीखना",
+      "sat_olchiki": "ᱪᱮᱫ",
+      "sat_devanagari": "चेद",
+      "sat_odia": "ଚେଦ",
+      "eng": "To Learn",
+      "phonetic": "ched",
+      "category": "School"
+    },
+    {
+      "id": 29,
+      "hin": "सिखाना",
+      "sat_olchiki": "ᱪᱮᱫ ᱟᱫᱮ",
+      "sat_devanagari": "चेद आदे",
+      "sat_odia": "ଚେଦ ଆଦେ",
+      "eng": "To Teach",
+      "phonetic": "ched ade",
+      "category": "School"
+    },
+    {
+      "id": 30,
+      "hin": "प्रश्न",
+      "sat_olchiki": "ᱠᱩᱠᱞᱤ",
+      "sat_devanagari": "कुकलि",
+      "sat_odia": "କୁକଲି",
+      "eng": "Question",
+      "phonetic": "kukli",
+      "category": "School"
+    },
+    {
+      "id": 31,
+      "hin": "उत्तर",
+      "sat_olchiki": "ᱛᱮᱞᱟ",
+      "sat_devanagari": "तेला",
+      "sat_odia": "ତେଲା",
+      "eng": "Answer",
+      "phonetic": "tela",
+      "category": "School"
+    },
+    {
+      "id": 32,
+      "hin": "कहानी",
+      "sat_olchiki": "ᱠᱟᱹᱦᱱᱤ",
+      "sat_devanagari": "काहनि",
+      "sat_odia": "କାହନି",
+      "eng": "Story",
+      "phonetic": "kahni",
+      "category": "School"
+    },
+    {
+      "id": 33,
+      "hin": "कविता / गीत",
+      "sat_olchiki": "ᱥᱮᱨᱮᱧ",
+      "sat_devanagari": "सेरेञ",
+      "sat_odia": "ସେରେଞ",
+      "eng": "Poem / Song",
+      "phonetic": "sereny",
+      "category": "School"
+    },
+    {
+      "id": 34,
+      "hin": "शून्य",
+      "sat_olchiki": "ᱥᱩᱱ",
+      "sat_devanagari": "सुन",
+      "sat_odia": "ସୁନ",
+      "eng": "Zero",
+      "phonetic": "sun",
+      "category": "Math"
+    },
+    {
+      "id": 35,
+      "hin": "एक",
+      "sat_olchiki": "ᱢᱤᱫ",
+      "sat_devanagari": "मिद",
+      "sat_odia": "ମିଦ",
+      "eng": "One",
+      "phonetic": "mid",
+      "category": "Math"
+    },
+    {
+      "id": 36,
+      "hin": "दो",
+      "sat_olchiki": "ᱵᱟᱨ",
+      "sat_devanagari": "बार",
+      "sat_odia": "ବାର",
+      "eng": "Two",
+      "phonetic": "bar",
+      "category": "Math"
+    },
+    {
+      "id": 37,
+      "hin": "तीन",
+      "sat_olchiki": "ᱯᱮ",
+      "sat_devanagari": "पे",
+      "sat_odia": "ପେ",
+      "eng": "Three",
+      "phonetic": "pe",
+      "category": "Math"
+    },
+    {
+      "id": 38,
+      "hin": "चार",
+      "sat_olchiki": "ᱯᱩᱱ",
+      "sat_devanagari": "पून",
+      "sat_odia": "ପୁନ",
+      "eng": "Four",
+      "phonetic": "pun",
+      "category": "Math"
+    },
+    {
+      "id": 39,
+      "hin": "पांच",
+      "sat_olchiki": "ᱢᱚᱬᱮ",
+      "sat_devanagari": "मोड़े",
+      "sat_odia": "ମଣେ",
+      "eng": "Five",
+      "phonetic": "mone",
+      "category": "Math"
+    },
+    {
+      "id": 40,
+      "hin": "छह",
+      "sat_olchiki": "ᱛᱩᱨᱩᱭ",
+      "sat_devanagari": "तुरुय",
+      "sat_odia": "ତୁରୁୟ",
+      "eng": "Six",
+      "phonetic": "turuy",
+      "category": "Math"
+    },
+    {
+      "id": 41,
+      "hin": "सात",
+      "sat_olchiki": "ᱮᱭᱟᱭ",
+      "sat_devanagari": "एयाय",
+      "sat_odia": "ଏୟାୟ",
+      "eng": "Seven",
+      "phonetic": "eyay",
+      "category": "Math"
+    },
+    {
+      "id": 42,
+      "hin": "आठ",
+      "sat_olchiki": "ᱤᱨᱟᱹᱞ",
+      "sat_devanagari": "इरल",
+      "sat_odia": "ଇରାଲ",
+      "eng": "Eight",
+      "phonetic": "iral",
+      "category": "Math"
+    },
+    {
+      "id": 43,
+      "hin": "नौ",
+      "sat_olchiki": "ᱟᱨᱮ",
+      "sat_devanagari": "आरे",
+      "sat_odia": "ଆରେ",
+      "eng": "Nine",
+      "phonetic": "are",
+      "category": "Math"
+    },
+    {
+      "id": 44,
+      "hin": "दस",
+      "sat_olchiki": "ᱜᱮᱞ",
+      "sat_devanagari": "गेल",
+      "sat_odia": "ଗେଲ",
+      "eng": "Ten",
+      "phonetic": "gel",
+      "category": "Math"
+    },
+    {
+      "id": 45,
+      "hin": "बीस",
+      "sat_olchiki": "ᱤᱥᱤ / ᱢᱤᱫ ᱤᱥᱤ",
+      "sat_devanagari": "इसि",
+      "sat_odia": "ଇସି / ମିଦ ଇସି",
+      "eng": "Twenty",
+      "phonetic": "isi / mid isi",
+      "category": "Math"
+    },
+    {
+      "id": 46,
+      "hin": "पचास",
+      "sat_olchiki": "ᱢᱚᱬᱮ ᱜᱮᱞ",
+      "sat_devanagari": "मोड़े गेल",
+      "sat_odia": "ମଣେ ଗେଲ",
+      "eng": "Fifty",
+      "phonetic": "mone gel",
+      "category": "Math"
+    },
+    {
+      "id": 47,
+      "hin": "सौ",
+      "sat_olchiki": "ᱥᱟᱭ",
+      "sat_devanagari": "साय",
+      "sat_odia": "ସାୟ",
+      "eng": "Hundred",
+      "phonetic": "say",
+      "category": "Math"
+    },
+    {
+      "id": 48,
+      "hin": "हज़ार",
+      "sat_olchiki": "ᱦᱟᱡᱟᱨ / ᱜᱮᱞ ᱥᱟᱭ",
+      "sat_devanagari": "हाजार",
+      "sat_odia": "ହାଜାର / ଗେଲ ସାୟ",
+      "eng": "Thousand",
+      "phonetic": "hajar / gel say",
+      "category": "Math"
+    },
+    {
+      "id": 49,
+      "hin": "जोड़ / जमा",
+      "sat_olchiki": "ᱢᱮᱥᱟ",
+      "sat_devanagari": "मेसा",
+      "sat_odia": "ମେସା",
+      "eng": "Addition / Plus",
+      "phonetic": "mesa",
+      "category": "Math"
+    },
+    {
+      "id": 50,
+      "hin": "घटाव",
+      "sat_olchiki": "ᱵᱷᱮᱜᱟᱨ / ᱠᱚᱢ",
+      "sat_devanagari": "भेगार",
+      "sat_odia": "ଭେଗାର / କମ",
+      "eng": "Subtraction / Minus",
+      "phonetic": "bhegar / kom",
+      "category": "Math"
+    },
+    {
+      "id": 51,
+      "hin": "गुणा",
+      "sat_olchiki": "ᱜᱟᱵᱟᱬ",
+      "sat_devanagari": "गाबाण",
+      "sat_odia": "ଗାବାଣ",
+      "eng": "Multiplication",
+      "phonetic": "gaban",
+      "category": "Math"
+    },
+    {
+      "id": 52,
+      "hin": "भाग / विभाजन",
+      "sat_olchiki": "ᱦᱟᱹᱴᱤᱧ",
+      "sat_devanagari": "हाटिञ",
+      "sat_odia": "ହାଟିଞ",
+      "eng": "Division",
+      "phonetic": "hatiny",
+      "category": "Math"
+    },
+    {
+      "id": 53,
+      "hin": "आधा",
+      "sat_olchiki": "ᱛᱟᱞᱟ",
+      "sat_devanagari": "ताला",
+      "sat_odia": "ତାଲା",
+      "eng": "Half",
+      "phonetic": "tala",
+      "category": "Math"
+    },
+    {
+      "id": 54,
+      "hin": "बराबर",
+      "sat_olchiki": "ᱥᱚᱢᱟᱱ",
+      "sat_devanagari": "समान",
+      "sat_odia": "ସମାନ",
+      "eng": "Equal",
+      "phonetic": "soman",
+      "category": "Math"
+    },
+    {
+      "id": 55,
+      "hin": "पानी / जल",
+      "sat_olchiki": "ᱫᱟᱜ",
+      "sat_devanagari": "दाग",
+      "sat_odia": "ଦାଗ",
+      "eng": "Water",
+      "phonetic": "dag",
+      "category": "Nature"
+    },
+    {
+      "id": 56,
+      "hin": "सूरज / सूर्य",
+      "sat_olchiki": "ᱥᱤᱝ ᱪᱟᱸᱫᱚ",
+      "sat_devanagari": "सिंग चांदो",
+      "sat_odia": "ସିଙ ଚାଦ",
+      "eng": "Sun",
+      "phonetic": "sing chando",
+      "category": "Nature"
+    },
+    {
+      "id": 57,
+      "hin": "चांद / चंद्रमा",
+      "sat_olchiki": "ᱧᱤᱸᱫᱟᱹ ᱪᱟᱸᱫᱚ",
+      "sat_devanagari": "निंदा चांदो",
+      "sat_odia": "ଞିଦା ଚାଦ",
+      "eng": "Moon",
+      "phonetic": "nyinda chando",
+      "category": "Nature"
+    },
+    {
+      "id": 58,
+      "hin": "तारे / सितारे",
+      "sat_olchiki": "ᱤᱯᱤᱞ",
+      "sat_devanagari": "इपिल",
+      "sat_odia": "ଇପିଲ",
+      "eng": "Stars",
+      "phonetic": "ipil",
+      "category": "Nature"
+    },
+    {
+      "id": 59,
+      "hin": "आकाश / आसमान",
+      "sat_olchiki": "ᱥᱮᱨᱢᱟ",
+      "sat_devanagari": "सेरमा",
+      "sat_odia": "ସେରମା",
+      "eng": "Sky",
+      "phonetic": "serma",
+      "category": "Nature"
+    },
+    {
+      "id": 60,
+      "hin": "धरती / पृथ्वी",
+      "sat_olchiki": "ᱫᱷᱟᱹᱨᱛᱤ / ᱦᱟᱥᱟ",
+      "sat_devanagari": "धर्ति / हासा",
+      "sat_odia": "ଧାରତି / ହାସା",
+      "eng": "Earth / Land",
+      "phonetic": "dharti / hasa",
+      "category": "Nature"
+    },
+    {
+      "id": 61,
+      "hin": "हवा / वायु",
+      "sat_olchiki": "ᱦᱚᱭ",
+      "sat_devanagari": "होय",
+      "sat_odia": "ହୟ",
+      "eng": "Air / Wind",
+      "phonetic": "hoy",
+      "category": "Nature"
+    },
+    {
+      "id": 62,
+      "hin": "आग / अग्नि",
+      "sat_olchiki": "ᱥᱮᱸᱜᱮᱞ",
+      "sat_devanagari": "सेंगेल",
+      "sat_odia": "ସେଗେଲ",
+      "eng": "Fire",
+      "phonetic": "sengel",
+      "category": "Nature"
+    },
+    {
+      "id": 63,
+      "hin": "पेड़ / वृक्ष",
+      "sat_olchiki": "ᱫᱟᱨᱮ",
+      "sat_devanagari": "दारे",
+      "sat_odia": "ଦାରେ",
+      "eng": "Tree",
+      "phonetic": "dare",
+      "category": "Nature"
+    },
+    {
+      "id": 64,
+      "hin": "पत्ता",
+      "sat_olchiki": "ᱥᱟᱠᱟᱢ",
+      "sat_devanagari": "साकाम",
+      "sat_odia": "ସାକାମ",
+      "eng": "Leaf",
+      "phonetic": "sakam",
+      "category": "Nature"
+    },
+    {
+      "id": 65,
+      "hin": "फूल",
+      "sat_olchiki": "ᱵᱟᱦᱟ",
+      "sat_devanagari": "बाहा",
+      "sat_odia": "ବାହା",
+      "eng": "Flower",
+      "phonetic": "baha",
+      "category": "Nature"
+    },
+    {
+      "id": 66,
+      "hin": "फल",
+      "sat_olchiki": "ᱡᱚ",
+      "sat_devanagari": "जो",
+      "sat_odia": "ଜ",
+      "eng": "Fruit",
+      "phonetic": "jo",
+      "category": "Nature"
+    },
+    {
+      "id": 67,
+      "hin": "जंगल / वन",
+      "sat_olchiki": "ᱵᱤᱨ",
+      "sat_devanagari": "बीर",
+      "sat_odia": "ବିର",
+      "eng": "Forest / Jungle",
+      "phonetic": "bir",
+      "category": "Nature"
+    },
+    {
+      "id": 68,
+      "hin": "पहाड़ / पर्वत",
+      "sat_olchiki": "ᱵᱩᱨᱩ",
+      "sat_devanagari": "बुरु",
+      "sat_odia": "ବୁରୁ",
+      "eng": "Mountain / Hill",
+      "phonetic": "buru",
+      "category": "Nature"
+    },
+    {
+      "id": 69,
+      "hin": "नदी",
+      "sat_olchiki": "ᱜᱟᱰᱟ",
+      "sat_devanagari": "गाडा",
+      "sat_odia": "ଗାଡା",
+      "eng": "River",
+      "phonetic": "gada",
+      "category": "Nature"
+    },
+    {
+      "id": 70,
+      "hin": "तालाब / पोखर",
+      "sat_olchiki": "ᱯᱩᱠᱷᱨᱤ / ᱵᱟᱸᱫᱷ",
+      "sat_devanagari": "पुखरि",
+      "sat_odia": "ପୁଖରି / ବାଧ",
+      "eng": "Pond / Lake",
+      "phonetic": "pukhri / bandh",
+      "category": "Nature"
+    },
+    {
+      "id": 71,
+      "hin": "बारिश / वर्षा",
+      "sat_olchiki": "ᱫᱟᱜ ᱡᱟᱹᱲᱤ",
+      "sat_devanagari": "दाग जाड़ि",
+      "sat_odia": "ଦାଗ ଜାଡ଼ି",
+      "eng": "Rain",
+      "phonetic": "dag jarhi",
+      "category": "Nature"
+    },
+    {
+      "id": 72,
+      "hin": "बादल",
+      "sat_olchiki": "ᱨᱤᱢᱤᱞ",
+      "sat_devanagari": "रिमिल",
+      "sat_odia": "ରିମିଲ",
+      "eng": "Cloud",
+      "phonetic": "rimil",
+      "category": "Nature"
+    },
+    {
+      "id": 73,
+      "hin": "रोशनी / प्रकाश",
+      "sat_olchiki": "ᱢᱟᱨᱥᱟᱞ",
+      "sat_devanagari": "मारसाल",
+      "sat_odia": "ମାରସାଲ",
+      "eng": "Light / Brightness",
+      "phonetic": "marsal",
+      "category": "Nature"
+    },
+    {
+      "id": 74,
+      "hin": "अंधेरा",
+      "sat_olchiki": "ᱧᱩᱛ",
+      "sat_devanagari": "ञुत",
+      "sat_odia": "ଞୁତ",
+      "eng": "Darkness",
+      "phonetic": "nyut",
+      "category": "Nature"
+    },
+    {
+      "id": 75,
+      "hin": "मिट्टी",
+      "sat_olchiki": "ᱦᱟᱥᱟ",
+      "sat_devanagari": "हासा",
+      "sat_odia": "ହାସା",
+      "eng": "Soil / Clay",
+      "phonetic": "hasa",
+      "category": "Nature"
+    },
+    {
+      "id": 76,
+      "hin": "पत्थर / चट्टान",
+      "sat_olchiki": "ᱫᱷᱤᱨᱤ",
+      "sat_devanagari": "धिरि",
+      "sat_odia": "ଧିରି",
+      "eng": "Stone / Rock",
+      "phonetic": "dhiri",
+      "category": "Nature"
+    },
+    {
+      "id": 77,
+      "hin": "गाय",
+      "sat_olchiki": "ᱜᱟᱹᱭ",
+      "sat_devanagari": "गई",
+      "sat_odia": "ଗାୟ",
+      "eng": "Cow",
+      "phonetic": "gay",
+      "category": "Animals"
+    },
+    {
+      "id": 78,
+      "hin": "बैल",
+      "sat_olchiki": "ᱰᱟᱝᱜᱽᱨᱟ",
+      "sat_devanagari": "डांगरा",
+      "sat_odia": "ଡାଙଗ୍ରା",
+      "eng": "Ox / Bull",
+      "phonetic": "dangg'ra",
+      "category": "Animals"
+    },
+    {
+      "id": 79,
+      "hin": "भैंस",
+      "sat_olchiki": "ᱠᱟᱰᱟ",
+      "sat_devanagari": "काडा",
+      "sat_odia": "କାଡା",
+      "eng": "Buffalo",
+      "phonetic": "kada",
+      "category": "Animals"
+    },
+    {
+      "id": 80,
+      "hin": "बकरी",
+      "sat_olchiki": "ᱢᱮᱨᱚᱢ",
+      "sat_devanagari": "मेरम",
+      "sat_odia": "ମେରମ",
+      "eng": "Goat",
+      "phonetic": "merom",
+      "category": "Animals"
+    },
+    {
+      "id": 81,
+      "hin": "भेड़",
+      "sat_olchiki": "ᱵᱷᱤᱰᱤ",
+      "sat_devanagari": "भीडि",
+      "sat_odia": "ଭିଡି",
+      "eng": "Sheep",
+      "phonetic": "bhidi",
+      "category": "Animals"
+    },
+    {
+      "id": 82,
+      "hin": "कुत्ता",
+      "sat_olchiki": "ᱥᱮᱛᱟ",
+      "sat_devanagari": "सेता",
+      "sat_odia": "ସେତା",
+      "eng": "Dog",
+      "phonetic": "seta",
+      "category": "Animals"
+    },
+    {
+      "id": 83,
+      "hin": "बिल्ली",
+      "sat_olchiki": "ᱯᱩᱥᱤ",
+      "sat_devanagari": "पुसि",
+      "sat_odia": "ପୁସି",
+      "eng": "Cat",
+      "phonetic": "pusi",
+      "category": "Animals"
+    },
+    {
+      "id": 84,
+      "hin": "चिड़िया / पक्षी",
+      "sat_olchiki": "ᱪᱮᱬᱮ",
+      "sat_devanagari": "चेणे",
+      "sat_odia": "ଚେଣେ",
+      "eng": "Bird",
+      "phonetic": "chene",
+      "category": "Animals"
+    },
+    {
+      "id": 85,
+      "hin": "मुर्गा",
+      "sat_olchiki": "ᱥᱤᱢ ᱥᱟᱺᱰᱤ",
+      "sat_devanagari": "सिम सांडी",
+      "sat_odia": "ସିମ ସାଡି",
+      "eng": "Rooster",
+      "phonetic": "sim sadi",
+      "category": "Animals"
+    },
+    {
+      "id": 86,
+      "hin": "मुर्गी",
+      "sat_olchiki": "ᱥᱤᱢ ᱮᱸᱜᱟ",
+      "sat_devanagari": "सिम एंगा",
+      "sat_odia": "ସିମ ଏଗା",
+      "eng": "Hen",
+      "phonetic": "sim enga",
+      "category": "Animals"
+    },
+    {
+      "id": 87,
+      "hin": "मछली",
+      "sat_olchiki": "ᱦᱟᱹᱠᱩ",
+      "sat_devanagari": "हाकु",
+      "sat_odia": "ହାକୁ",
+      "eng": "Fish",
+      "phonetic": "haku",
+      "category": "Animals"
+    },
+    {
+      "id": 88,
+      "hin": "हाथी",
+      "sat_olchiki": "ᱦᱟᱹᱛᱤ",
+      "sat_devanagari": "हाति",
+      "sat_odia": "ହାତି",
+      "eng": "Elephant",
+      "phonetic": "hati",
+      "category": "Animals"
+    },
+    {
+      "id": 89,
+      "hin": "बाघ",
+      "sat_olchiki": "ᱛᱟᱹᱨᱩᱵ",
+      "sat_devanagari": "तारुब",
+      "sat_odia": "ତାରୁବ",
+      "eng": "Tiger / Leopard",
+      "phonetic": "tarub",
+      "category": "Animals"
+    },
+    {
+      "id": 90,
+      "hin": "भालू",
+      "sat_olchiki": "ᱵᱟᱱᱟ",
+      "sat_devanagari": "बाना",
+      "sat_odia": "ବାନା",
+      "eng": "Bear",
+      "phonetic": "bana",
+      "category": "Animals"
+    },
+    {
+      "id": 91,
+      "hin": "सांप",
+      "sat_olchiki": "ᱵᱤᱧ",
+      "sat_devanagari": "बिञ",
+      "sat_odia": "ବିଞ",
+      "eng": "Snake",
+      "phonetic": "biny",
+      "category": "Animals"
+    },
+    {
+      "id": 92,
+      "hin": "चींटी",
+      "sat_olchiki": "ᱢᱩᱡ",
+      "sat_devanagari": "मुज",
+      "sat_odia": "ମୁଜ",
+      "eng": "Ant",
+      "phonetic": "muj",
+      "category": "Animals"
+    },
+    {
+      "id": 93,
+      "hin": "मधुमक्खी",
+      "sat_olchiki": "ᱧᱮᱞᱮ",
+      "sat_devanagari": "ञेले",
+      "sat_odia": "ଞେଲେ",
+      "eng": "Honeybee",
+      "phonetic": "nyele",
+      "category": "Animals"
+    },
+    {
+      "id": 94,
+      "hin": "खेत / कृषि भूमि",
+      "sat_olchiki": "ᱠᱷᱮᱛ / ᱵᱟᱹᱫᱽ",
+      "sat_devanagari": "खेत / बाद",
+      "sat_odia": "ଖେତ / ବାଦ୍",
+      "eng": "Field / Farm",
+      "phonetic": "khet / bad'",
+      "category": "Agriculture"
+    },
+    {
+      "id": 95,
+      "hin": "हल",
+      "sat_olchiki": "ᱱᱟᱦᱮᱞ",
+      "sat_devanagari": "नाहेल",
+      "sat_odia": "ନାହେଲ",
+      "eng": "Plough",
+      "phonetic": "nahel",
+      "category": "Agriculture"
+    },
+    {
+      "id": 96,
+      "hin": "धान",
+      "sat_olchiki": "ᱦᱳᱲᱳ",
+      "sat_devanagari": "होड़ो",
+      "sat_odia": "ହୋଡ଼ୋ",
+      "eng": "Paddy / Rice crop",
+      "phonetic": "horho",
+      "category": "Agriculture"
+    },
+    {
+      "id": 97,
+      "hin": "चावल",
+      "sat_olchiki": "ᱪᱟᱣᱞᱮ",
+      "sat_devanagari": "चावले",
+      "sat_odia": "ଚାୱଲେ",
+      "eng": "Rice (uncooked)",
+      "phonetic": "chawle",
+      "category": "Agriculture"
+    },
+    {
+      "id": 98,
+      "hin": "भात / भोजन",
+      "sat_olchiki": "ᱫᱟᱠᱟ",
+      "sat_devanagari": "दाका",
+      "sat_odia": "ଦାକା",
+      "eng": "Cooked Rice / Meal",
+      "phonetic": "daka",
+      "category": "Agriculture"
+    },
+    {
+      "id": 99,
+      "hin": "गेहूं",
+      "sat_olchiki": "ᱜᱩᱦᱩᱢ",
+      "sat_devanagari": "गुहुम",
+      "sat_odia": "ଗୁହୁମ",
+      "eng": "Wheat",
+      "phonetic": "guhum",
+      "category": "Agriculture"
+    },
+    {
+      "id": 100,
+      "hin": "मक्का",
+      "sat_olchiki": "ᱡᱚᱱᱰᱨᱟ",
+      "sat_devanagari": "जनरा",
+      "sat_odia": "ଜନଡରା",
+      "eng": "Maize / Corn",
+      "phonetic": "jondra",
+      "category": "Agriculture"
+    },
+    {
+      "id": 101,
+      "hin": "सब्जी",
+      "sat_olchiki": "ᱩᱛᱩ",
+      "sat_devanagari": "उतु",
+      "sat_odia": "ଉତୁ",
+      "eng": "Vegetable / Curry",
+      "phonetic": "utu",
+      "category": "Agriculture"
+    },
+    {
+      "id": 102,
+      "hin": "दाल",
+      "sat_olchiki": "ᱫᱟᱹᱞ",
+      "sat_devanagari": "दाल",
+      "sat_odia": "ଦାଲ",
+      "eng": "Pulses / Lentils",
+      "phonetic": "dal",
+      "category": "Agriculture"
+    },
+    {
+      "id": 103,
+      "hin": "बीज",
+      "sat_olchiki": "ᱡᱟᱝ / ᱵᱤᱛᱟᱹ",
+      "sat_devanagari": "जांग",
+      "sat_odia": "ଜାଙ / ବିତା",
+      "eng": "Seed",
+      "phonetic": "jang / bita",
+      "category": "Agriculture"
+    },
+    {
+      "id": 104,
+      "hin": "फसल काटना",
+      "sat_olchiki": "ᱤᱨ",
+      "sat_devanagari": "इर",
+      "sat_odia": "ଇର",
+      "eng": "Harvest / Reap",
+      "phonetic": "ir",
+      "category": "Agriculture"
+    },
+    {
+      "id": 105,
+      "hin": "बोना / रोपना",
+      "sat_olchiki": "ᱨᱚᱦᱚᱭ",
+      "sat_devanagari": "रोहय",
+      "sat_odia": "ରହୟ",
+      "eng": "To Plant / Sow",
+      "phonetic": "rohoy",
+      "category": "Agriculture"
+    },
+    {
+      "id": 106,
+      "hin": "कुदाल",
+      "sat_olchiki": "ᱠᱩᱰᱤ",
+      "sat_devanagari": "कुडि",
+      "sat_odia": "କୁଡି",
+      "eng": "Spade / Hoe",
+      "phonetic": "kudi",
+      "category": "Agriculture"
+    },
+    {
+      "id": 107,
+      "hin": "हंसिया / दाव",
+      "sat_olchiki": "ᱫᱟᱛᱨᱚᱢ",
+      "sat_devanagari": "दात्रम",
+      "sat_odia": "ଦାତରମ",
+      "eng": "Sickle",
+      "phonetic": "datrom",
+      "category": "Agriculture"
+    },
+    {
+      "id": 108,
+      "hin": "शरीर",
+      "sat_olchiki": "ᱦᱚᱲᱢᱚ",
+      "sat_devanagari": "होड़मो",
+      "sat_odia": "ହଡ଼ମ",
+      "eng": "Body",
+      "phonetic": "horhmo",
+      "category": "Health"
+    },
+    {
+      "id": 109,
+      "hin": "सिर / माथा",
+      "sat_olchiki": "ᱵᱚᱦᱚᱜ",
+      "sat_devanagari": "बहग",
+      "sat_odia": "ବହଗ",
+      "eng": "Head",
+      "phonetic": "bohog",
+      "category": "Health"
+    },
+    {
+      "id": 110,
+      "hin": "आंख",
+      "sat_olchiki": "ᱢᱮᱫ",
+      "sat_devanagari": "मेद",
+      "sat_odia": "ମେଦ",
+      "eng": "Eye",
+      "phonetic": "med",
+      "category": "Health"
+    },
+    {
+      "id": 111,
+      "hin": "कान",
+      "sat_olchiki": "ᱞᱩᱛᱩᱨ",
+      "sat_devanagari": "लुंतुर",
+      "sat_odia": "ଲୁତୁର",
+      "eng": "Ear",
+      "phonetic": "lutur",
+      "category": "Health"
+    },
+    {
+      "id": 112,
+      "hin": "नाक",
+      "sat_olchiki": "ᱢᱩᱸ",
+      "sat_devanagari": "मुं",
+      "sat_odia": "ମୁ",
+      "eng": "Nose",
+      "phonetic": "mun",
+      "category": "Health"
+    },
+    {
+      "id": 113,
+      "hin": "मुंह",
+      "sat_olchiki": "ᱢᱚᱪᱟ",
+      "sat_devanagari": "मचा",
+      "sat_odia": "ମଚା",
+      "eng": "Mouth",
+      "phonetic": "mocha",
+      "category": "Health"
+    },
+    {
+      "id": 114,
+      "hin": "दांत",
+      "sat_olchiki": "ᱰᱟᱴᱟ",
+      "sat_devanagari": "डाटा",
+      "sat_odia": "ଡାଟା",
+      "eng": "Tooth / Teeth",
+      "phonetic": "data",
+      "category": "Health"
+    },
+    {
+      "id": 115,
+      "hin": "हाथ",
+      "sat_olchiki": "ᱛᱤ",
+      "sat_devanagari": "ती",
+      "sat_odia": "ତି",
+      "eng": "Hand",
+      "phonetic": "ti",
+      "category": "Health"
+    },
+    {
+      "id": 116,
+      "hin": "पैर",
+      "sat_olchiki": "ᱡᱟᱝᱜᱟ",
+      "sat_devanagari": "जांगा",
+      "sat_odia": "ଜାଙଗା",
+      "eng": "Leg / Foot",
+      "phonetic": "jangga",
+      "category": "Health"
+    },
+    {
+      "id": 117,
+      "hin": "पेट",
+      "sat_olchiki": "ᱞᱟᱡ",
+      "sat_devanagari": "लाज",
+      "sat_odia": "ଲାଜ",
+      "eng": "Stomach / Belly",
+      "phonetic": "laj",
+      "category": "Health"
+    },
+    {
+      "id": 118,
+      "hin": "दवा / औषधि",
+      "sat_olchiki": "ᱨᱟᱱ",
+      "sat_devanagari": "रान",
+      "sat_odia": "ରାନ",
+      "eng": "Medicine",
+      "phonetic": "ran",
+      "category": "Health"
+    },
+    {
+      "id": 119,
+      "hin": "बीमारी / रोग",
+      "sat_olchiki": "ᱨᱩᱣᱟᱹ / ᱵᱮᱢᱟᱨ",
+      "sat_devanagari": "रुवा / बेमार",
+      "sat_odia": "ରୁୱା / ବେମାର",
+      "eng": "Fever / Illness",
+      "phonetic": "ruwa / bemar",
+      "category": "Health"
+    },
+    {
+      "id": 120,
+      "hin": "स्वच्छता / सफाई",
+      "sat_olchiki": "ᱥᱟᱯᱷᱟ / ᱯᱷᱟᱨᱪᱟ",
+      "sat_devanagari": "साफा / फारचा",
+      "sat_odia": "ସାଫା / ଫାରଚା",
+      "eng": "Cleanliness / Hygiene",
+      "phonetic": "sapha / pharcha",
+      "category": "Health"
+    },
+    {
+      "id": 121,
+      "hin": "साबुन",
+      "sat_olchiki": "ᱥᱟᱵᱚᱱ",
+      "sat_devanagari": "साबन",
+      "sat_odia": "ସାବନ",
+      "eng": "Soap",
+      "phonetic": "sabon",
+      "category": "Health"
+    },
+    {
+      "id": 122,
+      "hin": "हाथ धोना",
+      "sat_olchiki": "ᱛᱤ ᱟᱹᱨᱩᱵ",
+      "sat_devanagari": "ती आरुब",
+      "sat_odia": "ତି ଆରୁବ",
+      "eng": "Wash Hands",
+      "phonetic": "ti arub",
+      "category": "Health"
+    },
+    {
+      "id": 123,
+      "hin": "स्नान / नहाना",
+      "sat_olchiki": "ᱩᱢᱩᱜ",
+      "sat_devanagari": "उमुग",
+      "sat_odia": "ଉମୁଗ",
+      "eng": "To Bathe",
+      "phonetic": "umug",
+      "category": "Health"
+    },
+    {
+      "id": 124,
+      "hin": "मां / माता",
+      "sat_olchiki": "ᱟᱭᱳ / ᱮᱸᱜᱟ",
+      "sat_devanagari": "आयो / एंगा",
+      "sat_odia": "ଆୟୋ / ଏଗା",
+      "eng": "Mother",
+      "phonetic": "ayo / enga",
+      "category": "Family"
+    },
+    {
+      "id": 125,
+      "hin": "पिता / बाप",
+      "sat_olchiki": "ᱵᱟᱵᱟ / ᱟᱯᱟᱛ",
+      "sat_devanagari": "बाबा / आपात",
+      "sat_odia": "ବାବା / ଆପାତ",
+      "eng": "Father",
+      "phonetic": "baba / apat",
+      "category": "Family"
+    },
+    {
+      "id": 126,
+      "hin": "भाई",
+      "sat_olchiki": "ᱵᱚᱭᱦᱟ / ᱫᱟᱫᱟ",
+      "sat_devanagari": "बोइहा / दादा",
+      "sat_odia": "ବୟହା / ଦାଦା",
+      "eng": "Brother",
+      "phonetic": "boyha / dada",
+      "category": "Family"
+    },
+    {
+      "id": 127,
+      "hin": "बहन",
+      "sat_olchiki": "ᱢᱤᱥᱤ / ᱫᱟᱹᱭ",
+      "sat_devanagari": "मिसि / दय",
+      "sat_odia": "ମିସି / ଦାୟ",
+      "eng": "Sister",
+      "phonetic": "misi / day",
+      "category": "Family"
+    },
+    {
+      "id": 128,
+      "hin": "दादा / आजा",
+      "sat_olchiki": "ᱜᱚᱲᱚᱢ ᱵᱟᱵᱟ / ᱦᱟᱲᱟᱢ ᱵᱟ",
+      "sat_devanagari": "गड़म बाबा",
+      "sat_odia": "ଗଡ଼ମ ବାବା / ହାଡ଼ାମ ବା",
+      "eng": "Grandfather",
+      "phonetic": "gorhom baba / harham ba",
+      "category": "Family"
+    },
+    {
+      "id": 129,
+      "hin": "दादी / आजी",
+      "sat_olchiki": "ᱜᱚᱲᱚᱢ ᱟᱭᱳ / ᱵᱩᱰᱷᱤ ᱟᱭᱳ",
+      "sat_devanagari": "गड़म आयो",
+      "sat_odia": "ଗଡ଼ମ ଆୟୋ / ବୁଢି ଆୟୋ",
+      "eng": "Grandmother",
+      "phonetic": "gorhom ayo / budhi ayo",
+      "category": "Family"
+    },
+    {
+      "id": 130,
+      "hin": "बेटा / पुत्र",
+      "sat_olchiki": "ᱦᱚᱯᱚᱱ / ᱠᱚᱲᱟ ᱜᱤᱫᱽᱨᱟᱹ",
+      "sat_devanagari": "हपन",
+      "sat_odia": "ହପନ / କଡ଼ା ଗିଦ୍ରା",
+      "eng": "Son / Boy",
+      "phonetic": "hopon / korha gid'ra",
+      "category": "Family"
+    },
+    {
+      "id": 131,
+      "hin": "बेटी / पुत्री",
+      "sat_olchiki": "ᱦᱚᱯᱚᱱ ᱮᱨᱟ / ᱠᱩᱲᱤ ᱜᱤᱫᱽᱨᱟᱹ",
+      "sat_devanagari": "हपन एरा",
+      "sat_odia": "ହପନ ଏରା / କୁଡ଼ି ଗିଦ୍ରା",
+      "eng": "Daughter / Girl",
+      "phonetic": "hopon era / kurhi gid'ra",
+      "category": "Family"
+    },
+    {
+      "id": 132,
+      "hin": "बच्चा / बालक",
+      "sat_olchiki": "ᱜᱤᱫᱽᱨᱟᱹ",
+      "sat_devanagari": "गिद्रा",
+      "sat_odia": "ଗିଦ୍ରା",
+      "eng": "Child / Baby",
+      "phonetic": "gid'ra",
+      "category": "Family"
+    },
+    {
+      "id": 133,
+      "hin": "दोस्त / मित्र",
+      "sat_olchiki": "ᱜᱟᱛᱮ / ᱡᱚᱴᱟᱣ",
+      "sat_devanagari": "गाते / जटाव",
+      "sat_odia": "ଗାତେ / ଜଟାୱ",
+      "eng": "Friend",
+      "phonetic": "gate / jotaw",
+      "category": "Family"
+    },
+    {
+      "id": 134,
+      "hin": "घर / गृह",
+      "sat_olchiki": "ᱚᱲᱟᱜ",
+      "sat_devanagari": "अड़ाग",
+      "sat_odia": "ଅଡ଼ାଗ",
+      "eng": "Home / House",
+      "phonetic": "orhag",
+      "category": "Family"
+    },
+    {
+      "id": 135,
+      "hin": "गांव / ग्राम",
+      "sat_olchiki": "ᱟᱹᱛᱩ",
+      "sat_devanagari": "अतु",
+      "sat_odia": "ଆତୁ",
+      "eng": "Village",
+      "phonetic": "atu",
+      "category": "Family"
+    },
+    {
+      "id": 136,
+      "hin": "सोहराय (पर्व)",
+      "sat_olchiki": "ᱥᱚᱦᱨᱟᱭ",
+      "sat_devanagari": "सोहराय",
+      "sat_odia": "ସହରାୟ",
+      "eng": "Sohrai Harvest Festival",
+      "phonetic": "sohray",
+      "category": "Culture"
+    },
+    {
+      "id": 137,
+      "hin": "बाहा (फूल पर्व)",
+      "sat_olchiki": "ᱵᱟᱦᱟ ᱯᱚᱨᱚᱵ",
+      "sat_devanagari": "बाहा परब",
+      "sat_odia": "ବାହା ପରବ",
+      "eng": "Baha Flower Festival",
+      "phonetic": "baha porob",
+      "category": "Culture"
+    },
+    {
+      "id": 138,
+      "hin": "करम (पर्व)",
+      "sat_olchiki": "ᱠᱟᱨᱟᱢ",
+      "sat_devanagari": "काराम",
+      "sat_odia": "କାରାମ",
+      "eng": "Karam Festival",
+      "phonetic": "karam",
+      "category": "Culture"
+    },
+    {
+      "id": 139,
+      "hin": "माघे (पर्व)",
+      "sat_olchiki": "ᱢᱟᱜᱷᱮ",
+      "sat_devanagari": "माघे",
+      "sat_odia": "ମାଘେ",
+      "eng": "Maghe Festival",
+      "phonetic": "maghe",
+      "category": "Culture"
+    },
+    {
+      "id": 140,
+      "hin": "सकरात (पर्व)",
+      "sat_olchiki": "ᱥᱟᱠᱨᱟᱛ",
+      "sat_devanagari": "साकरात",
+      "sat_odia": "ସାକରାତ",
+      "eng": "Sakrat Festival",
+      "phonetic": "sakrat",
+      "category": "Culture"
+    },
+    {
+      "id": 141,
+      "hin": "मांदर / तुमदाक (वाद्य)",
+      "sat_olchiki": "ᱛᱩᱢᱫᱟᱜ",
+      "sat_devanagari": "तुमदाग",
+      "sat_odia": "ତୁମଦାଗ",
+      "eng": "Tumdak (Traditional Drum)",
+      "phonetic": "tumdag",
+      "category": "Culture"
+    },
+    {
+      "id": 142,
+      "hin": "टमक / नगाड़ा",
+      "sat_olchiki": "ᱴᱟᱢᱟᱠ",
+      "sat_devanagari": "टामाक",
+      "sat_odia": "ଟାମାକ",
+      "eng": "Tamak (Kettle Drum)",
+      "phonetic": "tamak",
+      "category": "Culture"
+    },
+    {
+      "id": 143,
+      "hin": "बांसुरी",
+      "sat_olchiki": "ᱛᱤᱨᱤᱭᱚ",
+      "sat_devanagari": "तिरियो",
+      "sat_odia": "ତିରିୟ",
+      "eng": "Tirio (Bamboo Flute)",
+      "phonetic": "tiriyo",
+      "category": "Culture"
+    },
+    {
+      "id": 144,
+      "hin": "नृत्य / नाच",
+      "sat_olchiki": "ᱮᱱᱮᱡ",
+      "sat_devanagari": "एनेज",
+      "sat_odia": "ଏନେଜ",
+      "eng": "Dance",
+      "phonetic": "enej",
+      "category": "Culture"
+    },
+    {
+      "id": 145,
+      "hin": "गीत / गान",
+      "sat_olchiki": "ᱥᱮᱨᱮᱧ",
+      "sat_devanagari": "सेरेञ",
+      "sat_odia": "ସେରେଞ",
+      "eng": "Song / Music",
+      "phonetic": "sereny",
+      "category": "Culture"
+    },
+    {
+      "id": 146,
+      "hin": "माझी हड़ाम (ग्राम प्रधान)",
+      "sat_olchiki": "ᱢᱟᱹᱡᱷᱤ ᱦᱟᱲᱟᱢ",
+      "sat_devanagari": "मांझी हाड़ाम",
+      "sat_odia": "ମାଝି ହାଡ଼ାମ",
+      "eng": "Manjhi Haram (Village Headman)",
+      "phonetic": "majhi harham",
+      "category": "Culture"
+    },
+    {
+      "id": 147,
+      "hin": "नायके (ग्राम पुरोहित)",
+      "sat_olchiki": "ᱱᱟᱭᱠᱮ",
+      "sat_devanagari": "नायके",
+      "sat_odia": "ନାୟକେ",
+      "eng": "Naike (Village Priest)",
+      "phonetic": "nayke",
+      "category": "Culture"
+    },
+    {
+      "id": 148,
+      "hin": "जाहिर थान (पवित्र स्थल)",
+      "sat_olchiki": "ᱡᱟᱦᱮᱨ ᱛᱷᱟᱱ",
+      "sat_devanagari": "जाहेर थान",
+      "sat_odia": "ଜାହେର ଥାନ",
+      "eng": "Jaher Than (Sacred Grove)",
+      "phonetic": "jaher than",
+      "category": "Culture"
+    },
+    {
+      "id": 149,
+      "hin": "आना",
+      "sat_olchiki": "ᱦᱤᱡᱩᱜ",
+      "sat_devanagari": "हिजुग",
+      "sat_odia": "ହିଜୁଗ",
+      "eng": "To Come",
+      "phonetic": "hijug",
+      "category": "Verbs"
+    },
+    {
+      "id": 150,
+      "hin": "जाना",
+      "sat_olchiki": "ᱥᱮᱱᱚᱜ / ᱪᱟᱞᱟᱜ",
+      "sat_devanagari": "सेनग / चालाग",
+      "sat_odia": "ସେନଗ / ଚାଲାଗ",
+      "eng": "To Go",
+      "phonetic": "senog / chalag",
+      "category": "Verbs"
+    },
+    {
+      "id": 151,
+      "hin": "खाना",
+      "sat_olchiki": "ᱡᱚᱢ",
+      "sat_devanagari": "जम",
+      "sat_odia": "ଜମ",
+      "eng": "To Eat",
+      "phonetic": "jom",
+      "category": "Verbs"
+    },
+    {
+      "id": 152,
+      "hin": "पीना",
+      "sat_olchiki": "ᱧᱩ",
+      "sat_devanagari": "ञु",
+      "sat_odia": "ଞୁ",
+      "eng": "To Drink",
+      "phonetic": "nyu",
+      "category": "Verbs"
+    },
+    {
+      "id": 153,
+      "hin": "सोना",
+      "sat_olchiki": "ᱡᱟᱹᱯᱤᱫ / ᱜᱤᱛᱤᱡ",
+      "sat_devanagari": "जापिद",
+      "sat_odia": "ଜାପିଦ / ଗିତିଜ",
+      "eng": "To Sleep",
+      "phonetic": "japid / gitij",
+      "category": "Verbs"
+    },
+    {
+      "id": 154,
+      "hin": "जागना / उठना",
+      "sat_olchiki": "ᱵᱮᱨᱮᱫ",
+      "sat_devanagari": "बेरेद",
+      "sat_odia": "ବେରେଦ",
+      "eng": "To Wake up / Rise",
+      "phonetic": "bered",
+      "category": "Verbs"
+    },
+    {
+      "id": 155,
+      "hin": "खेलना",
+      "sat_olchiki": "ᱮᱱᱮᱡ / ᱜᱟᱛᱮ",
+      "sat_devanagari": "एनेज",
+      "sat_odia": "ଏନେଜ / ଗାତେ",
+      "eng": "To Play",
+      "phonetic": "enej / gate",
+      "category": "Verbs"
+    },
+    {
+      "id": 156,
+      "hin": "दौड़ना",
+      "sat_olchiki": "ᱫᱟᱹᱲ",
+      "sat_devanagari": "दाड़",
+      "sat_odia": "ଦାଡ଼",
+      "eng": "To Run",
+      "phonetic": "darh",
+      "category": "Verbs"
+    },
+    {
+      "id": 157,
+      "hin": "हंसना",
+      "sat_olchiki": "ᱞᱟᱸᱫᱟ",
+      "sat_devanagari": "लांदा",
+      "sat_odia": "ଲାଦା",
+      "eng": "To Laugh / Smile",
+      "phonetic": "landa",
+      "category": "Verbs"
+    },
+    {
+      "id": 158,
+      "hin": "रोना",
+      "sat_olchiki": "ᱨᱟᱜ",
+      "sat_devanagari": "राग",
+      "sat_odia": "ରାଗ",
+      "eng": "To Cry",
+      "phonetic": "rag",
+      "category": "Verbs"
+    },
+    {
+      "id": 159,
+      "hin": "बोलना / कहना",
+      "sat_olchiki": "ᱨᱚᱲ / ᱢᱮᱱ",
+      "sat_devanagari": "रड़ / मेन",
+      "sat_odia": "ରଡ଼ / ମେନ",
+      "eng": "To Speak / Say",
+      "phonetic": "rorh / men",
+      "category": "Verbs"
+    },
+    {
+      "id": 160,
+      "hin": "सुनना",
+      "sat_olchiki": "ᱟᱸᱡᱚᱢ",
+      "sat_devanagari": "आंजम",
+      "sat_odia": "ଆଜମ",
+      "eng": "To Listen / Hear",
+      "phonetic": "anjom",
+      "category": "Verbs"
+    },
+    {
+      "id": 161,
+      "hin": "देखना",
+      "sat_olchiki": "ᱧᱮᱞ",
+      "sat_devanagari": "ञेल",
+      "sat_odia": "ଞେଲ",
+      "eng": "To See / Watch",
+      "phonetic": "nyel",
+      "category": "Verbs"
+    },
+    {
+      "id": 162,
+      "hin": "देना",
+      "sat_olchiki": "ᱮᱢ",
+      "sat_devanagari": "एम",
+      "sat_odia": "ଏମ",
+      "eng": "To Give",
+      "phonetic": "em",
+      "category": "Verbs"
+    },
+    {
+      "id": 163,
+      "hin": "लेना",
+      "sat_olchiki": "ᱦᱟᱛᱟᱣ",
+      "sat_devanagari": "हाताव",
+      "sat_odia": "ହାତାୱ",
+      "eng": "To Take",
+      "phonetic": "hataw",
+      "category": "Verbs"
+    },
+    {
+      "id": 164,
+      "hin": "बैठना",
+      "sat_olchiki": "ᱫᱩᱲᱩᱵ",
+      "sat_devanagari": "दुरुब",
+      "sat_odia": "ଦୁଡ଼ୁବ",
+      "eng": "To Sit",
+      "phonetic": "durhub",
+      "category": "Verbs"
+    },
+    {
+      "id": 165,
+      "hin": "खड़े होना",
+      "sat_olchiki": "ᱛᱤᱸᱜᱩ",
+      "sat_devanagari": "तिंगु",
+      "sat_odia": "ତିଗୁ",
+      "eng": "To Stand",
+      "phonetic": "tingu",
+      "category": "Verbs"
+    }
+  ],
+  "numerals": [
+    {
+      "digit": 0,
+      "olchiki": "᱐",
+      "odia": "୦",
+      "deva": "०",
+      "hin": "शून्य",
+      "eng": "Zero",
+      "sat_name": "ᱥᱩᱱ"
+    },
+    {
+      "digit": 1,
+      "olchiki": "᱑",
+      "odia": "୧",
+      "deva": "१",
+      "hin": "एक",
+      "eng": "One",
+      "sat_name": "ᱢᱤᱫ"
+    },
+    {
+      "digit": 2,
+      "olchiki": "᱒",
+      "odia": "୨",
+      "deva": "२",
+      "hin": "दो",
+      "eng": "Two",
+      "sat_name": "ᱵᱟᱨ"
+    },
+    {
+      "digit": 3,
+      "olchiki": "᱓",
+      "odia": "୩",
+      "deva": "३",
+      "hin": "तीन",
+      "eng": "Three",
+      "sat_name": "ᱯᱮ"
+    },
+    {
+      "digit": 4,
+      "olchiki": "᱔",
+      "odia": "୪",
+      "deva": "४",
+      "hin": "चार",
+      "eng": "Four",
+      "sat_name": "ᱯᱩᱱ"
+    },
+    {
+      "digit": 5,
+      "olchiki": "᱕",
+      "odia": "୫",
+      "deva": "५",
+      "hin": "पांच",
+      "eng": "Five",
+      "sat_name": "ᱢᱚᱬᱮ"
+    },
+    {
+      "digit": 6,
+      "olchiki": "᱖",
+      "odia": "୬",
+      "deva": "६",
+      "hin": "छह",
+      "eng": "Six",
+      "sat_name": "ᱛᱩᱨᱩᱭ"
+    },
+    {
+      "digit": 7,
+      "olchiki": "᱗",
+      "odia": "୭",
+      "deva": "७",
+      "hin": "सात",
+      "eng": "Seven",
+      "sat_name": "ᱮᱭᱟᱭ"
+    },
+    {
+      "digit": 8,
+      "olchiki": "᱘",
+      "odia": "୮",
+      "deva": "८",
+      "hin": "आठ",
+      "eng": "Eight",
+      "sat_name": "ᱤᱨᱟᱹᱞ"
+    },
+    {
+      "digit": 9,
+      "olchiki": "᱙",
+      "odia": "୯",
+      "deva": "९",
+      "hin": "नौ",
+      "eng": "Nine",
+      "sat_name": "ᱟᱨᱮ"
+    }
+  ]
+}

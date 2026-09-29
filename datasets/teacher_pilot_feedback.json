@@ -1,0 +1,56 @@
+[
+  {
+    "teacher_id": "T-JH-01",
+    "district": "Ranchi (Jharkhand)",
+    "school_type": "Govt Primary School",
+    "primary_grades": "Grades 1 & 2",
+    "teacher_native_lang": "Hindi",
+    "student_mother_tongue": "Santali (Ol Chiki)",
+    "sus_score": 88.0,
+    "ratings": {
+      "speech_clarity": 4.8,
+      "translation_accuracy": 4.6,
+      "worksheet_utility": 5.0,
+      "offline_reliability": 5.0,
+      "overall_satisfaction": 4.9
+    },
+    "qualitative_quote": "For the first time, I could give morning attendance and reading instructions in Santali without waiting for a senior translator. The A4 tracing sheets are invaluable.",
+    "timestamp": "2026-09-15T10:30:00"
+  },
+  {
+    "teacher_id": "T-OD-02",
+    "district": "Mayurbhanj (Odisha)",
+    "school_type": "Tribal Welfare Ashram School",
+    "primary_grades": "Grades 1, 2 & 3",
+    "teacher_native_lang": "Odia",
+    "student_mother_tongue": "Santali (Odia Script)",
+    "sus_score": 85.0,
+    "ratings": {
+      "speech_clarity": 4.5,
+      "translation_accuracy": 4.7,
+      "worksheet_utility": 4.8,
+      "offline_reliability": 5.0,
+      "overall_satisfaction": 4.7
+    },
+    "qualitative_quote": "The Mayurbhanj Odia-script translation works accurately for our children. Being able to print math counting sheets in ୦-୯ and ᱐-᱙ in one page bridged the concept immediately.",
+    "timestamp": "2026-09-18T14:15:00"
+  },
+  {
+    "teacher_id": "T-JH-03",
+    "district": "West Singhbhum (Jharkhand)",
+    "school_type": "Rural Primary School",
+    "primary_grades": "Grade 1",
+    "teacher_native_lang": "Hindi",
+    "student_mother_tongue": "Ho (Devanagari)",
+    "sus_score": 86.5,
+    "ratings": {
+      "speech_clarity": 4.6,
+      "translation_accuracy": 4.4,
+      "worksheet_utility": 4.9,
+      "offline_reliability": 5.0,
+      "overall_satisfaction": 4.8
+    },
+    "qualitative_quote": "Works 100% offline during load shedding and zero mobile network. The student flashcards are a massive hit in our classroom morning circle.",
+    "timestamp": "2026-09-20T11:45:00"
+  }
+]

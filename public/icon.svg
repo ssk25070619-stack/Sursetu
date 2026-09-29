@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="50%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="petalGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+    <linearGradient id="petalGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Circle -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  <circle cx="256" cy="256" r="236" fill="none" stroke="#10b981" stroke-width="6" opacity="0.35" />
+
+  <!-- Palash Flower Petals Motif (Flame of the Forest / Butea monosperma) -->
+  <g transform="translate(256, 260) scale(1.15)">
+    <!-- Back leaf left -->
+    <path d="M0,0 C-80,-40 -120,-120 -80,-180 C-40,-150 0,-90 0,0 Z" fill="url(#petalGrad2)" opacity="0.85" />
+    <!-- Back leaf right -->
+    <path d="M0,0 C80,-40 120,-120 80,-180 C40,-150 0,-90 0,0 Z" fill="url(#petalGrad2)" opacity="0.85" />
+    <!-- Central Palash Flame Petal -->
+    <path d="M0,20 C-60,-20 -90,-110 0,-190 C90,-110 60,-20 0,20 Z" fill="url(#petalGrad1)" filter="url(#glow)" />
+    <!-- Inner Flame Highlight -->
+    <path d="M0,10 C-35,-15 -50,-80 0,-145 C50,-80 35,-15 0,10 Z" fill="#fef08a" opacity="0.9" />
+
+    <!-- Ol Chiki glyph "ᱯ" (Pa for Palash / ᱯᱟᱞᱟᱥ) -->
+    <text x="0" y="-45" font-family="'Noto Sans Ol Chiki', sans-serif" font-size="52" font-weight="bold" fill="#022c22" text-anchor="middle" dominant-baseline="middle">ᱯ</text>
+  </g>
+
+  <!-- Base Bridge Arch (Setu - सेतु) -->
+  <path d="M120,390 Q256,330 392,390" fill="none" stroke="#34d399" stroke-width="12" stroke-linecap="round" />
+  <path d="M140,415 Q256,365 372,415" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" opacity="0.8" />
+
+  <!-- Title Monogram -->
+  <text x="256" y="460" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="28" font-weight="800" fill="#ecfdf5" letter-spacing="4" text-anchor="middle">PALASH SETU</text>
+</svg>

@@ -1,0 +1,166 @@
+﻿ID,Hindi,Santali_OlChiki,Santali_Odia,Santali_Devanagari,English,Phonetic,Category
+1,नमस्ते,ᱡᱚᱦᱟᱨ,ଜହାର,जोहार,Hello / Greetings,johar,Greetings
+2,सबको जोहार,ᱥᱟᱱᱟᱢ ᱠᱚ ᱡᱚᱦᱟᱨ,ସାନାମ କ ଜହାର,सनाम को जोहार,Greetings to everyone,sanam ko johar,Greetings
+3,धन्यवाद,ᱥᱟᱨᱦᱟᱣ,ସାରହାୱ,सरहाव,Thank you,sarhaw,Greetings
+4,स्वागत है,ᱥᱟᱹᱜᱩᱱ ᱫᱟᱨᱟᱢ,ସାଗୁନ ଦାରାମ,सगुन दाराम,Welcome,sagun daram,Greetings
+5,शुभ प्रभात,ᱥᱟᱹᱜᱩᱱ ᱥᱮᱛᱟᱜ,ସାଗୁନ ସେତାଗ,सगुन सेताग,Good Morning,sagun setag,Greetings
+6,शुभ संध्या,ᱥᱟᱹᱜᱩᱱ ᱟᱹᱭᱩᱵ,ସାଗୁନ ଆୟୁବ,सगुन अयुब,Good Evening,sagun ayub,Greetings
+7,शुभ रात्रि,ᱥᱟᱹᱜᱩᱱ ᱧᱤᱫᱟᱹ,ସାଗୁନ ଞିଦା,सगुन ञिदा,Good Night,sagun nyida,Greetings
+8,अलविदा / फिर मिलेंगे,ᱟᱨᱦᱚᱸ ᱵᱚᱱ ᱧᱟᱯᱟᱢᱟ,ଆରହ ବନ ଞାପାମା,आरहों बोन ञापाम,See you again / Goodbye,arhon bon nyapama,Greetings
+9,कृपया,ᱫᱟᱭᱟ ᱠᱟᱛᱮ,ଦାୟା କାତେ,दया काते,Please,daya kate,Greetings
+10,माफ कीजिए,ᱤᱠᱟᱹ ᱠᱟᱹᱧ ᱢᱮ,ଇକା କାଞ ମେ,इकय कञ मे,Excuse me / Forgive me,ika kany me,Greetings
+11,शिक्षक,ᱢᱟᱪᱮᱛ,ମାଚେତ,माचेत,Teacher (Male),machet,School
+12,शिक्षिका,ᱢᱟᱪᱮᱛᱟᱹᱱᱤ,ମାଚେତାନି,माचेतनि,Teacher (Female),machetani,School
+13,छात्र,ᱪᱮᱛᱮᱫᱤᱭᱟᱹ,ଚେତେଦିୟା,चेतेदिया,Student (Male),chetediya,School
+14,छात्रा,ᱪᱮᱛᱮᱫᱤᱭᱟᱹᱱᱤ,ଚେତେଦିୟାନି,चेतेदियनि,Student (Female),chetediyani,School
+15,स्कूल / विद्यालय,ᱤᱛᱩᱱ ᱟᱥᱲᱟ,ଇତୁନ ଆସଡ଼ା,इतुन असड़ा,School,itun asrha,School
+16,कक्षा / वर्ग,ᱠᱞᱟᱥ / ᱪᱟᱱᱟᱪ,କଲାସ / ଚାନାଚ,कलास / चानाच,Class / Classroom,klas / chanach,School
+17,किताब / पुस्तक,ᱯᱩᱛᱷᱤ,ପୁଥି,पुथि,Book,puthi,School
+18,कलम / पेन,ᱠᱚᱞᱚᱢ,କଲମ,कलम,Pen,kolom,School
+19,पेंसिल,ᱯᱮᱱᱥᱤᱞ,ପେନସିଲ,पेन्सिल,Pencil,pensil,School
+20,कापी / अभ्यास पुस्तिका,ᱚᱞ ᱯᱩᱛᱷᱤ,ଅଲ ପୁଥି,अल पुथि,Notebook / Exercise book,ol puthi,School
+21,श्यामपट्ट / ब्लैकबोर्ड,ᱵᱞᱮᱠᱵᱳᱨᱰ / ᱦᱮᱸᱫᱮ ᱯᱟᱴᱟ,ବଲେକବୋରଡ / ହେଦେ ପାଟା,हेंदे पाटा,Blackboard,blekbord / hende pata,School
+22,खड़िया / चॉक,ᱪᱚᱠ,ଚକ,चक,Chalk,chok,School
+23,गणित / अंक,ᱞᱮᱠᱷᱟ,ଲେଖା,लेखा,Mathematics / Count,lekha,School
+24,भाषा,ᱯᱟᱹᱨᱥᱤ,ପାରସି,परसि,Language,parsi,School
+25,मातृभाषा,ᱡᱟᱱᱟᱢ ᱯᱟᱹᱨᱥᱤ,ଜାନାମ ପାରସି,जानाम परसि,Mother Tongue,janam parsi,School
+26,पढ़ना,ᱯᱟᱲᱦᱟᱣ,ପାଡ଼ହାୱ,पाड़हाव,To Read / Study,parhhaw,School
+27,लिखना,ᱚᱞ,ଅଲ,अल,To Write,ol,School
+28,सीखना,ᱪᱮᱫ,ଚେଦ,चेद,To Learn,ched,School
+29,सिखाना,ᱪᱮᱫ ᱟᱫᱮ,ଚେଦ ଆଦେ,चेद आदे,To Teach,ched ade,School
+30,प्रश्न,ᱠᱩᱠᱞᱤ,କୁକଲି,कुकलि,Question,kukli,School
+31,उत्तर,ᱛᱮᱞᱟ,ତେଲା,तेला,Answer,tela,School
+32,कहानी,ᱠᱟᱹᱦᱱᱤ,କାହନି,काहनि,Story,kahni,School
+33,कविता / गीत,ᱥᱮᱨᱮᱧ,ସେରେଞ,सेरेञ,Poem / Song,sereny,School
+34,शून्य,ᱥᱩᱱ,ସୁନ,सुन,Zero,sun,Math
+35,एक,ᱢᱤᱫ,ମିଦ,मिद,One,mid,Math
+36,दो,ᱵᱟᱨ,ବାର,बार,Two,bar,Math
+37,तीन,ᱯᱮ,ପେ,पे,Three,pe,Math
+38,चार,ᱯᱩᱱ,ପୁନ,पून,Four,pun,Math
+39,पांच,ᱢᱚᱬᱮ,ମଣେ,मोड़े,Five,mone,Math
+40,छह,ᱛᱩᱨᱩᱭ,ତୁରୁୟ,तुरुय,Six,turuy,Math
+41,सात,ᱮᱭᱟᱭ,ଏୟାୟ,एयाय,Seven,eyay,Math
+42,आठ,ᱤᱨᱟᱹᱞ,ଇରାଲ,इरल,Eight,iral,Math
+43,नौ,ᱟᱨᱮ,ଆରେ,आरे,Nine,are,Math
+44,दस,ᱜᱮᱞ,ଗେଲ,गेल,Ten,gel,Math
+45,बीस,ᱤᱥᱤ / ᱢᱤᱫ ᱤᱥᱤ,ଇସି / ମିଦ ଇସି,इसि,Twenty,isi / mid isi,Math
+46,पचास,ᱢᱚᱬᱮ ᱜᱮᱞ,ମଣେ ଗେଲ,मोड़े गेल,Fifty,mone gel,Math
+47,सौ,ᱥᱟᱭ,ସାୟ,साय,Hundred,say,Math
+48,हज़ार,ᱦᱟᱡᱟᱨ / ᱜᱮᱞ ᱥᱟᱭ,ହାଜାର / ଗେଲ ସାୟ,हाजार,Thousand,hajar / gel say,Math
+49,जोड़ / जमा,ᱢᱮᱥᱟ,ମେସା,मेसा,Addition / Plus,mesa,Math
+50,घटाव,ᱵᱷᱮᱜᱟᱨ / ᱠᱚᱢ,ଭେଗାର / କମ,भेगार,Subtraction / Minus,bhegar / kom,Math
+51,गुणा,ᱜᱟᱵᱟᱬ,ଗାବାଣ,गाबाण,Multiplication,gaban,Math
+52,भाग / विभाजन,ᱦᱟᱹᱴᱤᱧ,ହାଟିଞ,हाटिञ,Division,hatiny,Math
+53,आधा,ᱛᱟᱞᱟ,ତାଲା,ताला,Half,tala,Math
+54,बराबर,ᱥᱚᱢᱟᱱ,ସମାନ,समान,Equal,soman,Math
+55,पानी / जल,ᱫᱟᱜ,ଦାଗ,दाग,Water,dag,Nature
+56,सूरज / सूर्य,ᱥᱤᱝ ᱪᱟᱸᱫᱚ,ସିଙ ଚାଦ,सिंग चांदो,Sun,sing chando,Nature
+57,चांद / चंद्रमा,ᱧᱤᱸᱫᱟᱹ ᱪᱟᱸᱫᱚ,ଞିଦା ଚାଦ,निंदा चांदो,Moon,nyinda chando,Nature
+58,तारे / सितारे,ᱤᱯᱤᱞ,ଇପିଲ,इपिल,Stars,ipil,Nature
+59,आकाश / आसमान,ᱥᱮᱨᱢᱟ,ସେରମା,सेरमा,Sky,serma,Nature
+60,धरती / पृथ्वी,ᱫᱷᱟᱹᱨᱛᱤ / ᱦᱟᱥᱟ,ଧାରତି / ହାସା,धर्ति / हासा,Earth / Land,dharti / hasa,Nature
+61,हवा / वायु,ᱦᱚᱭ,ହୟ,होय,Air / Wind,hoy,Nature
+62,आग / अग्नि,ᱥᱮᱸᱜᱮᱞ,ସେଗେଲ,सेंगेल,Fire,sengel,Nature
+63,पेड़ / वृक्ष,ᱫᱟᱨᱮ,ଦାରେ,दारे,Tree,dare,Nature
+64,पत्ता,ᱥᱟᱠᱟᱢ,ସାକାମ,साकाम,Leaf,sakam,Nature
+65,फूल,ᱵᱟᱦᱟ,ବାହା,बाहा,Flower,baha,Nature
+66,फल,ᱡᱚ,ଜ,जो,Fruit,jo,Nature
+67,जंगल / वन,ᱵᱤᱨ,ବିର,बीर,Forest / Jungle,bir,Nature
+68,पहाड़ / पर्वत,ᱵᱩᱨᱩ,ବୁରୁ,बुरु,Mountain / Hill,buru,Nature
+69,नदी,ᱜᱟᱰᱟ,ଗାଡା,गाडा,River,gada,Nature
+70,तालाब / पोखर,ᱯᱩᱠᱷᱨᱤ / ᱵᱟᱸᱫᱷ,ପୁଖରି / ବାଧ,पुखरि,Pond / Lake,pukhri / bandh,Nature
+71,बारिश / वर्षा,ᱫᱟᱜ ᱡᱟᱹᱲᱤ,ଦାଗ ଜାଡ଼ି,दाग जाड़ि,Rain,dag jarhi,Nature
+72,बादल,ᱨᱤᱢᱤᱞ,ରିମିଲ,रिमिल,Cloud,rimil,Nature
+73,रोशनी / प्रकाश,ᱢᱟᱨᱥᱟᱞ,ମାରସାଲ,मारसाल,Light / Brightness,marsal,Nature
+74,अंधेरा,ᱧᱩᱛ,ଞୁତ,ञुत,Darkness,nyut,Nature
+75,मिट्टी,ᱦᱟᱥᱟ,ହାସା,हासा,Soil / Clay,hasa,Nature
+76,पत्थर / चट्टान,ᱫᱷᱤᱨᱤ,ଧିରି,धिरि,Stone / Rock,dhiri,Nature
+77,गाय,ᱜᱟᱹᱭ,ଗାୟ,गई,Cow,gay,Animals
+78,बैल,ᱰᱟᱝᱜᱽᱨᱟ,ଡାଙଗ୍ରା,डांगरा,Ox / Bull,dangg'ra,Animals
+79,भैंस,ᱠᱟᱰᱟ,କାଡା,काडा,Buffalo,kada,Animals
+80,बकरी,ᱢᱮᱨᱚᱢ,ମେରମ,मेरम,Goat,merom,Animals
+81,भेड़,ᱵᱷᱤᱰᱤ,ଭିଡି,भीडि,Sheep,bhidi,Animals
+82,कुत्ता,ᱥᱮᱛᱟ,ସେତା,सेता,Dog,seta,Animals
+83,बिल्ली,ᱯᱩᱥᱤ,ପୁସି,पुसि,Cat,pusi,Animals
+84,चिड़िया / पक्षी,ᱪᱮᱬᱮ,ଚେଣେ,चेणे,Bird,chene,Animals
+85,मुर्गा,ᱥᱤᱢ ᱥᱟᱺᱰᱤ,ସିମ ସାଡି,सिम सांडी,Rooster,sim sadi,Animals
+86,मुर्गी,ᱥᱤᱢ ᱮᱸᱜᱟ,ସିମ ଏଗା,सिम एंगा,Hen,sim enga,Animals
+87,मछली,ᱦᱟᱹᱠᱩ,ହାକୁ,हाकु,Fish,haku,Animals
+88,हाथी,ᱦᱟᱹᱛᱤ,ହାତି,हाति,Elephant,hati,Animals
+89,बाघ,ᱛᱟᱹᱨᱩᱵ,ତାରୁବ,तारुब,Tiger / Leopard,tarub,Animals
+90,भालू,ᱵᱟᱱᱟ,ବାନା,बाना,Bear,bana,Animals
+91,सांप,ᱵᱤᱧ,ବିଞ,बिञ,Snake,biny,Animals
+92,चींटी,ᱢᱩᱡ,ମୁଜ,मुज,Ant,muj,Animals
+93,मधुमक्खी,ᱧᱮᱞᱮ,ଞେଲେ,ञेले,Honeybee,nyele,Animals
+94,खेत / कृषि भूमि,ᱠᱷᱮᱛ / ᱵᱟᱹᱫᱽ,ଖେତ / ବାଦ୍,खेत / बाद,Field / Farm,khet / bad',Agriculture
+95,हल,ᱱᱟᱦᱮᱞ,ନାହେଲ,नाहेल,Plough,nahel,Agriculture
+96,धान,ᱦᱳᱲᱳ,ହୋଡ଼ୋ,होड़ो,Paddy / Rice crop,horho,Agriculture
+97,चावल,ᱪᱟᱣᱞᱮ,ଚାୱଲେ,चावले,Rice (uncooked),chawle,Agriculture
+98,भात / भोजन,ᱫᱟᱠᱟ,ଦାକା,दाका,Cooked Rice / Meal,daka,Agriculture
+99,गेहूं,ᱜᱩᱦᱩᱢ,ଗୁହୁମ,गुहुम,Wheat,guhum,Agriculture
+100,मक्का,ᱡᱚᱱᱰᱨᱟ,ଜନଡରା,जनरा,Maize / Corn,jondra,Agriculture
+101,सब्जी,ᱩᱛᱩ,ଉତୁ,उतु,Vegetable / Curry,utu,Agriculture
+102,दाल,ᱫᱟᱹᱞ,ଦାଲ,दाल,Pulses / Lentils,dal,Agriculture
+103,बीज,ᱡᱟᱝ / ᱵᱤᱛᱟᱹ,ଜାଙ / ବିତା,जांग,Seed,jang / bita,Agriculture
+104,फसल काटना,ᱤᱨ,ଇର,इर,Harvest / Reap,ir,Agriculture
+105,बोना / रोपना,ᱨᱚᱦᱚᱭ,ରହୟ,रोहय,To Plant / Sow,rohoy,Agriculture
+106,कुदाल,ᱠᱩᱰᱤ,କୁଡି,कुडि,Spade / Hoe,kudi,Agriculture
+107,हंसिया / दाव,ᱫᱟᱛᱨᱚᱢ,ଦାତରମ,दात्रम,Sickle,datrom,Agriculture
+108,शरीर,ᱦᱚᱲᱢᱚ,ହଡ଼ମ,होड़मो,Body,horhmo,Health
+109,सिर / माथा,ᱵᱚᱦᱚᱜ,ବହଗ,बहग,Head,bohog,Health
+110,आंख,ᱢᱮᱫ,ମେଦ,मेद,Eye,med,Health
+111,कान,ᱞᱩᱛᱩᱨ,ଲୁତୁର,लुंतुर,Ear,lutur,Health
+112,नाक,ᱢᱩᱸ,ମୁ,मुं,Nose,mun,Health
+113,मुंह,ᱢᱚᱪᱟ,ମଚା,मचा,Mouth,mocha,Health
+114,दांत,ᱰᱟᱴᱟ,ଡାଟା,डाटा,Tooth / Teeth,data,Health
+115,हाथ,ᱛᱤ,ତି,ती,Hand,ti,Health
+116,पैर,ᱡᱟᱝᱜᱟ,ଜାଙଗା,जांगा,Leg / Foot,jangga,Health
+117,पेट,ᱞᱟᱡ,ଲାଜ,लाज,Stomach / Belly,laj,Health
+118,दवा / औषधि,ᱨᱟᱱ,ରାନ,रान,Medicine,ran,Health
+119,बीमारी / रोग,ᱨᱩᱣᱟᱹ / ᱵᱮᱢᱟᱨ,ରୁୱା / ବେମାର,रुवा / बेमार,Fever / Illness,ruwa / bemar,Health
+120,स्वच्छता / सफाई,ᱥᱟᱯᱷᱟ / ᱯᱷᱟᱨᱪᱟ,ସାଫା / ଫାରଚା,साफा / फारचा,Cleanliness / Hygiene,sapha / pharcha,Health
+121,साबुन,ᱥᱟᱵᱚᱱ,ସାବନ,साबन,Soap,sabon,Health
+122,हाथ धोना,ᱛᱤ ᱟᱹᱨᱩᱵ,ତି ଆରୁବ,ती आरुब,Wash Hands,ti arub,Health
+123,स्नान / नहाना,ᱩᱢᱩᱜ,ଉମୁଗ,उमुग,To Bathe,umug,Health
+124,मां / माता,ᱟᱭᱳ / ᱮᱸᱜᱟ,ଆୟୋ / ଏଗା,आयो / एंगा,Mother,ayo / enga,Family
+125,पिता / बाप,ᱵᱟᱵᱟ / ᱟᱯᱟᱛ,ବାବା / ଆପାତ,बाबा / आपात,Father,baba / apat,Family
+126,भाई,ᱵᱚᱭᱦᱟ / ᱫᱟᱫᱟ,ବୟହା / ଦାଦା,बोइहा / दादा,Brother,boyha / dada,Family
+127,बहन,ᱢᱤᱥᱤ / ᱫᱟᱹᱭ,ମିସି / ଦାୟ,मिसि / दय,Sister,misi / day,Family
+128,दादा / आजा,ᱜᱚᱲᱚᱢ ᱵᱟᱵᱟ / ᱦᱟᱲᱟᱢ ᱵᱟ,ଗଡ଼ମ ବାବା / ହାଡ଼ାମ ବା,गड़म बाबा,Grandfather,gorhom baba / harham ba,Family
+129,दादी / आजी,ᱜᱚᱲᱚᱢ ᱟᱭᱳ / ᱵᱩᱰᱷᱤ ᱟᱭᱳ,ଗଡ଼ମ ଆୟୋ / ବୁଢି ଆୟୋ,गड़म आयो,Grandmother,gorhom ayo / budhi ayo,Family
+130,बेटा / पुत्र,ᱦᱚᱯᱚᱱ / ᱠᱚᱲᱟ ᱜᱤᱫᱽᱨᱟᱹ,ହପନ / କଡ଼ା ଗିଦ୍ରା,हपन,Son / Boy,hopon / korha gid'ra,Family
+131,बेटी / पुत्री,ᱦᱚᱯᱚᱱ ᱮᱨᱟ / ᱠᱩᱲᱤ ᱜᱤᱫᱽᱨᱟᱹ,ହପନ ଏରା / କୁଡ଼ି ଗିଦ୍ରା,हपन एरा,Daughter / Girl,hopon era / kurhi gid'ra,Family
+132,बच्चा / बालक,ᱜᱤᱫᱽᱨᱟᱹ,ଗିଦ୍ରା,गिद्रा,Child / Baby,gid'ra,Family
+133,दोस्त / मित्र,ᱜᱟᱛᱮ / ᱡᱚᱴᱟᱣ,ଗାତେ / ଜଟାୱ,गाते / जटाव,Friend,gate / jotaw,Family
+134,घर / गृह,ᱚᱲᱟᱜ,ଅଡ଼ାଗ,अड़ाग,Home / House,orhag,Family
+135,गांव / ग्राम,ᱟᱹᱛᱩ,ଆତୁ,अतु,Village,atu,Family
+136,सोहराय (पर्व),ᱥᱚᱦᱨᱟᱭ,ସହରାୟ,सोहराय,Sohrai Harvest Festival,sohray,Culture
+137,बाहा (फूल पर्व),ᱵᱟᱦᱟ ᱯᱚᱨᱚᱵ,ବାହା ପରବ,बाहा परब,Baha Flower Festival,baha porob,Culture
+138,करम (पर्व),ᱠᱟᱨᱟᱢ,କାରାମ,काराम,Karam Festival,karam,Culture
+139,माघे (पर्व),ᱢᱟᱜᱷᱮ,ମାଘେ,माघे,Maghe Festival,maghe,Culture
+140,सकरात (पर्व),ᱥᱟᱠᱨᱟᱛ,ସାକରାତ,साकरात,Sakrat Festival,sakrat,Culture
+141,मांदर / तुमदाक (वाद्य),ᱛᱩᱢᱫᱟᱜ,ତୁମଦାଗ,तुमदाग,Tumdak (Traditional Drum),tumdag,Culture
+142,टमक / नगाड़ा,ᱴᱟᱢᱟᱠ,ଟାମାକ,टामाक,Tamak (Kettle Drum),tamak,Culture
+143,बांसुरी,ᱛᱤᱨᱤᱭᱚ,ତିରିୟ,तिरियो,Tirio (Bamboo Flute),tiriyo,Culture
+144,नृत्य / नाच,ᱮᱱᱮᱡ,ଏନେଜ,एनेज,Dance,enej,Culture
+145,गीत / गान,ᱥᱮᱨᱮᱧ,ସେରେଞ,सेरेञ,Song / Music,sereny,Culture
+146,माझी हड़ाम (ग्राम प्रधान),ᱢᱟᱹᱡᱷᱤ ᱦᱟᱲᱟᱢ,ମାଝି ହାଡ଼ାମ,मांझी हाड़ाम,Manjhi Haram (Village Headman),majhi harham,Culture
+147,नायके (ग्राम पुरोहित),ᱱᱟᱭᱠᱮ,ନାୟକେ,नायके,Naike (Village Priest),nayke,Culture
+148,जाहिर थान (पवित्र स्थल),ᱡᱟᱦᱮᱨ ᱛᱷᱟᱱ,ଜାହେର ଥାନ,जाहेर थान,Jaher Than (Sacred Grove),jaher than,Culture
+149,आना,ᱦᱤᱡᱩᱜ,ହିଜୁଗ,हिजुग,To Come,hijug,Verbs
+150,जाना,ᱥᱮᱱᱚᱜ / ᱪᱟᱞᱟᱜ,ସେନଗ / ଚାଲାଗ,सेनग / चालाग,To Go,senog / chalag,Verbs
+151,खाना,ᱡᱚᱢ,ଜମ,जम,To Eat,jom,Verbs
+152,पीना,ᱧᱩ,ଞୁ,ञु,To Drink,nyu,Verbs
+153,सोना,ᱡᱟᱹᱯᱤᱫ / ᱜᱤᱛᱤᱡ,ଜାପିଦ / ଗିତିଜ,जापिद,To Sleep,japid / gitij,Verbs
+154,जागना / उठना,ᱵᱮᱨᱮᱫ,ବେରେଦ,बेरेद,To Wake up / Rise,bered,Verbs
+155,खेलना,ᱮᱱᱮᱡ / ᱜᱟᱛᱮ,ଏନେଜ / ଗାତେ,एनेज,To Play,enej / gate,Verbs
+156,दौड़ना,ᱫᱟᱹᱲ,ଦାଡ଼,दाड़,To Run,darh,Verbs
+157,हंसना,ᱞᱟᱸᱫᱟ,ଲାଦା,लांदा,To Laugh / Smile,landa,Verbs
+158,रोना,ᱨᱟᱜ,ରାଗ,राग,To Cry,rag,Verbs
+159,बोलना / कहना,ᱨᱚᱲ / ᱢᱮᱱ,ରଡ଼ / ମେନ,रड़ / मेन,To Speak / Say,rorh / men,Verbs
+160,सुनना,ᱟᱸᱡᱚᱢ,ଆଜମ,आंजम,To Listen / Hear,anjom,Verbs
+161,देखना,ᱧᱮᱞ,ଞେଲ,ञेल,To See / Watch,nyel,Verbs
+162,देना,ᱮᱢ,ଏମ,एम,To Give,em,Verbs
+163,लेना,ᱦᱟᱛᱟᱣ,ହାତାୱ,हाताव,To Take,hataw,Verbs
+164,बैठना,ᱫᱩᱲᱩᱵ,ଦୁଡ଼ୁବ,दुरुब,To Sit,durhub,Verbs
+165,खड़े होना,ᱛᱤᱸᱜᱩ,ତିଗୁ,तिंगु,To Stand,tingu,Verbs

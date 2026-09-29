@@ -1,0 +1,11 @@
+{
+  "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "torch_version": "2.5.1+cu121",
+  "cuda_available": true,
+  "total_training_pairs": 155738,
+  "current_epoch": 74,
+  "final_loss": 1.1481,
+  "total_training_time_sec": 7981.0,
+  "final_gpu_temperature_c": 62,
+  "final_vram_usage_mb": 1287
+}

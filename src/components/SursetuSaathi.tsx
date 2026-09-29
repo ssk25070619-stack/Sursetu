@@ -124,7 +124,16 @@ export const SursetuSaathi: React.FC<SursetuSaathiProps> = ({
 
   // Pre-configured classroom prompts tailored by language
   const PROMPTS_BY_LANG: Record<IndigenousLanguage, { label: string; query: string }[]> = {
+    english: [
+      { label: '📋 Grade 1 Multilingual Lesson Plan', query: 'Create a Grade 1 lesson plan for multilingual tribal learners' },
+      { label: '🗣️ Classroom Instructions & Routine Matrix', query: 'How to give bilingual instructions for opening books and circle time' },
+      { label: '🎶 Folk Story: The Forest Bird & Sal Tree', query: 'Tell a bilingual folk story about a bird and a sal tree' },
+      { label: '🔢 Multilingual 1 to 10 Counting Activity', query: 'Activity to teach numbers 1 to 10 across Santali, Ho, and Mundari' },
+      { label: '📊 NIPUN Bharat FLN Oral Assessment Rubric', query: 'Generate NIPUN Bharat oral assessment questions for Grade 1' },
+      { label: '🌸 Baha, Maghe & Sarhul Tribal Heritage Note', query: 'Explain the cultural significance of tribal spring festivals' }
+    ],
     santali: [
+
       { label: '📋 कक्षा 1 संथाली पाठ योजना', query: 'कक्षा 1 के लिए पाठ योजना बनाओ' },
       { label: '🗣️ बच्चों से किताब खोलने को कैसे कहें', query: 'बच्चों से किताब खोलने को कैसे कहें' },
       { label: '🎶 चिड़िया और पेड़ की संथाली कहानी', query: 'चिड़िया और पेड़ की कहानी सुनाओ' },

@@ -1,6 +1,7 @@
 export type TargetScript = 'sat_Olck' | 'sat_Orya' | 'sat_Deva' | 'sat_Latn';
 export type SourceLang = 'hin_Deva' | 'eng_Latn';
-export type IndigenousLanguage = 'santali' | 'ho' | 'mundari';
+export type IndigenousLanguage = 'english' | 'santali' | 'ho' | 'mundari';
+
 
 export interface LanguageConfig {
   id: IndigenousLanguage;

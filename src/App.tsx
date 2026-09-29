@@ -30,8 +30,12 @@ import { rbacService, UserRole, ROLE_CONFIGS } from './services/rbacService';
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(rbacService.isAuthenticated());
   const [activeTab, setActiveTab] = useState<string>(rbacService.getDefaultTab());
-  const [selectedLanguage, setSelectedLanguage] = useState<IndigenousLanguage>('santali');
+  const [selectedLanguage, setSelectedLanguage] = useState<IndigenousLanguage>('english');
   const [currentRole, setCurrentRole] = useState<UserRole>(rbacService.getRole());
+
+
+
+
   const [isLearnModalOpen, setIsLearnModalOpen] = useState<boolean>(false);
   const [isOfflineCacheOpen, setIsOfflineCacheOpen] = useState<boolean>(false);
   const [isRoleSwitchOpen, setIsRoleSwitchOpen] = useState<boolean>(false);

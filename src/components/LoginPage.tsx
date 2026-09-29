@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { UserRole, ROLE_CONFIGS, rbacService, RegisteredAccount, DEMO_DURATION_SECONDS } from '../services/rbacService';
 import { SecurityService } from '../services/securityService';
 import { IndigenousLanguage } from '../types';
-import { SUPPORTED_LANGUAGES } from '../data/languages';
+import { SUPPORTED_LANGUAGES, LOGIN_LOCALIZATION, LoginTranslations } from '../data/languages';
 import { 
   ShieldCheck, 
   GraduationCap, 
@@ -42,15 +42,6 @@ interface LoginPageProps {
   onOpenSupabase?: () => void;
 }
 
-const STUDENT_AVATARS = [
-  { emoji: '🦉', label: 'Wise Owl' },
-  { emoji: '🦜', label: 'Forest Parrot' },
-  { emoji: '🏹', label: 'Birsa Archer' },
-  { emoji: '🐯', label: 'Royal Tiger' },
-  { emoji: '🐘', label: 'Gajraj Elephant' },
-  { emoji: '🌿', label: 'Sal Sprout' }
-];
-
 export const LoginPage: React.FC<LoginPageProps> = ({
   onLoginSuccess,
   selectedLanguage,
@@ -81,6 +72,25 @@ export const LoginPage: React.FC<LoginPageProps> = ({
   const [adminResetError, setAdminResetError] = useState<string>('');
   const [registeredAccounts, setRegisteredAccounts] = useState<RegisteredAccount[]>([]);
 
+  // Get active dictionary translations
+  const loc: LoginTranslations = LOGIN_LOCALIZATION[selectedLanguage] || LOGIN_LOCALIZATION.english;
+
+  const studentAvatars = [
+    { emoji: '🦉', label: loc.avatars.owl },
+    { emoji: '🦜', label: loc.avatars.parrot },
+    { emoji: '🏹', label: loc.avatars.archer },
+    { emoji: '🐯', label: loc.avatars.tiger },
+    { emoji: '🐘', label: loc.avatars.elephant },
+    { emoji: '🌿', label: loc.avatars.sprout }
+  ];
+
+  const gradeOptions = [
+    { id: 'Balvatika', label: loc.grades.balvatika },
+    { id: 'Grade 1', label: loc.grades.grade1 },
+    { id: 'Grade 2', label: loc.grades.grade2 },
+    { id: 'Grade 3', label: loc.grades.grade3 }
+  ];
+
   // Refresh demo & rate limit status periodically
   useEffect(() => {
     const updateStatus = () => {
@@ -93,7 +103,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     return () => clearInterval(interval);
   }, []);
 
-  // Switch form defaults when role changes (Blank fields - No default mock info)
+  // Switch form defaults when role changes
   const handleRoleSelect = (role: UserRole) => {
     setSelectedRole(role);
     setErrorMessage('');
@@ -109,7 +119,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     setName(account.name);
     setSchoolName(account.schoolName);
     setDistrict(account.district);
-    setPin(''); // Security hardening: Never prefill PIN! User must supply PIN.
+    setPin(''); // Security hardening: Never prefill PIN
     if (account.grade) setStudentGrade(account.grade);
     if (account.avatar) setStudentAvatar(account.avatar);
     setErrorMessage('');
@@ -238,7 +248,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     }
   };
 
-
   const formatRemainingTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
@@ -246,7 +255,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
   };
 
   const currentRoleConfig = ROLE_CONFIGS[selectedRole];
-
+  const roleLoc = loc.roles[selectedRole];
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-center items-center py-10 px-4 sm:px-6 relative overflow-hidden font-sans">
@@ -268,19 +277,25 @@ export const LoginPage: React.FC<LoginPageProps> = ({
         <div className="text-center space-y-2">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-semibold shadow-inner">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>SIH 2026 • 100% Offline Edge Native Authentication</span>
+            <span>{loc.badge}</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight flex items-center justify-center gap-3">
             <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent">
-              SurSetu
+              {loc.portalTitle}
             </span>
             <span className="text-2xl sm:text-3xl text-slate-400 font-normal font-olchiki">
-              (ᱥᱩᱨ ᱥᱮᱛᱩ • सुर सेतु)
+              {selectedLanguage === 'santali'
+                ? '(ᱥᱩᱨ ᱥᱮᱛᱩ • सुर सेतु)'
+                : selectedLanguage === 'ho'
+                ? '(ᱦᱳ ᱥᱮᱛᱩ • हो सेतु)'
+                : selectedLanguage === 'mundari'
+                ? '(ᱢᱩᱱᱰᱟᱨᱤ ᱥᱮᱛᱩ • मुण्डारी सेतु)'
+                : '(SurSetu • Indigenous AI)'}
             </span>
           </h1>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
-            Role-Based Access Portal for Mother Tongue-Based Primary Education across Santali, Ho, and Mundari.
+            {loc.portalSubtitle}
           </p>
         </div>
 
@@ -290,7 +305,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             <div className="flex items-center gap-2.5">
               <Lock className="w-4 h-4 text-amber-400 shrink-0" />
               <span>
-                <strong>1-Click Demo Quota Used (1/1 on this device):</strong> Please sign in with your account or register a new offline account below for unlimited access.
+                <strong>{loc.demoBannerLocked.split(':')[0]}:</strong> {loc.demoBannerLocked.split(':')[1] || loc.demoBannerLocked}
               </span>
             </div>
             <button
@@ -298,7 +313,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               onClick={() => setShowDemoLimitModal(true)}
               className="text-amber-300 hover:text-amber-100 underline text-[11px] font-bold shrink-0 cursor-pointer"
             >
-              Reset Details
+              {loc.resetDetails}
             </button>
           </div>
         )}
@@ -309,7 +324,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             <div className="flex items-center gap-2.5">
               <Lock className="w-4 h-4 text-red-400 shrink-0" />
               <span>
-                <strong>Anti-Brute-Force Lockout Active:</strong> Too many failed PIN attempts detected. Login is locked for your security ({rateLimitStatus.remainingSeconds}s cooldown remaining).
+                <strong>{loc.rateLimitLockout}</strong> ({rateLimitStatus.remainingSeconds}s cooldown)
               </span>
             </div>
             <span className="font-mono font-bold text-red-400 bg-red-900/50 px-2 py-0.5 rounded-lg border border-red-500/30">
@@ -323,7 +338,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             <div className="flex items-center gap-2.5">
               <Clock className="w-4 h-4 text-emerald-400 shrink-0 animate-spin" />
               <span>
-                <strong>Active Guest Demo Session:</strong> {formatRemainingTime(demoStatus.remainingSeconds)} remaining. Create a full account to preserve your streaks.
+                <strong>{loc.demoBannerActive}</strong> {formatRemainingTime(demoStatus.remainingSeconds)} remaining.
               </span>
             </div>
             <button
@@ -331,16 +346,16 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               onClick={() => setAuthMode('register')}
               className="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[11px] font-bold hover:bg-emerald-500/30 cursor-pointer"
             >
-              Save Account
+              {loc.saveAccount}
             </button>
           </div>
         )}
-
 
         {/* 3-Persona Bento Selection Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {(['teacher', 'student', 'official'] as UserRole[]).map((role) => {
             const config = ROLE_CONFIGS[role];
+            const pLoc = loc.roles[role];
             const isSelected = selectedRole === role;
             return (
               <div
@@ -363,7 +378,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                     </span>
                     {isSelected ? (
                       <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-bold flex items-center gap-1">
-                        <CheckCircle2 className="w-3 h-3" /> Active Role
+                        <CheckCircle2 className="w-3 h-3" /> {loc.activeRoleLabel}
                       </span>
                     ) : (
                       <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">
@@ -373,19 +388,19 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   </div>
 
                   <h3 className="font-bold text-white text-base sm:text-lg">
-                    {config.title.split('/')[0].trim()}
+                    {pLoc.title}
                   </h3>
                   <p className="text-xs font-semibold text-amber-300 font-olchiki mt-0.5">
-                    {config.nativeTitle}
+                    {pLoc.nativeTitle}
                   </p>
                   <p className="text-xs text-slate-400 mt-2 line-clamp-2">
-                    {config.description}
+                    {pLoc.desc}
                   </p>
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
                   <span className="text-slate-400 font-mono text-[11px]">
-                    {config.allowedTabs.length} Modules Allowed
+                    {config.allowedTabs.length} {loc.modulesAllowed}
                   </span>
                   <button
                     type="button"
@@ -406,13 +421,13 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   >
                     {demoStatus.isLockedOut && !demoStatus.hasActiveSession ? (
                       <>
-                        <Lock className="w-3 h-3 text-amber-500" />
-                        <span>Demo (1/1 Used)</span>
+                        <Lock className="w-3 h-3 text-amber-500/80" />
+                        <span>{loc.demoUsed}</span>
                       </>
                     ) : (
                       <>
                         <Zap className="w-3 h-3 text-amber-400" />
-                        <span>Quick Demo</span>
+                        <span>{loc.quickDemo}</span>
                       </>
                     )}
                   </button>
@@ -430,13 +445,13 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               <div className="flex items-center gap-2">
                 <span className="text-2xl">{currentRoleConfig.icon}</span>
                 <h2 className="text-xl font-bold text-white">
-                  {authMode === 'register' ? 'Register New Offline Account' : `${currentRoleConfig.title} Login`}
+                  {authMode === 'register' ? loc.registerLocalAccountBtn : `${roleLoc.title} - ${loc.authModes.signIn}`}
                 </h2>
               </div>
               <p className="text-xs text-slate-400 mt-1">
                 {authMode === 'register'
-                  ? 'Create an offline local profile saved on this edge device.'
-                  : 'Authenticating on local edge store • Zero cloud connection required.'}
+                  ? loc.registerOfflineNotice
+                  : loc.offlineNotice}
               </p>
             </div>
 
@@ -457,7 +472,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   }`}
                 >
                   <LogIn className="w-3.5 h-3.5" />
-                  <span>Sign In</span>
+                  <span>{loc.authModes.signIn}</span>
                 </button>
                 <button
                   type="button"
@@ -473,14 +488,14 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   }`}
                 >
                   <UserPlus className="w-3.5 h-3.5" />
-                  <span>Create Account</span>
+                  <span>{loc.authModes.createAccount}</span>
                 </button>
               </div>
 
               {/* Language Selector Pill */}
               <div className="flex items-center gap-2 bg-slate-950 p-1.5 rounded-2xl border border-slate-800 text-xs">
                 <Globe className="w-3.5 h-3.5 text-amber-400 ml-1.5" />
-                <span className="text-slate-400 text-[11px] hidden xs:inline">Dialect:</span>
+                <span className="text-slate-400 text-[11px] hidden xs:inline">{loc.dialectLabel}</span>
                 <div className="flex gap-1">
                   {SUPPORTED_LANGUAGES.map((lang) => (
                     <button
@@ -507,9 +522,9 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               <div className="flex items-center justify-between text-xs text-slate-400">
                 <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
                   <Users className="w-3.5 h-3.5" />
-                  Saved Accounts on this Device ({registeredAccounts.length}):
+                  {loc.savedAccountsLabel} ({registeredAccounts.length}):
                 </span>
-                <span className="text-[10px] text-slate-500">1-Tap to Autofill</span>
+                <span className="text-[10px] text-slate-500">{loc.tapToAutofill}</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {registeredAccounts.map((acc) => (
@@ -551,10 +566,10 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               <div className="space-y-4 animate-fade-in">
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                    Pick Your Learning Avatar
+                    {loc.roles.student.pickAvatar}
                   </label>
                   <div className="grid grid-cols-6 gap-2">
-                    {STUDENT_AVATARS.map((av) => (
+                    {studentAvatars.map((av) => (
                       <button
                         key={av.emoji}
                         type="button"
@@ -577,7 +592,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      Student / Learner Name
+                      {loc.roles.student.nameLabel}
                     </label>
                     <div className="relative flex items-center">
                       <User className="w-4 h-4 text-slate-500 absolute left-3.5" />
@@ -585,7 +600,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Enter student / learner name"
+                        placeholder={loc.roles.student.namePlaceholder}
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                         required
                       />
@@ -594,21 +609,21 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      Class / Grade Level
+                      {loc.roles.student.gradeLabel}
                     </label>
                     <div className="grid grid-cols-4 gap-2">
-                      {['Balvatika', 'Grade 1', 'Grade 2', 'Grade 3'].map((g) => (
+                      {gradeOptions.map((g) => (
                         <button
-                          key={g}
+                          key={g.id}
                           type="button"
-                          onClick={() => setStudentGrade(g)}
+                          onClick={() => setStudentGrade(g.id)}
                           className={`py-2 px-1 text-xs rounded-xl border font-semibold transition cursor-pointer ${
-                            studentGrade === g
+                            studentGrade === g.id
                               ? 'bg-amber-500 text-slate-950 border-amber-400 font-bold'
                               : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white'
                           }`}
                         >
-                          {g}
+                          {g.label}
                         </button>
                       ))}
                     </div>
@@ -618,7 +633,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 <div className="p-3.5 rounded-2xl bg-amber-950/30 border border-amber-500/30 flex items-start gap-2.5 text-xs text-amber-300">
                   <Sparkles className="w-4 h-4 shrink-0 text-amber-400 mt-0.5" />
                   <span>
-                    <strong>Child-Safe Mode Active:</strong> Direct access to illustrated bilingual readers, 3D animated flashcards, and gamified tribal quests without complex passwords.
+                    {loc.roles.student.childSafeBadge}
                   </span>
                 </div>
               </div>
@@ -630,7 +645,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      Teacher Full Name
+                      {loc.roles.teacher.nameLabel}
                     </label>
                     <div className="relative flex items-center">
                       <User className="w-4 h-4 text-slate-500 absolute left-3.5" />
@@ -638,7 +653,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Enter registered teacher name"
+                        placeholder={loc.roles.teacher.namePlaceholder}
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                         required
                       />
@@ -647,7 +662,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      School / Ashram Name
+                      {loc.roles.teacher.schoolLabel}
                     </label>
                     <div className="relative flex items-center">
                       <School className="w-4 h-4 text-slate-500 absolute left-3.5" />
@@ -655,7 +670,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type="text"
                         value={schoolName}
                         onChange={(e) => setSchoolName(e.target.value)}
-                        placeholder="Govt. Primary Ashram School"
+                        placeholder={loc.roles.teacher.schoolPlaceholder}
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                       />
                     </div>
@@ -665,7 +680,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      District / Block
+                      {loc.roles.teacher.districtLabel}
                     </label>
                     <div className="relative flex items-center">
                       <MapPin className="w-4 h-4 text-slate-500 absolute left-3.5" />
@@ -673,7 +688,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type="text"
                         value={district}
                         onChange={(e) => setDistrict(e.target.value)}
-                        placeholder="Mayurbhanj / Dumka / Khunti"
+                        placeholder={loc.roles.teacher.districtPlaceholder}
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                       />
                     </div>
@@ -682,7 +697,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
                       <label className="text-xs font-semibold text-slate-300">
-                        {authMode === 'register' ? 'Set 4-Digit Security PIN' : 'Teacher Security PIN'}
+                        {authMode === 'register' ? loc.roles.teacher.setPinLabel : loc.roles.teacher.pinLabel}
                       </label>
                     </div>
                     <div className="relative flex items-center">
@@ -691,7 +706,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type={showPin ? 'text' : 'password'}
                         value={pin}
                         onChange={(e) => setPin(e.target.value)}
-                        placeholder="Enter 4-digit PIN"
+                        placeholder={loc.roles.teacher.pinPlaceholder}
                         maxLength={6}
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-10 py-2.5 text-sm text-white tracking-widest font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                         required
@@ -715,7 +730,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      Official Full Name
+                      {loc.roles.official.nameLabel}
                     </label>
                     <div className="relative flex items-center">
                       <User className="w-4 h-4 text-slate-500 absolute left-3.5" />
@@ -723,7 +738,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Enter official full name"
+                        placeholder={loc.roles.official.namePlaceholder}
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
                         required
                       />
@@ -732,7 +747,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      Designation / Role
+                      {loc.roles.official.designationLabel}
                     </label>
                     <select
                       value={officerRole}
@@ -750,7 +765,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      Administrative District
+                      {loc.roles.official.districtLabel}
                     </label>
                     <div className="relative flex items-center">
                       <MapPin className="w-4 h-4 text-slate-500 absolute left-3.5" />
@@ -758,7 +773,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                         type="text"
                         value={district}
                         onChange={(e) => setDistrict(e.target.value)}
-                        placeholder="e.g. Mayurbhanj / Dumka"
+                        placeholder={loc.roles.official.districtPlaceholder}
                         className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
                       />
                     </div>
@@ -767,7 +782,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
                       <label className="text-xs font-semibold text-slate-300">
-                        {authMode === 'register' ? 'Set 4-Digit Security PIN' : 'Admin Security PIN'}
+                        {authMode === 'register' ? loc.roles.official.setPinLabel : loc.roles.official.pinLabel}
                       </label>
                     </div>
                     <div className="relative flex items-center">
@@ -818,12 +833,19 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                   </>
                 ) : (
                   <>
-                    <span>{authMode === 'register' ? 'Register Local Account' : `Enter ${currentRoleConfig.badge}`}</span>
+                    <span>
+                      {authMode === 'register'
+                        ? loc.registerLocalAccountBtn
+                        : selectedRole === 'teacher'
+                        ? loc.roles.teacher.button
+                        : selectedRole === 'student'
+                        ? loc.roles.student.button
+                        : loc.roles.official.button}
+                    </span>
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}
               </button>
-
 
               {/* 1-Click Demo Button with Quota / Timer Guard */}
               <button
@@ -843,12 +865,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 {demoStatus.isLockedOut && !demoStatus.hasActiveSession ? (
                   <>
                     <Lock className="w-4 h-4 text-amber-500/80" />
-                    <span>Demo (1/1 Used)</span>
+                    <span>{loc.demoUsed}</span>
                   </>
                 ) : (
                   <>
                     <Zap className="w-4 h-4 text-amber-400" />
-                    <span>1-Click Demo</span>
+                    <span>{loc.quickDemo}</span>
                   </>
                 )}
               </button>
@@ -863,7 +885,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
               className="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 hover:underline cursor-pointer"
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>Compare Role Permissions Matrix</span>
+              <span>{loc.bottomLinks.matrix}</span>
             </button>
 
             {onOpenDatabaseGuide && (
@@ -873,7 +895,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 className="flex items-center gap-1.5 text-amber-400 hover:text-amber-300 hover:underline cursor-pointer"
               >
                 <Database className="w-3.5 h-3.5" />
-                <span>Database Connectivity Architecture</span>
+                <span>{loc.bottomLinks.dbArch}</span>
               </button>
             )}
 
@@ -884,7 +906,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 className="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 hover:underline cursor-pointer"
               >
                 <Cloud className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Supabase Cloud Sync</span>
+                <span>{loc.bottomLinks.cloudSync}</span>
               </button>
             )}
           </div>
@@ -932,7 +954,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 className="flex-1 py-3 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg cursor-pointer"
               >
                 <UserPlus className="w-4 h-4" />
-                <span>Create Free Local Account</span>
+                <span>{loc.registerLocalAccountBtn}</span>
               </button>
               <button
                 type="button"
@@ -942,7 +964,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 }}
                 className="py-3 px-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold cursor-pointer"
               >
-                Sign In with PIN
+                {loc.authModes.signIn}
               </button>
             </div>
 
@@ -977,7 +999,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                     <p className="text-red-400 text-[11px]">{adminResetError}</p>
                   )}
                 </form>
-
               </details>
             </div>
           </div>

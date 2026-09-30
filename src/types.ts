@@ -77,7 +77,8 @@ export type PedagogicalIntent =
   | 'STORY_RHYME'
   | 'MATH_NUMERACY'
   | 'ASSESSMENT'
-  | 'CULTURE_FESTIVAL';
+  | 'CULTURE_FESTIVAL'
+  | 'CONCEPT_DOUBT';
 
 export interface AssistantResponse {
   title: string;

@@ -1,4 +1,5 @@
 import { AssistantResponse, PedagogicalIntent, IndigenousLanguage } from '../types';
+import { CURRICULUM_CONCEPTS, CurriculumConcept } from '../data/curriculumConcepts';
 
 interface IntentPattern {
   intent: PedagogicalIntent;
@@ -6,6 +7,10 @@ interface IntentPattern {
 }
 
 const INTENT_PATTERNS: IntentPattern[] = [
+  {
+    intent: 'CONCEPT_DOUBT',
+    keywords: ['भिन्न', 'fraction', '1/2', '1/4', 'प्रतिशत', 'percentage', 'प्रकाश संश्लेषण', 'photosynthesis', 'भौतिक', 'रासायनिक', 'chemical change', 'physical change', 'sandhi', 'samas', 'संधि', 'समास', 'पदक्रम', 'sov', 'concept', 'doubt', 'समझाइए', 'समझाएं', 'कैसे सिखाएं', 'explain concept']
+  },
   {
     intent: 'LESSON_PLAN',
     keywords: ['पाठ योजना', 'lesson plan', 'योजना', 'पीरियड', 'class plan', '15 min', 'nipun plan', 'कक्षा 1', 'कक्षा 2']
@@ -524,6 +529,57 @@ export function generateAssistantResponse(
         suggestedChips = ['🎶 बाहा लोक गीत सुनें', '🃏 संस्कृति फ्लैशकार्ड'];
       }
       break;
+
+    case 'CONCEPT_DOUBT': {
+      const q = query.toLowerCase();
+      const matchedConcept =
+        CURRICULUM_CONCEPTS.find(
+          (c) =>
+            q.includes(c.name.toLowerCase()) ||
+            q.includes(c.slug) ||
+            q.includes(c.nameHindi) ||
+            (c.slug.includes('fraction') && (q.includes('भिन्न') || q.includes('1/2') || q.includes('1/4') || q.includes('fraction'))) ||
+            (c.slug.includes('photosynthesis') && (q.includes('प्रकाश') || q.includes('संश्लेषण') || q.includes('photosynthesis') || q.includes('oxygen'))) ||
+            (c.slug.includes('physical') && (q.includes('भौतिक') || q.includes('रासायनिक') || q.includes('change'))) ||
+            (c.slug.includes('percentage') && (q.includes('प्रतिशत') || q.includes('percentage') || q.includes('%')))
+        ) || CURRICULUM_CONCEPTS[0];
+
+      title = `💡 Pedagogical Concept Bridge: ${matchedConcept.name}`;
+      audioSpeakText = `${matchedConcept.nameHindi} — ${matchedConcept.easyExplanation}`;
+      actionSteps = [
+        `Core Idea: ${matchedConcept.keyIdea}`,
+        `Tactile Activity: ${matchedConcept.reteachMethod}`,
+        `Formative Check: Ask "${matchedConcept.sampleQuestions[0].questionText}"`
+      ];
+
+      replyText = `### 💡 ${matchedConcept.name} (${matchedConcept.nameHindi})
+**विषय (Subject):** ${matchedConcept.subject} | **कक्षा स्तर:** Grade ${matchedConcept.gradeLevel}
+**संताली संज्ञा (Santali):** ${matchedConcept.nameSantaliOlChiki}
+
+---
+
+#### 🌟 सरल बाल-सुलभ व्याख्या (Child-Friendly Explanation):
+> "${matchedConcept.easyExplanation}"
+
+#### 📌 शिक्षक हेतु सुझाव (Teacher Guidance Note):
+${matchedConcept.teacherNote}
+
+#### ⚠️ सामान्य त्रुटि (Common Misconception):
+❌ **भ्रांति:** ${matchedConcept.commonMistake}  
+✅ **सुधार विधि (Reteach):** ${matchedConcept.reteachMethod}
+
+#### 🎯 त्वरित समझ जांच (Quick Check Question):
+- **प्रश्न:** ${matchedConcept.sampleQuestions[0].questionHindi} (*${matchedConcept.sampleQuestions[0].questionSantali}*)
+- **सही उत्तर:** \`${matchedConcept.sampleQuestions[0].correctAnswer}\``;
+
+      suggestedChips = [
+        '📝 इस विषय पर वर्कशीट बनाएं',
+        '🃏 संबंधित फ्लैशकार्ड देखें',
+        '🔢 1 से 10 गिनती अभ्यास',
+        '📋 15 मिनट पाठ योजना'
+      ];
+      break;
+    }
   }
 
   const latency = Math.max(0.25, +(performance.now() - startTime).toFixed(2));

@@ -67,16 +67,29 @@ Santali, Mundari, and Ho belong to the Northern Munda subgroup of the Austroasia
    * **Possessive (*-ak* / ᱟᱜ / ଆଗ):** *Inj-ak* (Mine / My).
    * **Associative (*-saote* / ᱥᱟᱶᱛᱮ / ସାଓତେ):** *Uni-saote* (With him/her).
 
-### B. Multi-Script Phonetic Representation
-Santali is unique in its orthographic multi-script representation:
+### B. Indigenous Script Lineages & Multi-Script Orthography
+The Austroasiatic Munda languages of eastern India possess distinct, culturally significant indigenous writing systems developed by visionary community leaders to preserve native phonology and resist linguistic assimilation:
 
-| Semantic Meaning | English | Standard Hindi | Santali (Ol Chiki) | Santali (Odia Script) |
-|---|---|---|---|---|
-| Water | Water | पानी | **ᱫᱟᱜ** (*Da-k'*) | **ଦାଗ** |
-| School | School | विद्यालय / स्कूल | **ᱟᱥᱲᱟ** (*Asda*) | **ଆସଡ଼ା** |
-| Teacher | Teacher | शिक्षक | **ᱜᱟᱞᱚᱪᱤᱭᱟᱹ** (*Galociya*) | **ଗାଲଚିୟା** |
-| Book | Book | किताब / पुस्तक | **ᱯᱩᱛᱷᱤ** (*Puthi*) | **ପୁଥି** |
-| Village | Village | गाँव | **ᱟᱛᱳ** (*Ato*) | **ଆତୋ** |
+1. **Santali (*Ol Chiki* - ᱚᱞ ᱪᱤᱠᱤ):**
+   * **Creator & Lineage:** Developed in **1925 by Pandit Raghunath Murmu** to capture the 30 distinct phonemes and unique glottal/checked stops (*ahad*, *mu-tuda*, *gahla-tuda*) of Santali.
+   * **Multi-Script Ecosystem:** While Ol Chiki is the official constitutional script (Eighth Schedule), Santali is also widely transcribed in Odia, Devanagari, Bengali, and Latin scripts across state borders.
+
+2. **Ho (*Warang Citi* / Varang Kshiti):**
+   * **Creator & Lineage:** Created in the **mid-20th century by community scholar Guru Kol Lako Bodra** as an integral part of the Ho cultural and linguistic revitalization movement.
+   * **Multi-Script Ecosystem:** In administrative and primary education contexts across Jharkhand and Odisha, Ho is also written using Devanagari, Odia, and Latin alphabets.
+
+3. **Mundari (*Mundari Bani* / Mundari Hisir):**
+   * **Creator & Lineage:** Developed in the **late 20th century by Rohidas Singh Nag** to endow the Mundari language with an authentic, dedicated orthographic identity.
+   * **Multi-Script Ecosystem:** In practical pedagogical use, Mundari is predominantly written in Devanagari (in Jharkhand), alongside Odia, Bengali, and Latin in neighboring diaspora regions.
+
+#### Table: Tripartite Indigenous & Regional Cross-Script Orthographic Matrix
+| Semantic Meaning | English | Standard Hindi | Santali (*Ol Chiki* / Odia) | Ho (*Warang Citi* / Devanagari) | Mundari (*Mundari Bani* / Devanagari) |
+|---|---|---|---|---|---|
+| Water | Water | पानी | **ᱫᱟᱜ** (*Da-k'*) / **ଦାଗ** | **दाः** (*Da'*) | **दाः** (*Da'*) |
+| School | School | विद्यालय / स्कूल | **ᱟᱥᱲᱟ** (*Asda*) / **ଆସଡ଼ା** | **इस्कुल** (*Iskul*) | **इस्कुल** (*Iskul*) |
+| Teacher | Teacher | शिक्षक | **ᱜᱟᱞᱚᱪᱤᱭᱟᱹ** (*Galociya*) / **ଗାଲଚିୟା** | **माछिला** (*Machila*) | **माछिला** (*Machila*) |
+| Book | Book | किताब / पुस्तक | **ᱯᱩᱛᱷᱤ** (*Puthi*) / **ପୁଥି** | **पोथी** (*Pothi*) | **पुथी** (*Puthi*) |
+| Village | Village | गाँव | **ᱟᱛᱳ** (*Ato*) / **ଆତୋ** | **हातु** (*Hatu*) | **हातु** (*Hatu*) |
 
 ### C. Contemporary MTB-MLE Platforms & Competitive Landscape
 Three concurrent open-source platforms address Mother Tongue-Based Multilingual Education (MTB-MLE):

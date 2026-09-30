@@ -1,4 +1,4 @@
-export type TargetScript = 'sat_Olck' | 'sat_Orya' | 'sat_Deva' | 'sat_Latn';
+export type TargetScript = 'sat_Olck' | 'sat_Orya' | 'sat_Deva' | 'sat_Latn' | 'ho_Deva' | 'ho_Wara' | 'mun_Deva' | 'mun_Bani' | 'eng_Latn';
 export type SourceLang = 'hin_Deva' | 'eng_Latn';
 export type IndigenousLanguage = 'english' | 'santali' | 'ho' | 'mundari';
 
@@ -8,26 +8,38 @@ export interface LanguageConfig {
   name: string;
   nativeName: string;
   scriptLabel: string;
+  nativeScript?: string;
+  scriptCreator?: string;
+  scriptHistory?: string;
+  secondaryScripts?: string[];
   shortCode: string;
   region: string;
   icon: string;
   greeting: string;
 }
 
+
 export interface ScriptTransliterations {
   sat_Olck: string;
   sat_Orya: string;
   sat_Deva: string;
   sat_Latn: string;
+  ho_Deva?: string;
+  ho_Wara?: string;
+  mun_Deva?: string;
+  mun_Bani?: string;
+  eng_Latn?: string;
+  hin_Deva?: string;
 }
 
 export interface TranslationResult {
   original_text: string;
   translated_text: string;
   source_language: SourceLang;
-  target_language: TargetScript;
+  target_language: TargetScript | IndigenousLanguage;
+  target_lang_id?: IndigenousLanguage;
   confidence: number;
-  mode: 'EXACT_CORPUS' | 'EXACT_DICTIONARY' | 'LEARNED_MEMORY' | 'SYNTACTIC_COPULAR_SOV' | 'SYNTACTIC_POSSESSIVE' | 'SYNTACTIC_IMPERATIVE' | 'TRIE_CHUNKED_SOV' | 'CONVERSATIONAL_EXACT';
+  mode: 'EXACT_CORPUS' | 'EXACT_DICTIONARY' | 'LEARNED_MEMORY' | 'SYNTACTIC_COPULAR_SOV' | 'SYNTACTIC_POSSESSIVE' | 'SYNTACTIC_IMPERATIVE' | 'TRIE_CHUNKED_SOV' | 'CONVERSATIONAL_EXACT' | 'MULTILINGUAL_EXPANDED';
   provider: string;
   latency_ms: number;
   transliterations: ScriptTransliterations;
@@ -35,6 +47,7 @@ export interface TranslationResult {
   postpositions_applied?: string[];
   ho_equivalent?: string;
   mundari_equivalent?: string;
+  english_equivalent?: string;
 }
 
 export interface VocabItem {

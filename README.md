@@ -1,7 +1,7 @@
-# 🌿 SurSetu (सुर सेतु • ᱥᱩᱨ ᱥᱮᱛᱩ • ସୁର ସᱮତୁ)
+# 🌿 SurSetu (सुर सेतु • ᱥᱩᱨ ᱥᱮᱛᱩ • ସୁର ସେତୁ)
 
 > **Offline-First Indigenous Translation & Primary Education Platform**  
-> Bridging tribal education across Santali (*Ol Chiki* ᱚᱞ ᱪᱤᱠᱤ & *Odia Script* ଓଡ଼ିଆ), Mundari, Ho, Hindi, and English.
+> Bridging tribal education across Austroasiatic Munda languages: **Santali** (*Ol Chiki* ᱚᱞ ᱪᱤᱠᱤ & *Odia*), **Ho** (*Warang Citi* & *Devanagari*), **Mundari** (*Mundari Bani* & *Devanagari*), alongside **Hindi** and **English**.
 
 [![Status](https://img.shields.io/badge/Status-MVP%20/%20Pilot%20Ready-emerald.svg)](http://localhost:8000)
 [![Dict Lookup](https://img.shields.io/badge/Lookup_Latency-<100ms-blue.svg)](http://localhost:8000)
@@ -16,23 +16,29 @@
 1. **🤖 Inbuilt AI Pedagogical Assistant (Sur Saathi • ᱥᱩᱨ ᱥᱟᱛᱷᱤ)**
    - Specialized offline AI teaching co-pilot for non-native Hindi educators.
    - Interactive voice & text chat for instant lesson planning, bilingual storytelling, classroom management commands, and diagnostic assessment questions.
+   - Multi-lingual curriculum prompts tailored for **English (Default)**, **Santali (SAT)**, **Ho (HO)**, and **Mundari (MUN)**.
    - 100% on-device edge intelligence with sub-millisecond response latency and spoken audio feedback.
 
-2. **🎙️ Interactive Speech-to-Text & Translation Studio**
+2. **📜 Indigenous Multi-Script Preservation & Transliteration**
+   - **Santali (*Ol Chiki*):** Created in 1925 by Pandit Raghunath Murmu; supported in Ol Chiki, Odia, Devanagari, and Latin.
+   - **Ho (*Warang Citi*):** Developed by Guru Kol Lako Bodra; supported in Warang Citi, Devanagari, and Odia.
+   - **Mundari (*Mundari Bani*):** Created by Rohidas Singh Nag; supported in Mundari Bani, Devanagari, and Odia.
+
+3. **🎙️ Interactive Speech-to-Text & Translation Studio**
    - Continuous live speech recognition in Hindi and English (Powered by Vosk Edge ASR).
    - Live streaming audio waveform spectrum visualizer with glowing frequency bands.
    - Instant live translation of recognized speech into **Santali (Ol Chiki & Odia Script)**, **Ho**, and **Mundari** via our grammar-aware engine.
 
-3. **🌐 6-Layer Hybrid Rule-Based & Dictionary Engine**
+4. **🌐 6-Layer Hybrid Rule-Based & Dictionary Engine**
    - **72,904+ Parallel Corpus** indexing with $O(1)$ in-memory hash lookup time (0.08ms dictionary index speed; sub-second end-to-end translation pipeline).
-   - Implements native Santali postpositions (*-re*, *-khon*, *-then*, *-ak*, *-ren*, *-saote*).
+   - Implements native Munda agglutinative postpositions (*-re*, *-khon*, *-then*, *-ak*, *-ren*, *-saote*).
    - Custom morphological stemmer and greedy sliding window tokenizer for high-accuracy, explainable rule-based translation without neural hallucinations.
 
-4. **🔍 Mayurbhanj Dialect Language Identification (LID)**
+5. **🔍 Mayurbhanj Dialect Language Identification (LID)**
    - Distinguishes **Santali written in Odia script (`sat`)** from **Standard Odia (`ori`)** with high precision.
    - Bidirectional phonetic script transducer (**Ol Chiki ⇄ Odia Script ⇄ Devanagari**).
 
-5. **📝 NIPUN Bharat FLN Study Material & Flashcard Studio**
+6. **📝 NIPUN Bharat FLN Study Material & Flashcard Studio**
    - Auto-generate 8 distinct educational formats: Math counting (*᱐-᱙* / *୦-୯*), vocabulary matching, 3D interactive flashcard decks, Ol Chiki letter tracing sheets, teacher lesson scripts, action rhymes, and diagnostic assessment cards.
    - 100% offline generation with print-ready A4 PDF layout for rural classrooms.
 

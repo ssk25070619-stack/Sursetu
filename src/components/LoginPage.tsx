@@ -284,14 +284,14 @@ export const LoginPage: React.FC<LoginPageProps> = ({
             <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent">
               {loc.portalTitle}
             </span>
-            <span className="text-2xl sm:text-3xl text-slate-400 font-normal font-olchiki">
+            <span className="text-2xl sm:text-3xl text-slate-400 font-normal">
               {selectedLanguage === 'santali'
                 ? '(ᱥᱩᱨ ᱥᱮᱛᱩ • सुर सेतु)'
                 : selectedLanguage === 'ho'
-                ? '(ᱦᱳ ᱥᱮᱛᱩ • हो सेतु)'
+                ? '(SurSetu • Ho)'
                 : selectedLanguage === 'mundari'
-                ? '(ᱢᱩᱱᱰᱟᱨᱤ ᱥᱮᱛᱩ • मुण्डारी सेतु)'
-                : '(SurSetu • Indigenous AI)'}
+                ? '(SurSetu • Mundari)'
+                : '(Indigenous AI)'}
             </span>
           </h1>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">

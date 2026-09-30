@@ -56,6 +56,20 @@ export const SUPPORTED_LANGUAGES: LanguageConfig[] = [
     region: 'Ranchi, Khunti, Chota Nagpur Plateau',
     icon: '🌾',
     greeting: 'जोहार (Johar! Chilka menama?)'
+  },
+  {
+    id: 'kurukh',
+    name: 'Kurukh',
+    nativeName: 'कुड़ुख़ (Kurux)',
+    scriptLabel: 'Tolong Siki • Devanagari',
+    nativeScript: 'Tolong Siki (ᱛᱚᱞᱚᱝ ᱥᱤᱠᱤ) / Devanagari',
+    scriptCreator: 'Dr. Narayan Oraon (1999)',
+    scriptHistory: 'Invented by Dr. Narayan Oraon in 1999 for the Dravidian Kurukh/Oraon language; officially recognized by the Govt. of Jharkhand.',
+    secondaryScripts: ['Tolong Siki', 'Devanagari', 'Latin'],
+    shortCode: 'KUR',
+    region: 'Gumla, Lohardaga, Latehar, Simdega, Ranchi & Odisha',
+    icon: '🪶',
+    greeting: 'जय धरमे (Jai Dharme / Johar)'
   }
 ];
 
@@ -156,6 +170,25 @@ export const UI_LOCALIZATION: Record<IndigenousLanguage, UILabels> = {
     edgeLatency: '0ms Edge Loopback',
     corpusCount: 'Mundari Multilingual Corpus Active',
     greetingLabel: 'Welcome'
+  },
+  kurukh: {
+    bannerBadge: 'SurSetu • Kurukh',
+    nativeBadge: 'Kurukh (कुड़ुख़ • Tolong Siki)',
+    subTitle: 'Indigenous Language AI & Pedagogical Assistant for Oraon Tribal Belt',
+    learnWord: 'Learn Word',
+    tabs: {
+      speech: 'Speech Studio',
+      translate: '6-Layer Translation Hub',
+      assistant: 'Sur Saathi (AI Co-Pilot)',
+      worksheets: 'NIPUN Bharat FLN Studio',
+      flashcards: '3D Flashcards',
+      tribalQuest: 'Tribal Quest',
+      architecture: 'Architecture & REST API'
+    },
+    offlinePill: '100% Offline Ready',
+    edgeLatency: '0ms Edge Loopback',
+    corpusCount: 'Kurukh Multilingual Corpus Active',
+    greetingLabel: 'जय धरमे'
   }
 };
 
@@ -547,6 +580,90 @@ export const LOGIN_LOCALIZATION: Record<IndigenousLanguage, LoginTranslations> =
       createAccount: 'Create Account'
     },
     dialectLabel: 'Language (Mundari):',
+    savedAccountsLabel: 'Saved Accounts on this Device',
+    tapToAutofill: '1-Tap to Autofill',
+    offlineNotice: 'Authenticating on local edge store • Zero cloud connection required.',
+    registerOfflineNotice: 'Create an offline local profile saved on this edge device.',
+    activeRoleLabel: 'Active Role',
+    modulesAllowed: 'Modules Allowed',
+    quickDemo: 'Quick Demo',
+    demoUsed: 'Demo (1/1 Used)',
+    demoBannerLocked: '1-Click Demo Quota Used (1/1 on this device): Please sign in with your account or register a new offline account below for unlimited access.',
+    demoBannerActive: 'Active Guest Demo Session:',
+    resetDetails: 'Reset Details',
+    saveAccount: 'Save Account',
+    rateLimitLockout: 'Anti-Brute-Force Lockout Active: Too many failed PIN attempts detected. Login is locked for your security.',
+    registerLocalAccountBtn: 'Register Local Account',
+    bottomLinks: {
+      matrix: 'Compare Role Permissions Matrix',
+      dbArch: 'Database Connectivity Architecture',
+      cloudSync: 'Supabase Cloud Sync'
+    },
+    avatars: {
+      owl: 'Wise Owl',
+      parrot: 'Forest Parrot',
+      archer: 'Birsa Archer',
+      tiger: 'Royal Tiger',
+      elephant: 'Gajraj Elephant',
+      sprout: 'Sal Sprout'
+    },
+    grades: {
+      balvatika: 'Balvatika',
+      grade1: 'Grade 1',
+      grade2: 'Grade 2',
+      grade3: 'Grade 3'
+    }
+  },
+  kurukh: {
+    badge: 'SIH 2026 • 100% Offline Edge Native Authentication (Kurukh / Oraon Belt)',
+    portalTitle: 'SurSetu',
+    portalSubtitle: 'Role-Based Access Portal for Mother Tongue-Based Primary Education across Kurukh, Santali, Ho, and Mundari.',
+    roles: {
+      teacher: {
+        title: 'Primary Educator / Teacher',
+        nativeTitle: 'Primary Educator • शिक्षक साथी (Kurukh)',
+        desc: 'Classroom Co-Pilot, Speech-to-Text Translation, NIPUN Bharat Worksheet Studio, Sur Saathi AI Assistant & Continuous Memory.',
+        nameLabel: 'Teacher Full Name',
+        namePlaceholder: 'Enter registered teacher name',
+        schoolLabel: 'School / Ashram Name',
+        schoolPlaceholder: 'Govt. Primary Ashram School',
+        districtLabel: 'District / Block',
+        districtPlaceholder: 'Gumla / Lohardaga / Latehar / Ranchi',
+        pinLabel: 'Teacher Security PIN',
+        setPinLabel: 'Set 4-Digit Security PIN',
+        pinPlaceholder: 'Enter 4-digit PIN',
+        button: 'Enter Teacher Portal'
+      },
+      student: {
+        title: 'Tribal Learner / Student',
+        nativeTitle: 'Tribal Learner • विद्यार्थी (कुड़ुख़)',
+        desc: 'Visual, safe, child-friendly reading, 3D animated flashcards, and gamified tribal quest learning.',
+        pickAvatar: 'Pick Your Learning Avatar',
+        nameLabel: 'Student / Learner Name',
+        namePlaceholder: 'Enter student / learner name',
+        gradeLabel: 'Class / Grade Level',
+        childSafeBadge: 'Child-Safe Mode Active: Direct access to illustrated bilingual readers, 3D animated flashcards, and gamified tribal quests without complex passwords.',
+        button: 'Enter Student Zone'
+      },
+      official: {
+        title: 'Education Official / District Admin',
+        nativeTitle: 'Education Official • ज़िला शिक्षा अधिकारी',
+        desc: 'District administration, NIPUN Bharat FLN learning analytics, school compliance & audit telemetry.',
+        nameLabel: 'Official Full Name',
+        namePlaceholder: 'Enter official full name',
+        designationLabel: 'Designation / Role',
+        districtLabel: 'Administrative District',
+        districtPlaceholder: 'Gumla / Lohardaga / Ranchi',
+        pinLabel: 'Admin Security PIN',
+        setPinLabel: 'Set 4-Digit Security PIN',
+        button: 'Enter Official Portal'
+      }
+    },
+    authModes: {
+      signIn: 'Sign In',
+      createAccount: 'Create Account'
+    },
+    dialectLabel: 'Language (Kurukh):',
     savedAccountsLabel: 'Saved Accounts on this Device',
     tapToAutofill: '1-Tap to Autofill',
     offlineNotice: 'Authenticating on local edge store • Zero cloud connection required.',

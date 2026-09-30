@@ -1,6 +1,6 @@
-export type TargetScript = 'sat_Olck' | 'sat_Orya' | 'sat_Deva' | 'sat_Latn' | 'ho_Deva' | 'ho_Wara' | 'mun_Deva' | 'mun_Bani' | 'eng_Latn';
+export type TargetScript = 'sat_Olck' | 'sat_Orya' | 'sat_Deva' | 'sat_Latn' | 'ho_Deva' | 'ho_Wara' | 'mun_Deva' | 'mun_Bani' | 'kur_Deva' | 'kur_Tolong' | 'eng_Latn';
 export type SourceLang = 'hin_Deva' | 'eng_Latn';
-export type IndigenousLanguage = 'english' | 'santali' | 'ho' | 'mundari';
+export type IndigenousLanguage = 'english' | 'santali' | 'ho' | 'mundari' | 'kurukh';
 
 
 export interface LanguageConfig {
@@ -28,6 +28,8 @@ export interface ScriptTransliterations {
   ho_Wara?: string;
   mun_Deva?: string;
   mun_Bani?: string;
+  kur_Deva?: string;
+  kur_Tolong?: string;
   eng_Latn?: string;
   hin_Deva?: string;
 }
@@ -47,6 +49,7 @@ export interface TranslationResult {
   postpositions_applied?: string[];
   ho_equivalent?: string;
   mundari_equivalent?: string;
+  kurukh_equivalent?: string;
   english_equivalent?: string;
 }
 
@@ -60,6 +63,7 @@ export interface VocabItem {
   santali_latin: string;
   ho?: string;
   mundari?: string;
+  kurukh?: string;
   category: 'school' | 'classroom' | 'nature' | 'animals' | 'family' | 'numbers' | 'actions' | 'body';
   emoji: string;
   phonetic: string;

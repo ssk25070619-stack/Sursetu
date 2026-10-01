@@ -38,6 +38,10 @@ jobs:
         run: |
           python evaluate_baselines.py
 
+      - name: Run Parallel Corpus Verification (72,904 Pairs)
+        run: |
+          python datasets/verify_corpus_dataset.py
+
       - name: Run Primary Education Canonical Linguistic Suite
         run: |
           python test_translation.py
@@ -49,10 +53,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js 20
+      - name: Set up Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '22'
           cache: 'npm'
 
       - name: Install Node Dependencies

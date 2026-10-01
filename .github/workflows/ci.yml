@@ -1,0 +1,68 @@
+name: SurSetu CI & Test Suite
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  python-test-and-benchmark:
+    name: Python Subsystems & Benchmarks Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Master Subsystems Diagnostics (7/7 Audit)
+        run: |
+          python test_all_subsystems.py
+
+      - name: Run Android Edge Latency Benchmark
+        run: |
+          python benchmark_sih_android_edge.py
+
+      - name: Run Comparative Baseline Evaluation
+        run: |
+          python evaluate_baselines.py
+
+      - name: Run Primary Education Canonical Linguistic Suite
+        run: |
+          python test_translation.py
+
+  frontend-build:
+    name: React 19 + TypeScript PWA Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Node Dependencies
+        run: npm ci
+
+      - name: Build Production PWA Bundle
+        run: npm run build
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sursetu-pwa-dist
+          path: dist/

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SurSetu</string>
+    <string name="title_activity_main">SurSetu</string>
+    <string name="package_name">org.sursetu.app</string>
+    <string name="custom_url_scheme">org.sursetu.app</string>
+</resources>

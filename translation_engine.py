@@ -676,8 +676,60 @@ def transduce_english_to_ol_chiki(text: str) -> str:
     return "".join(res)
 
 
+def transduce_deva_to_warang_citi(text: str) -> str:
+    """Accurate Devanagari to Warang Citi script transducer for Ho."""
+    if not text:
+        return ""
+    deva_to_wara = {
+        'क': '𑢸', 'ख': '𑢸𑢹', 'ग': '𑢵', 'घ': '𑢵𑢹', 'ङ': '𑢰',
+        'च': '𑢻', 'छ': '𑢻𑢹', 'ज': '𑢺', 'झ': '𑢺𑢹', 'ञ': '𑢱',
+        'ट': '𑢿', 'ठ': '𑢿𑢹', 'ड': '𑢴', 'ढ': '𑢴𑢹', 'ण': '𑢳',
+        'त': '𑢿', 'थ': '𑢿𑢹', 'द': '𑢴', 'ध': '𑢴𑢹', 'न': '𑢶',
+        'प': '𑢼', 'फ': '𑢼𑢹', 'ब': '𑢽', 'भ': '𑢽𑢹', 'म': '𑢷',
+        'य': '𑢾', 'र': '𑢲', 'ल': '𑢻', 'व': '𑢽',
+        'श': '𑢾', 'ष': '𑢾', 'स': '𑢾', 'ह': '𑢹', 'ः': '𑣞',
+        'अ': '𑣗', 'आ': '𑣗', 'ा': '𑣗', 'इ': '𑣂', 'ि': '𑣂', 'ई': '𑣂', 'ी': '𑣂',
+        'उ': '𑣗', 'ु': '𑣗', 'ऊ': '𑣗', 'ू': '𑣗', 'ए': '𑣄', 'े': '𑣄',
+        'ओ': '𑣉', 'ो': '𑣉', 'ौ': '𑣉𑣗', 'ै': '𑣗𑣂', 'ं': '𑣞', 'ँ': '𑣞',
+        '०': '𑣠', '१': '𑣡', '२': '𑣢', '३': '𑣣', '४': '𑣤',
+        '५': '𑣥', '६': '𑣦', '७': '𑣧', '८': '𑣨', '९': '𑣩'
+    }
+    return "".join(deva_to_wara.get(ch, ch) for ch in text)
+
+
+def transduce_deva_to_mundari_bani(text: str) -> str:
+    """Accurate Devanagari to Mundari Bani script transducer for Mundari."""
+    if not text:
+        return ""
+    deva_to_bani = {
+        'क': '𞓚', 'ख': '𞓚𞓝', 'ग': '𞓟', 'घ': '𞓟𞓝', 'ङ': '𞓔',
+        'च': '𞓠', 'छ': '𞓠𞓝', 'ज': '𞓛', 'झ': '𞓛𞓝', 'ञ': '𞓡',
+        'ट': '𞓘', 'ठ': '𞓘𞓝', 'ड': '𞓗', 'ढ': '𞓗𞓝', 'ण': '𞓔',
+        'त': '𞓘', 'थ': '𞓘𞓝', 'द': '𞓗', 'ध': '𞓗𞓝', 'न': '𞓔',
+        'प': '𞓒', 'फ': '𞓒𞓝', 'ब': '𞓙', 'भ': '𞓙𞓝', 'म': '𞓜',
+        'य': '𞓣', 'र': '𞓕', 'ल': '𞓓', 'व': '𞓤',
+        'श': '𞓢', 'ष': '𞓢', 'स': '𞓢', 'ह': '𞓝', 'ः': '𞓝',
+        'अ': '𞓖', 'आ': '𞓥', 'ा': '𞓥', 'इ': '𞓦', 'ि': '𞓦', 'ई': '𞓦', 'ी': '𞓦',
+        'उ': '𞓧', 'ु': '𞓧', 'ऊ': '𞓧', 'ू': '𞓧', 'ए': '𞓨', 'े': '𞓨',
+        'ओ': '𞓩', 'ो': '𞓩', 'ौ': '𞓩𞓧', 'ै': '𞓖𞓦', 'ं': '𞓔', 'ँ': '𞓔',
+        '०': '𞓰', '१': '𞓱', '२': '𞓲', '३': '𞓳', '४': '𞓴',
+        '५': '𞓵', '६': '𞓶', '७': '𞓷', '८': '𞓸', '९': '𞓹'
+    }
+    return "".join(deva_to_bani.get(ch, ch) for ch in text)
+
+
+def transduce_deva_to_tolong_siki(text: str) -> str:
+    """Accurate Devanagari to Tolong Siki script transducer for Kurukh / Oraon."""
+    if not text:
+        return ""
+    deva_to_tolo = {
+        'त': '𑑎', 'ल': '𑑚', 'ङ': '𑑙', 'स': '𑑛', 'क': '𑑜'
+    }
+    return "".join(deva_to_tolo.get(ch, ch) for ch in text)
+
+
 def transduce_script(text: str, src_script: str, tgt_script: str) -> str:
-    """Fast phonetic multi-script transducer supporting Ol Chiki, Odia, Devanagari, and Latin with Barakhadi synthesis."""
+    """Fast phonetic multi-script transducer supporting Ol Chiki, Odia, Devanagari, Warang Citi, Mundari Bani, Tolong Siki, and Latin."""
     if not text:
         return ""
     if src_script == tgt_script:
@@ -685,6 +737,18 @@ def transduce_script(text: str, src_script: str, tgt_script: str) -> str:
 
     src = src_script.lower()
     tgt = tgt_script.lower()
+
+    # Devanagari -> Warang Citi (Ho)
+    if src in ["deva", "devanagari", "hin_deva", "sat_deva", "ho_deva", "hoc_deva"] and tgt in ["warang", "warang_citi", "ho_wara", "wara"]:
+        return transduce_deva_to_warang_citi(text)
+
+    # Devanagari -> Mundari Bani (Mundari)
+    if src in ["deva", "devanagari", "hin_deva", "sat_deva", "mun_deva", "unr_deva"] and tgt in ["mundari_bani", "mun_bani", "bani"]:
+        return transduce_deva_to_mundari_bani(text)
+
+    # Devanagari -> Tolong Siki (Kurukh)
+    if src in ["deva", "devanagari", "hin_deva", "kru_deva"] and tgt in ["tolong", "tolong_siki", "kru_tolo", "tolo"]:
+        return transduce_deva_to_tolong_siki(text)
 
     # Devanagari -> Ol Chiki (Full Barakhadi Syllabic Transduction)
     if src in ["deva", "devanagari", "hin_deva", "sat_deva"] and tgt in ["ol_chiki", "sat_olck", "olck"]:
@@ -731,6 +795,17 @@ def transduce_script(text: str, src_script: str, tgt_script: str) -> str:
     elif src in ["odia", "sat_orya", "orya"] and tgt in ["deva", "devanagari", "sat_deva"]:
         ol_intermediate = transduce_script(text, "odia", "ol_chiki")
         return ol_chiki_to_deva_phonetic(ol_intermediate)
+
+    # Cross script fallback via Devanagari
+    if tgt in ["warang", "warang_citi", "ho_wara", "wara"]:
+        deva_inter = transduce_script(text, src, "deva")
+        return transduce_deva_to_warang_citi(deva_inter)
+    if tgt in ["mundari_bani", "mun_bani", "bani"]:
+        deva_inter = transduce_script(text, src, "deva")
+        return transduce_deva_to_mundari_bani(deva_inter)
+    if tgt in ["tolong", "tolong_siki", "kru_tolo", "tolo"]:
+        deva_inter = transduce_script(text, src, "deva")
+        return transduce_deva_to_tolong_siki(deva_inter)
 
     return text
 

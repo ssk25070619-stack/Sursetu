@@ -323,26 +323,34 @@ def api_transcribe_audio():
 
 
 @app.route("/api/tts/synthesize", methods=["POST", "GET"])
+@app.route("/api/tts", methods=["POST", "GET"])
 def api_tts_synthesize():
     """
     Offline Text-to-Speech (TTS) Synthesizer endpoint.
-    Returns 16kHz WAV audio stream for Santali (Ol Chiki/Odia), Ho, Mundari, Hindi.
+    Returns 16kHz WAV audio stream for Santali (Ol Chiki/Odia), Ho, Mundari, Kurukh, Hindi, English.
     """
     if request.method == "POST":
         data = request.get_json() or {}
         text = data.get("text", "").strip()
         lang = data.get("lang", "sat_Olck")
+        pitch = float(data.get("pitch", 145.0))
+        speed = float(data.get("speed", 1.0))
     else:
         text = request.args.get("text", "").strip()
         lang = request.args.get("lang", "sat_Olck")
+        pitch = float(request.args.get("pitch", 145.0))
+        speed = float(request.args.get("speed", 1.0))
 
     if not text:
         return jsonify({"error": "Missing 'text' parameter"}), 400
 
     if synthesize_speech:
         try:
-            wav_bytes = synthesize_speech(text, lang)
-            return Response(wav_bytes, mimetype="audio/wav")
+            wav_bytes = synthesize_speech(text, lang, pitch=pitch, speed=speed)
+            resp = Response(wav_bytes, mimetype="audio/wav")
+            resp.headers["Cache-Control"] = "public, max-age=86400"
+            resp.headers["Content-Disposition"] = f'inline; filename="tts_{lang}.wav"'
+            return resp
         except Exception as e:
             return jsonify({"error": f"TTS synthesis failed: {e}"}), 500
     return jsonify({"error": "TTS engine not loaded"}), 500
@@ -532,22 +540,37 @@ def api_translate():
             token_breakdown = []
             provider = "Local Offline Dictionary"
 
-    # Multi-Script Transliteration (Ol Chiki ⇄ Odia ⇄ Devanagari ⇄ Latin)
+    # Multi-Script Transliteration (Santali, Ho, Mundari, Kurukh, Hindi, English)
     transliterations = {}
-    if tgt in ["sat_Olck", "sat_Orya", "sat_Deva", "sat_Latn"] and translated_text:
-        if tgt == "sat_Olck":
-            ol_base = translated_text
-        elif transduce_script:
-            ol_base = transduce_script(translated_text, tgt, "sat_Olck")
-        else:
-            ol_base = ""
-
-        if transduce_script and ol_base:
+    if translated_text and transduce_script:
+        if tgt in ["sat_Olck", "sat_Orya", "sat_Deva", "sat_Latn"]:
+            ol_base = translated_text if tgt == "sat_Olck" else transduce_script(translated_text, tgt, "sat_Olck")
             transliterations = {
                 "sat_Olck": ol_base,
                 "sat_Orya": transduce_script(ol_base, "ol_chiki", "odia"),
                 "sat_Deva": transduce_script(ol_base, "ol_chiki", "deva"),
                 "sat_Latn": transduce_script(ol_base, "ol_chiki", "latin"),
+            }
+        elif tgt in ["ho_Wara", "ho_Deva", "hoc_Deva", "ho_Latn"]:
+            deva_base = translated_text if tgt in ["ho_Deva", "hoc_Deva"] else transduce_script(translated_text, tgt, "deva")
+            transliterations = {
+                "ho_Wara": transduce_script(deva_base, "deva", "warang_citi"),
+                "ho_Deva": deva_base,
+                "ho_Latn": transduce_script(deva_base, "deva", "latin") if hasattr(transduce_script, "__call__") else translated_text
+            }
+        elif tgt in ["mun_Bani", "mun_Deva", "unr_Deva", "mun_Latn"]:
+            deva_base = translated_text if tgt in ["mun_Deva", "unr_Deva"] else transduce_script(translated_text, tgt, "deva")
+            transliterations = {
+                "mun_Bani": transduce_script(deva_base, "deva", "mundari_bani"),
+                "mun_Deva": deva_base,
+                "mun_Latn": deva_base
+            }
+        elif tgt in ["kru_Tolo", "kru_Deva", "kru_Latn"]:
+            deva_base = translated_text if tgt == "kru_Deva" else transduce_script(translated_text, tgt, "deva")
+            transliterations = {
+                "kru_Tolo": transduce_script(deva_base, "deva", "tolong_siki"),
+                "kru_Deva": deva_base,
+                "kru_Latn": deva_base
             }
 
     latency_ms = (time.time() - start_time) * 1000

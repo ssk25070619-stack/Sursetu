@@ -70,3 +70,5 @@ santali_large_parallel_corpus.csv
 .DS_Store
 Thumbs.db
 *.log
+*.wav
+

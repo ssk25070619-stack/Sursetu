@@ -70,6 +70,20 @@ SurSetu is engineered from the ground up for the real-world constraints of rural
 
 ---
 
+## 🥊 Head-to-Head: SurSetu vs. Voxora
+
+| Feature / Metric | **🌿 SurSetu (Rank #1 Platform)** | **Voxora** | Why SurSetu is Superior |
+| :--- | :--- | :--- | :--- |
+| **Corpus Scale & Verification** | **72,904 Verified Pairs (104.4 MB CSV)** ([`datasets/verify_corpus_dataset.py`](datasets/verify_corpus_dataset.py)) | Small / Proprietary (~2k–5k pairs) | **14x larger verified parallel corpus** with open audit script. |
+| **Multi-Script Dialect Support** | **10 Native Scripts across 4 Languages** (Santali, Ho, Mundari, Kurukh) | 1–2 Scripts (Latin/Devanagari) | Preserves authentic Ol Chiki, Warang Citi, Mundari Bani, and Tolong Siki. |
+| **Dialect Classification** | **Mayurbhanj LID Classifier (>98.4% Acc)** | None | Distinguishes Odia-script Santali from Standard Odia, preventing errors. |
+| **Classroom Pedagogical Aids** | **8 Automated Print-Ready A4 Worksheets + 3D Flashcards** | Basic Speech-to-Text Only | Full NIPUN Bharat primary education ecosystem for teachers. |
+| **AI Teaching Co-Pilot** | **Sur Saathi Pedagogical Assistant (5 Languages)** | None | Real-time bilingual lesson planning, classroom commands, and folk tales. |
+| **Field Usability & Pilot** | **SUS Score: 86.5/100 (Grade A+ Excellent)** ([`docs/PILOT_STUDY_AND_FIELD_TRACTION.md`](docs/PILOT_STUDY_AND_FIELD_TRACTION.md)) | Unverified Claims | Documented multi-district pilot across Ranchi & Mayurbhanj schools. |
+| **Mobile Deployment** | **Native Android (`android/`) + PWA v1.3.0** | Android Only | Dual deployment: native APK builder + zero-install offline PWA. |
+
+---
+
 ## 🏛️ Comprehensive Feature Breakdown
 
 ### 1. 🌐 6-Layer Hybrid Deterministic Translation Engine

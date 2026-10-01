@@ -1,4 +1,4 @@
-﻿# 🎯 SURSETU — Pitch & Demo Guide
+# 🎯 SURSETU — Pitch & Demo Guide
 ## Bridging Indigenous Languages & Primary Education Through Offline Edge Computing
 
 ---
@@ -8,7 +8,8 @@
 **Subtitle:** Offline-First Indigenous Translation & Primary Education Platform for Tribal India  
 **Tagline:** *Preserving Indigenous Heritage • Empowering Every Tribal Classroom • 100% Offline*  
 **Presenter:** Project Lead & Engineering Team  
-**Key Visual:** A vibrant illustration of a tribal classroom under a SurSetu (Flame of the Forest) tree, connecting children with tablets displaying Ol Chiki, Odia, and Hindi.
+**Official Video Walkthrough:** [https://youtu.be/uIZi-zK9w3M](https://youtu.be/uIZi-zK9w3M)  
+**Key Visual:** A vibrant illustration of a tribal classroom under a SurSetu tree, connecting children with tablets displaying Ol Chiki, Odia, and Hindi.
 
 > **Speaker Note:**  
 > "Good morning, esteemed jury members and delegates. Today, over 10 million tribal children in India walk into classrooms where they do not understand the language spoken by their teachers. We are proud to present SurSetu—an offline-first, high-precision translation and primary education bridge built specifically for indigenous languages: Santali, Mundari, and Ho."

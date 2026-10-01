@@ -35,9 +35,10 @@ By uniting an offline speech recognition acoustic model, an $O(K)$ PrefixTrie 6-
 
 | Access Channel | Link / Target | Notes |
 |---|---|---|
+| **🎥 Official Video Demonstration** | **[YouTube Prototype Demo](https://youtu.be/uIZi-zK9w3M)** | Full end-to-end working demonstration of speech, translation & FLN studio |
 | **🌐 Worldwide Public Live Link** | **[Cloudflare HTTPS Tunnel](https://ohio-tobago-economy-absence.trycloudflare.com)** | Real-time global HTTPS CDN access with zero signup |
 | **💻 Local Workstation Address** | **`http://localhost:8080`** | Standalone offline loopback on local school hardware |
-| **📱 PWA Offline Mode** | **Installable Web App (PWA)** | 100% functional in complete airplane mode / dark zones |
+| **📱 PWA Offline Mode** | **[Installable Web App (PWA)](https://ssk25070619-stack.github.io/Sursetu/)** | 100% functional in complete airplane mode / dark zones |
 
 ---
 

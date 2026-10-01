@@ -3,16 +3,29 @@
 > **Offline-First Indigenous Translation, Speech & Primary Education Platform for Tribal India**  
 > Bridging foundational education across Eastern & Central India's indigenous mother tongues: **Santali** (*Ol Chiki* ᱚᱞ ᱪᱤᱠᱤ, *Odia* ଓଡ଼ିଆ, *Devanagari*, *Latin*), **Ho** (*Warang Citi* 𑢹𑣉, *Devanagari*, *Odia*), **Mundari** (*Mundari Bani* 𞓚𞓟𞓗, *Devanagari*, *Odia*), and **Kurukh / Oraon** (*Tolong Siki* ᱛᱚᱞᱚᱝ ᱥᱤᱠᱤ & *Devanagari*), seamlessly unified with **Hindi** and **English**.
 
+[![Demo Video](https://img.shields.io/badge/YouTube%20Demo-Watch%20Live-red.svg?logo=youtube)](https://youtu.be/uIZi-zK9w3M)
 [![CI Status](https://github.com/ssk25070619-stack/Sursetu/actions/workflows/ci.yml/badge.svg)](https://github.com/ssk25070619-stack/Sursetu/actions)
-[![Status](https://img.shields.io/badge/Status-MVP%20%2F%20Pilot%20Ready-emerald.svg)](http://localhost:8000)
-[![Android Tested](https://img.shields.io/badge/Android%20Target-2GB%20RAM%20%2F%20Android%209%2B-brightgreen.svg)](http://localhost:8000)
-[![Dict Lookup](https://img.shields.io/badge/Lookup_Latency-0.08ms-blue.svg)](http://localhost:8000)
-[![End-to-End Latency](https://img.shields.io/badge/End--to--End_Latency-Sub--second-orange.svg)](http://localhost:8000)
-[![Dataset](https://img.shields.io/badge/Parallel%20Corpus-72%2C904%20Pairs-indigo.svg)](http://localhost:8000)
-[![Offline Capable](https://img.shields.io/badge/Architecture-100%25%20Offline%20Edge-green.svg)](http://localhost:8000)
-[![Languages](https://img.shields.io/badge/Indigenous%20Languages-4%20Tribal%20%2B%202%20Bridge-purple.svg)](http://localhost:8000)
-[![Scripts](https://img.shields.io/badge/Native%20Scripts-10%20Writing%20Systems-teal.svg)](http://localhost:8000)
-[![Policy Alignment](https://img.shields.io/badge/NEP%202020-NIPUN%20Bharat%20Aligned-amber.svg)](http://localhost:8000)
+[![Live Demo](https://img.shields.io/badge/Live%20Web%20App-Try%20SurSetu-emerald.svg)](https://ssk25070619-stack.github.io/Sursetu/)
+[![Status](https://img.shields.io/badge/Status-MVP%20%2F%20Pilot%20Ready-emerald.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Android Tested](https://img.shields.io/badge/Android%20Target-2GB%20RAM%20%2F%20Android%209%2B-brightgreen.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Dict Lookup](https://img.shields.io/badge/Lookup_Latency-0.08ms-blue.svg)](https://youtu.be/uIZi-zK9w3M)
+[![End-to-End Latency](https://img.shields.io/badge/End--to--End_Latency-Sub--second-orange.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Dataset](https://img.shields.io/badge/Parallel%20Corpus-72%2C904%20Pairs-indigo.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Offline Capable](https://img.shields.io/badge/Architecture-100%25%20Offline%20Edge-green.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Languages](https://img.shields.io/badge/Indigenous%20Languages-4%20Tribal%20%2B%202%20Bridge-purple.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Scripts](https://img.shields.io/badge/Native%20Scripts-10%20Writing%20Systems-teal.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Policy Alignment](https://img.shields.io/badge/NEP%202020-NIPUN%20Bharat%20Aligned-amber.svg)](https://youtu.be/uIZi-zK9w3M)
+
+---
+
+## 🎥 Official Video Demonstration
+
+[![SurSetu Demo Video](https://img.shields.io/badge/▶%20Watch%20SurSetu%20Working%20Demo-YouTube%20Walkthrough-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/uIZi-zK9w3M)
+
+> **Watch the full working prototype demonstration on YouTube:**  
+> 🔗 **[https://youtu.be/uIZi-zK9w3M](https://youtu.be/uIZi-zK9w3M)**  
+> *Demonstrating real-time Hindi/English voice speech recognition, instant 6-layer translation into Santali (Ol Chiki & Odia script), Ho, Mundari, and Kurukh, Sur Saathi AI lesson plan generation, and printable NIPUN Bharat FLN study materials.*
+
 
 ---
 

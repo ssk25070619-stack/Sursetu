@@ -660,6 +660,9 @@ interface MultilingualRecord {
   ho_wara?: string;
   mun_deva: string;
   mun_bani?: string;
+  kru_deva?: string;
+  kru_tolo?: string;
+  kru_latn?: string;
 }
 
 const MULTILINGUAL_CORPUS_MAP: Record<string, MultilingualRecord> = {
@@ -1253,6 +1256,8 @@ export function translateText(
       ? 'ho'
       : targetScript === 'mun_Deva' || targetScript === 'mun_Bani'
       ? 'mundari'
+      : targetScript === 'kru_Deva' || targetScript === 'kru_Tolo' || targetScript === 'kru_Latn'
+      ? 'kurukh'
       : 'santali');
 
   // Helper to construct fully populated TranslationResult
@@ -1265,6 +1270,9 @@ export function translateText(
   ): TranslationResult => {
     const hoWara = rec.ho_wara || transduceDevaToWarangCiti(rec.ho_deva);
     const munBani = rec.mun_bani || transduceDevaToMundariBani(rec.mun_deva);
+    const kruDeva = rec.kru_deva || rec.sat_deva;
+    const kruTolo = rec.kru_tolo || transduceDevaToOlChiki(kruDeva);
+    const kruLatn = rec.kru_latn || rec.sat_latn;
 
     let finalOutput = rec.sat_olck;
     if (effectiveTargetLang === 'english' || targetScript === 'eng_Latn') {
@@ -1273,6 +1281,8 @@ export function translateText(
       finalOutput = targetScript === 'ho_Wara' ? hoWara : rec.ho_deva;
     } else if (effectiveTargetLang === 'mundari' || targetScript === 'mun_Deva' || targetScript === 'mun_Bani') {
       finalOutput = targetScript === 'mun_Bani' ? munBani : rec.mun_deva;
+    } else if (effectiveTargetLang === 'kurukh' || targetScript === 'kru_Deva' || targetScript === 'kru_Tolo' || targetScript === 'kru_Latn') {
+      finalOutput = targetScript === 'kru_Tolo' ? kruTolo : targetScript === 'kru_Latn' ? kruLatn : kruDeva;
     } else {
       // Santali
       finalOutput =
@@ -1306,11 +1316,15 @@ export function translateText(
         ho_Wara: hoWara,
         mun_Deva: rec.mun_deva,
         mun_Bani: munBani,
+        kru_Deva: kruDeva,
+        kru_Tolo: kruTolo,
+        kru_Latn: kruLatn,
         eng_Latn: rec.eng,
         hin_Deva: rec.hin
       },
       ho_equivalent: rec.ho_deva,
       mundari_equivalent: rec.mun_deva,
+      kurukh_equivalent: kruDeva,
       english_equivalent: rec.eng,
       explanation: explanation || `Resolved ${effectiveTargetLang.toUpperCase()} translation via SurSetu Multi-Script Matrix.`
     };

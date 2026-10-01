@@ -63,7 +63,37 @@ export function generateAssistantResponse(
 
   switch (intent) {
     case 'LESSON_PLAN':
-      if (language === 'ho') {
+      if (language === 'kurukh') {
+        title = '📋 NIPUN Bharat Kurukh (Oraon) 15-Minute Lesson Plan';
+        audioSpeakText = 'गोड़े लाग्दन खद्दोर! बेस रअदी? इन्ना नाम मन्न अरा पुंप गही बारे नू पड़हो!';
+        actionSteps = [
+          '0-3 min: Welcome Circle & Daily Greeting in Kurukh (गोड़े लाग्दन खद्दोर!)',
+          '3-8 min: Object Identification (सखुवा पत्ता: सखुवा आत्खा, पेड़: मन्न)',
+          '8-12 min: TPR Action Rhyme with traditional Karam/Sarhul claps',
+          '12-15 min: Quick oral comprehension in Kurukh language'
+        ];
+        replyText = `### 🎯 NIPUN Bharat 15-Minute MTB-MLE Lesson Plan — Kurukh / Oraon (${grade})
+**क्षेत्रीय संवर्ग (Context):** छोटानागपुर व संताल परगना (गुमला, लोहरदगा, लातेहार, राँची)
+**विषय (Theme):** कुड़ुख़ मातृभाषा सेतु एवं परिवेशीय ज्ञान (Kurukh Mother-Tongue Bridge)
+
+#### ⏱️ चरणबद्ध कक्षा समय-सारिणी (Action Schedule):
+1. **00:00 - 03:00 | स्वागत वृत्त (Welcome Circle):**
+   - **शिक्षक उद्बोधन (Kurukh):** *गोड़े लाग्दन खद्दोर! बेस रअदी?* (Gode lagdan khaddor! Bes raadi? - नमस्ते बच्चों! सब अच्छे हो?)
+   - **छात्र उत्तर:** *गोड़े लाग्दन गुरुजी! बेस रअदत!* (Gode lagdan guruji! Bes raadat!)
+
+2. **03:00 - 08:00 | वस्तु पहचान व शब्द सेतु (Object Bridge in Kurukh):**
+   - शिक्षक सखुवा पत्ता दिखाकर पूछें: *"एद एन्दा तली?"* (Ed enda tali? - यह क्या है?)
+   - छात्र उत्तर देंगे: *"सखुवा आत्खा / मन्न"* (Sakhuwa aatkha / Mann).
+   - शिक्षक तुरंत हिंदी शब्द 'पत्ता' व 'पेड़' से सम्बद्ध करें।
+
+3. **08:00 - 12:00 | गतिज कविता व खेल (TPR Action Rhyme):**
+   - *"मन्न मन्न हरियर मन्न, ओड़ा बरचा डारा नू!"*
+   - (पेड़ पेड़ हरा पेड़, चिड़िया आई डाल पर!) — पंखों का अभिनय।
+
+4. **12:00 - 15:00 | त्वरित मौखिक आकलन (Quick Oral Check):**
+   - 2 बच्चों से 'पेड़' को कुड़ुख़ में बोलने को कहें (*मन्न / Mann*)।`;
+        suggestedChips = ['🔢 कुड़ुख़ 1 से 10 गिनती', '🗣️ कुड़ुख़ कक्षा निर्देश', '📝 कुड़ुख़ वर्कशीट प्रिंट करें', '🌸 करम / सरहुल परब जानकारी'];
+      } else if (language === 'ho') {
         title = '📋 NIPUN Bharat Ho (Kolhan) 15-Minute Lesson Plan';
         audioSpeakText = 'जोहार गिदरा को! बुगिया ते मेनापेया? तेहें दो आबू सर्जम दारू अड़ो बाहा बबत् तेबू पढ़ावेया!';
         actionSteps = [
@@ -159,7 +189,29 @@ export function generateAssistantResponse(
       break;
 
     case 'CLASSROOM_COMMAND':
-      if (language === 'ho') {
+      if (language === 'kurukh') {
+        title = '🗣️ Bilingual Classroom Commands Guide (Kurukh / Oraon)';
+        audioSpeakText = 'निंहाय पुथी तिंगा! इसन उक्का! मेना!';
+        actionSteps = [
+          'Display gesture first (open palms like a book)',
+          'Speak the Kurukh command clearly with warm tone',
+          'Encourage peer repetition in chorus',
+          'Provide instant positive reinforcement (दउ / Shabash)'
+        ];
+        replyText = `### 🏫 प्राथमिक कक्षा अनुशासन एवं निर्देश तालिका — Kurukh (कुड़ुख़ भाषा)
+झारखंड के शिक्षकों हेतु द्विभाषी कुड़ुख़ निर्देश मार्गदर्शिका:
+
+| हिंदी निर्देश | Kurukh (कुड़ुख़/देवनागरी) | तोलोंग सिकि | उच्चारण (Phonetics) | संकेत/मुद्रा (TPR Gesture) |
+| :--- | :--- | :--- | :--- | :--- |
+| **किताब खोलो** | निंहाय पुथी तिंगा | 𑑚𑑎𑑙𑑋𑑈 𑑛𑑎𑑘𑑎 𑑚𑑎𑑙𑑄 | *Ninhay puthi tinga* | दोनों हथेलियों को किताब की तरह खोलें |
+| **यहाँ बैठो** | इसन उक्का | 𑑎𑑓𑑎𑑚 𑑎𑑋𑑋𑑄 | *Isan ukka* | हाथ नीचे की ओर दबाएं |
+| **खड़े हो जाओ** | इज्जा | 𑑎𑑔𑑔𑑄 | *Ijja* | हाथ ऊपर उठाएं |
+| **ध्यान से सुनो** | मेना | 𑑗𑑒𑑚𑑄 | *Mena* | कान के पास हाथ रखें |
+| **कॉपी में लिखो** | टूड़ा | 𑑚𑑎𑑒𑑄 | *Tura* | लिखने का अभिनय करें |
+| **पानी पी लो** | अम्म ओना | 𑑄𑑗𑑗 𑑒𑑚𑑄 | *Amm ona* | पीने का इशारा करें |
+| **बहुत अच्छा!** | दउ / कोड़े! | 𑑒𑑎𑑎 / 𑑋𑑒𑑒𑑒 | *Dau / Kode!* | थम्स-अप व ताली बजाएं |`;
+        suggestedChips = ['📋 15-मिनट कुड़ुख़ पाठ योजना', '🎶 कुड़ुख़ लोक कविता', '🎲 ट्राइबल गेम'];
+      } else if (language === 'ho') {
         title = '🗣️ Bilingual Classroom Commands Guide (Ho Language)';
         audioSpeakText = 'अमाः पुथि झिज में! नेरे दुबुं में! आयूम में!';
         actionSteps = [
@@ -229,7 +281,32 @@ export function generateAssistantResponse(
       break;
 
     case 'STORY_RHYME':
-      if (language === 'ho') {
+      if (language === 'kurukh') {
+        title = '🎶 Kurukh Bilingual Folk Story & Action Rhyme';
+        audioSpeakText = 'ओंद मन्न नू ओंद सान्नी ओड़ा रहचा। सखुवा मन्न नू आद तंगहाय खोंपा कमचा।';
+        actionSteps = [
+          'Read story in Kurukh and connect to Hindi meaning',
+          'Encourage kids to produce bird chirps (ओड़ा राग)',
+          'Reinforce cultural reverence for Sarhul / Karam groves'
+        ];
+        replyText = `### 🌳 कुड़ुख़ लोक कथा: नन्हीं चिड़िया और सखुवा का पेड़ (ओड़ा अरा सखुवा मन्न)
+
+#### पैरा 1:
+- **Kurukh:** *ओंद मन्न नू ओंद सान्नी ओड़ा रहचा।*
+- **उच्चारण:** *Ond mann nu ond sanni ora rahcha.*
+- **हिंदी अनुवाद:** एक विशाल वन में एक नन्हीं चिड़िया रहती थी।
+
+#### पैरा 2:
+- **Kurukh:** *आद सखुवा मन्न नू तंगहाय खोंपा कमचा।*
+- **उच्चारण:** *Aad sakhuwa mann nu tanghay khonpa kamcha.*
+- **हिंदी अनुवाद:** उसने विशाल सखुवा के पेड़ पर अपना घोंसला बनाया।
+
+---
+### 🎵 अभिनय गीत (Kurukh Action Rhyme):
+> *"पुंप खंखरा सखुवा मन्न नू, (फूल खिले सखुवा पेड़ पर)*  
+> *खद्दोर बेद्दा नलखन पद्दा नू! (बच्चे खेल रहे गांव में!)"*`;
+        suggestedChips = ['🃏 कुड़ुख़ फ्लैशकार्ड', '📝 कुड़ुख़ वर्कशीट बनाएं', '🏹 तीरंदाजी गेम'];
+      } else if (language === 'ho') {
         title = '🎶 Ho Bilingual Folk Story & Action Rhyme';
         audioSpeakText = 'मियाद् बुरु रे मियाद् चेणें ताएकेना। सर्जम दारू रे अयगाः तुकाए बए केदा।';
         actionSteps = [
@@ -312,7 +389,33 @@ export function generateAssistantResponse(
       break;
 
     case 'MATH_NUMERACY':
-      if (language === 'ho') {
+      if (language === 'kurukh') {
+        title = '🔢 NIPUN Bharat FLN Math — Kurukh Counting Guide';
+        audioSpeakText = 'ओंद, इंड़, मूँद, नाख़, पंचे! ओंद आत्खा, इंड़ आत्खा! कोड़े!';
+        actionSteps = [
+          'Gather Sal leaves and pebbles for tactile counting',
+          'Chant Kurukh numbers in rhythm with clapping',
+          'Practice number cards with Tolong Siki / Devanagari'
+        ];
+        replyText = `### 🔢 FLN गणित: 1 से 10 तक स्थानीय 'कुड़ुख़' गिनती (Kurukh Numbers)
+स्थानीय पत्तों, कंकड़ों व बीजों की सहायता से मूर्त संख्या ज्ञान:
+
+| संख्या | Kurukh (देवनागरी) | तोलोंग सिकि | उच्चारण | मूर्त गतिविधि (Tactile Count) |
+| :--- | :--- | :--- | :--- | :--- |
+| **1** | ओंद (Ond) | 𑑎𑑚𑑒 | *ओन्द* | 🍃 1 सखुवा पत्ता |
+| **2** | इंड़ (Ind) | 𑑎𑑙𑑒 | *इण्ड* | 🍃🍃 2 पत्ते |
+| **3** | मूँद (Mund) | 𑑗𑑎𑑚𑑒 | *मून्द* | 🍃🍃🍃 3 फूल |
+| **4** | नाख़ (Naakh) | 𑑚𑑄𑑍 | *नाख़* | 🍃🍃🍃🍃 4 कंकड़ |
+| **5** | पंचे (Panche) | 𑑛𑑄𑑔𑑒 | *पंचे* | ✋ 5 उंगलियां |
+| **6** | सोये (Soye) | 𑑓𑑒𑑕𑑒 | *सोये* | 🍃x6 6 बीज |
+| **7** | साते (Saate) | 𑑓𑑄𑑚𑑒 | *साते* | 🍃x7 7 दाने |
+| **8** | आठे (Aathe) | 𑑄𑑘𑑒 | *आठे* | 🍃x8 8 टहनियां |
+| **9** | नौए (Naue) | 𑑚𑑒𑑎 | *नौए* | 🍃x9 9 कंकड़ |
+| **10** | दसे (Dase) | 𑑒𑑄𑑓𑑒 | *दसे* | 👐 10 उंगलियां |
+
+💡 **कक्षा खेल:** शिक्षक ताली बजाएं (उदा. 3 बार), बच्चे कहें: *"मूँद (Mund)!"*`;
+        suggestedChips = ['📝 कुड़ुख़ गणित वर्कशीट बनाएं', '🃏 अंक फ्लैशकार्ड', '🎲 सफारी गेम'];
+      } else if (language === 'ho') {
         title = '🔢 NIPUN Bharat FLN Math — Ho Counting Guide';
         audioSpeakText = 'मियाद्, बारिया, आपिया, उपुन, मोया! मियाद् साकाम, बारिया साकाम! बुगिया!';
         actionSteps = [
@@ -394,7 +497,31 @@ export function generateAssistantResponse(
       break;
 
     case 'ASSESSMENT':
-      if (language === 'ho') {
+      if (language === 'kurukh') {
+        title = '📋 NIPUN Bharat Kurukh Oral Diagnostic Rubric';
+        audioSpeakText = 'एद चितिर नू एन्दा एरअदी? निंहाय नाम एन्दा तली?';
+        actionSteps = [
+          'Conduct assessment in warm, friendly Kurukh dialogue',
+          'Accept answer in Kurukh, Hindi, or mixed code',
+          'Score: Level 3 (Mastered), Level 2 (Developing), Level 1 (Emerging)'
+        ];
+        replyText = `### 📊 कक्षा 1-3 NIPUN Bharat मौखिक आकलन — Kurukh (कुड़ुख़ भाषा)
+मातृभाषा आधारित समझ का मूल्यांकन (No-Stress Diagnostic Check):
+
+1. **प्रश्न 1 (व्यक्तिगत परिचय / Self Identity):**
+   - **शिक्षक पूछें:** *"निंहाय नाम एन्दा तली?"* (Ninhay naam enda tali? - तुम्हारा नाम क्या है?)
+   - **अपेक्षित उत्तर:** *"एंगहाय नाम [नाम] तली"* या केवल नाम।
+   - **ग्रेडिंग:** 🟢 स्तर 3 (पूर्ण वाक्य) | 🟡 स्तर 2 (केवल नाम) | 🔴 स्तर 1 (मौन/संकोच)
+
+2. **प्रश्न 2 (वस्तु पहचान / Environmental Lexicon):**
+   - शिक्षक किताब दिखाकर पूछें: *"एद एन्दा तली?"*
+   - **अपेक्षित उत्तर:** *"पुथी"* (Puthi) अथवा "किताब/Book".
+
+3. **प्रश्न 3 (कार्यात्मक निर्देश पालन / Command Comprehension):**
+   - शिक्षक कहें: *"निंहाय पुथी तिंगा"* (Open your book).
+   - **अपेक्षित क्रिया:** बच्चा बिना अनुवाद के अपनी पुस्तक खोले।`;
+        suggestedChips = ['📝 कुड़ुख़ आकलन पत्रक', '📋 कुड़ुख़ पाठ योजना देखें'];
+      } else if (language === 'ho') {
         title = '📋 NIPUN Bharat Ho Oral Diagnostic Rubric';
         audioSpeakText = 'नेया चितिर रे चिनाः लेल तनाम? अमाः नुतुम चिनाः?';
         actionSteps = [

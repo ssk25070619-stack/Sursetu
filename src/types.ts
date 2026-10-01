@@ -1,4 +1,4 @@
-export type TargetScript = 'sat_Olck' | 'sat_Orya' | 'sat_Deva' | 'sat_Latn' | 'ho_Deva' | 'ho_Wara' | 'mun_Deva' | 'mun_Bani' | 'kur_Deva' | 'kur_Tolong' | 'eng_Latn';
+export type TargetScript = 'sat_Olck' | 'sat_Orya' | 'sat_Deva' | 'sat_Latn' | 'ho_Deva' | 'ho_Wara' | 'ho_Latn' | 'mun_Deva' | 'mun_Bani' | 'mun_Latn' | 'kru_Deva' | 'kru_Tolo' | 'kru_Latn' | 'eng_Latn';
 export type SourceLang = 'hin_Deva' | 'eng_Latn';
 export type IndigenousLanguage = 'english' | 'santali' | 'ho' | 'mundari' | 'kurukh';
 
@@ -26,10 +26,13 @@ export interface ScriptTransliterations {
   sat_Latn: string;
   ho_Deva?: string;
   ho_Wara?: string;
+  ho_Latn?: string;
   mun_Deva?: string;
   mun_Bani?: string;
-  kur_Deva?: string;
-  kur_Tolong?: string;
+  mun_Latn?: string;
+  kru_Deva?: string;
+  kru_Tolo?: string;
+  kru_Latn?: string;
   eng_Latn?: string;
   hin_Deva?: string;
 }
@@ -64,7 +67,8 @@ export interface VocabItem {
   ho?: string;
   mundari?: string;
   kurukh?: string;
-  category: 'school' | 'classroom' | 'nature' | 'animals' | 'family' | 'numbers' | 'actions' | 'body';
+  kurukh_tolong?: string;
+  category: 'school' | 'classroom' | 'nature' | 'animals' | 'family' | 'numbers' | 'actions' | 'body' | 'colours' | 'fruits' | 'shapes' | 'dialogues' | 'flora' | 'fauna';
   emoji: string;
   phonetic: string;
   culturalNote?: string;

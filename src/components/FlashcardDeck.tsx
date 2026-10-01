@@ -25,7 +25,7 @@ interface FlashcardDeckProps {
   language?: IndigenousLanguage;
 }
 
-type SpeakingTarget = 'tribal' | 'slow' | 'phonetic' | 'example' | 'hindi' | 'english' | 'ho' | 'mundari' | null;
+type SpeakingTarget = 'tribal' | 'slow' | 'phonetic' | 'example' | 'hindi' | 'english' | 'ho' | 'mundari' | 'kurukh' | null;
 
 export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ language = 'santali' }) => {
   const currentLangConfig = SUPPORTED_LANGUAGES.find(l => l.id === language) || SUPPORTED_LANGUAGES[0];
@@ -119,6 +119,9 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ language = 'santal
     if (language === 'mundari' && item.mundari) {
       return item.mundari;
     }
+    if (language === 'kurukh' && item.kurukh) {
+      return item.kurukh;
+    }
     switch (targetScript) {
       case 'sat_Olck':
         return item.santali_olchiki;
@@ -152,6 +155,9 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ language = 'santal
     } else if (language === 'mundari' && currentItem.mundari) {
       wordToPronounce = currentItem.mundari;
       fallbackDeva = currentItem.mundari;
+    } else if (language === 'kurukh' && currentItem.kurukh) {
+      wordToPronounce = currentItem.kurukh;
+      fallbackDeva = currentItem.kurukh;
     } else {
       if (targetScript === 'sat_Deva') wordToPronounce = currentItem.santali_deva;
       else if (targetScript === 'sat_Orya') wordToPronounce = currentItem.santali_odia;
@@ -341,11 +347,15 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ language = 'santal
   const CATEGORIES = [
     { id: 'all', label: 'All Words' },
     { id: 'numbers', label: '🔢 Numerals & Counting' },
+    { id: 'colours', label: '🎨 Colours' },
+    { id: 'fruits', label: '🍎 Fruits & Produce' },
+    { id: 'shapes', label: '📐 Shapes' },
     { id: 'school', label: '🏫 School' },
     { id: 'nature', label: '🌿 Nature' },
     { id: 'animals', label: '🐘 Animals' },
     { id: 'family', label: '👨‍👩‍👧 Family' },
-    { id: 'actions', label: '🏃 Actions' }
+    { id: 'actions', label: '🏃 Actions' },
+    { id: 'dialogues', label: '💬 Dialogues & Gratitude' }
   ];
 
   const displayedWord = getDisplayedTribalWord(currentItem);
@@ -791,6 +801,17 @@ export const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ language = 'santal
                       <span className="text-teal-400 font-semibold">Mundari:</span>
                       <span>{currentItem.mundari}</span>
                       <Volume2 className="w-3 h-3 text-teal-400" />
+                    </button>
+                  )}
+                  {currentItem.kurukh && (
+                    <button
+                      onClick={(e) => handleSpeakTranslation(currentItem.kurukh!, 'hin_Deva', 'kurukh', e)}
+                      className="hover:text-purple-300 flex items-center gap-1 transition cursor-pointer"
+                      title="Pronounce Kurukh equivalent"
+                    >
+                      <span className="text-purple-400 font-semibold">Kurukh:</span>
+                      <span>{currentItem.kurukh}</span>
+                      <Volume2 className="w-3 h-3 text-purple-400" />
                     </button>
                   )}
                 </div>

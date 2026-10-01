@@ -367,6 +367,88 @@ def api_feedback_summary():
     return jsonify({"success": True, "summary": summary})
 
 
+
+@app.route("/api/languages", methods=["GET"])
+def api_get_languages():
+    """Return all 4 supported indigenous languages with script metadata and features."""
+    languages = [
+        {
+            "id": "santali",
+            "name": "Santali (ᱥᱟᱱᱛᱟᱲᱤ)",
+            "family": "Austroasiatic (Munda)",
+            "scripts": [
+                {"id": "sat_Olck", "name": "Ol Chiki (ᱚᱞ ᱪᱤᱠᱤ)", "primary": True},
+                {"id": "sat_Orya", "name": "Odia Script (ଓଡ଼ିଆ)"},
+                {"id": "sat_Deva", "name": "Devanagari (संताली)"},
+                {"id": "sat_Latn", "name": "Latin Roman"}
+            ],
+            "regions": ["Jharkhand", "Odisha", "West Bengal", "Bihar", "Assam"],
+            "features": ["INT4 Quantized Edge MT", "Vosk Offline ASR", "Acoustic TTS", "NIPUN FLN TLMs"]
+        },
+        {
+            "id": "ho",
+            "name": "Ho (𑢹𑣉𑣉 𑣎𑣂𑣑𑣂 / हो भाषा)",
+            "family": "Austroasiatic (Munda / Kherwarian)",
+            "scripts": [
+                {"id": "ho_Wara", "name": "Warang Citi (𑢹𑣉𑣉 𑣎𑣂𑣑𑣂)", "primary": True},
+                {"id": "ho_Deva", "name": "Devanagari (हो)"},
+                {"id": "ho_Latn", "name": "Latin Roman"}
+            ],
+            "regions": ["Kolhan Division", "West Singhbhum", "East Singhbhum", "Mayurbhanj"],
+            "features": ["Warang Citi Transduction", "Oral Classroom Subtitles", "Flashcards", "Worksheets"]
+        },
+        {
+            "id": "mundari",
+            "name": "Mundari (𞓚𞓝𞓙𞓞 / मुण्डारी)",
+            "family": "Austroasiatic (Munda)",
+            "scripts": [
+                {"id": "mun_Bani", "name": "Mundari Bani (𞓚𞓝𞓙𞓞)", "primary": True},
+                {"id": "mun_Deva", "name": "Devanagari (मुण्डारी)"},
+                {"id": "mun_Latn", "name": "Latin Roman"}
+            ],
+            "regions": ["Chhota Nagpur", "Khunti", "Ranchi", "Simdega"],
+            "features": ["Mundari Bani Transduction", "Birsa Safari TLM", "Bilingual Reader", "Offline TTS"]
+        },
+        {
+            "id": "kurukh",
+            "name": "Kurukh (𑑎𑑚𑑎𑑙 / कुड़ुख़ / Oraon)",
+            "family": "Dravidian (North Dravidian)",
+            "scripts": [
+                {"id": "kru_Deva", "name": "Devanagari (कुड़ुख़)", "primary": True},
+                {"id": "kru_Tolo", "name": "Tolong Siki (𑑎𑑚𑑎𑑙)"},
+                {"id": "kru_Latn", "name": "Latin Roman"}
+            ],
+            "regions": ["Gumla", "Lohardaga", "Latehar", "Ranchi", "Santhal Pargana"],
+            "features": ["Tolong Siki Transduction", "Dravidian Morphology Engine", "Graded Reader", "FLN Math"]
+        }
+    ]
+    return jsonify({"languages": languages, "total": len(languages), "status": "active"})
+
+
+@app.route("/api/dictionary", methods=["GET"])
+def api_get_dictionary():
+    """Return full multilingual educational dictionary for all supported languages."""
+    query = request.args.get("q", "").strip()
+    target = request.args.get("target", "")
+
+    result = {}
+    for src, tgts in EDUCATIONAL_DICTIONARY.items():
+        if src not in result:
+            result[src] = {}
+        for tgt_k, vocab in tgts.items():
+            if target and tgt_k != target:
+                continue
+            if query:
+                result[src][tgt_k] = {k: v for k, v in vocab.items() if query.lower() in k.lower() or query.lower() in str(v).lower()}
+            else:
+                result[src][tgt_k] = vocab
+
+    return jsonify({
+        "dictionary": result,
+        "query": query,
+        "count": sum(len(v) for tgts in result.values() for v in tgts.values())
+    })
+
 @app.route("/api/translate", methods=["POST"])
 def api_translate():
     """

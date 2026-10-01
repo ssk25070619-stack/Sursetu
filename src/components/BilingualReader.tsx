@@ -67,6 +67,7 @@ export const BilingualReader: React.FC<BilingualReaderProps> = ({
   const getTribalText = (sentence: StorySentence): string => {
     if (language === 'ho') return sentence.ho;
     if (language === 'mundari') return sentence.mundari;
+    if (language === 'kurukh') return sentence.kurukh || sentence.hindi;
     if (scriptChoice === 'odia') return sentence.santali_odia;
     return sentence.santali_olchiki;
   };
@@ -77,7 +78,7 @@ export const BilingualReader: React.FC<BilingualReaderProps> = ({
     setActiveSentenceIndex(index);
 
     const tribalText = getTribalText(sentence);
-    const langCode = language === 'ho' ? 'hoc_Deva' : language === 'mundari' ? 'unr_Deva' : 'sat_Olck';
+    const langCode = language === 'ho' ? 'hoc_Deva' : language === 'mundari' ? 'unr_Deva' : language === 'kurukh' ? 'kru_Deva' : 'sat_Olck';
 
     const onSentenceEnd = () => {
       setIsPlayingSentence(null);
@@ -136,7 +137,7 @@ export const BilingualReader: React.FC<BilingualReaderProps> = ({
     setCacheStatusMessage('Caching story audio into IndexedDB...');
 
     let cachedCount = 0;
-    const langCode = language === 'ho' ? 'hoc_Deva' : language === 'mundari' ? 'unr_Deva' : 'sat_Olck';
+    const langCode = language === 'ho' ? 'hoc_Deva' : language === 'mundari' ? 'unr_Deva' : language === 'kurukh' ? 'kru_Deva' : 'sat_Olck';
 
     for (const story of BILINGUAL_STORIES) {
       for (const sent of story.sentences) {

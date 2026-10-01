@@ -13,6 +13,7 @@ export interface StorySentence {
   santali_odia: string;
   ho: string;
   mundari: string;
+  kurukh?: string;
   phonetic: string;
   vocabulary?: { word: string; translation: string; script: string }[];
 }

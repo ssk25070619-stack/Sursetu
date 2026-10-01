@@ -12,7 +12,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'itun asra',
     ho: 'इतुन आटो (itun ato)',
     mundari: 'इतुन ओड़ाः (itun ora)',
-    kurukh: 'स्कूल / पठन घर (School / Padha Gaddi)',
+    kurukh: 'पड़हा अड्डा (Parha Adda)',
     category: 'school',
     emoji: '🏫',
     phonetic: 'ee-toon ahs-rah',
@@ -33,7 +33,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'puthi',
     ho: 'पुथि (puthi)',
     mundari: 'पुथी (puthi)',
-    kurukh: 'पुथी / किताब (Pustak / Pothi)',
+    kurukh: 'पुथी (Puthi)',
     category: 'school',
     emoji: '📖',
     phonetic: 'poo-thee',
@@ -54,6 +54,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'kolom',
     ho: 'कलम (kolom)',
     mundari: 'कलम (kolom)',
+    kurukh: 'कलम (Kolom)',
     category: 'school',
     emoji: '🖊️',
     phonetic: 'ko-lom',
@@ -74,6 +75,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'machet',
     ho: 'माचेत (machet)',
     mundari: 'माचेत (machet)',
+    kurukh: 'गुरु / पड़हाउ (Guru / Parhau)',
     category: 'school',
     emoji: '👨‍🏫',
     phonetic: 'mah-chet',
@@ -94,6 +96,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'pathua',
     ho: 'होनको (honko)',
     mundari: 'होनको (honko)',
+    kurukh: 'पड़हू (Parhu / Bachha)',
     category: 'school',
     emoji: '🎒',
     phonetic: 'pah-thoo-wah',
@@ -114,6 +117,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'gidra ko',
     ho: 'होनको (honko)',
     mundari: 'होनको (honko)',
+    kurukh: 'कुंखोर / बच्चार (Kunkhor)',
     category: 'family',
     emoji: '👶',
     phonetic: 'geed-rah ko',
@@ -134,6 +138,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'daah',
     ho: 'दाः (da)',
     mundari: 'दाः (da)',
+    kurukh: 'अम्म (Amm)',
     category: 'nature',
     emoji: '💧',
     phonetic: 'daah (glottal stop)',
@@ -155,6 +160,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'dare',
     ho: 'दारू (daru)',
     mundari: 'दारू (daru)',
+    kurukh: 'मन (Mann)',
     category: 'nature',
     emoji: '🌳',
     phonetic: 'dah-reh',
@@ -175,6 +181,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'sarjom dare',
     ho: 'सरजोम (sarjom)',
     mundari: 'सरजोम (sarjom)',
+    kurukh: 'सखुआ मन (Sakhua Mann)',
     category: 'nature',
     emoji: '🌲',
     phonetic: 'sar-jom dah-reh',
@@ -195,6 +202,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'baha',
     ho: 'बा (ba)',
     mundari: 'बा (ba)',
+    kurukh: 'पुम्प (Pump)',
     category: 'nature',
     emoji: '🌸',
     phonetic: 'bah-hah',
@@ -215,6 +223,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'sing chando',
     ho: 'सिङी (singi)',
     mundari: 'सिङी (singi)',
+    kurukh: 'बिड़ी (Biri)',
     category: 'nature',
     emoji: '☀️',
     phonetic: 'sing chahn-doh',
@@ -235,6 +244,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'atu',
     ho: 'हातू (hatu)',
     mundari: 'हातू (hatu)',
+    kurukh: 'पद्‍दा (Padda)',
     category: 'nature',
     emoji: '🏡',
     phonetic: 'ah-too',
@@ -256,6 +266,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'chenre',
     ho: 'चेणो (cheno)',
     mundari: 'चेणो (cheno)',
+    kurukh: 'ओड़ो / चिड़ई (Odo / Chid-ee)',
     category: 'animals',
     emoji: '🐦',
     phonetic: 'cheh-nray',
@@ -276,6 +287,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'hati',
     ho: 'हाति (hati)',
     mundari: 'हाती (hati)',
+    kurukh: 'हाथी (Hathi)',
     category: 'animals',
     emoji: '🐘',
     phonetic: 'hah-tee',
@@ -296,6 +308,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'gai',
     ho: 'गुरू (guru)',
     mundari: 'गुरू (guru)',
+    kurukh: 'अद्दो / गाय (Addo / Gai)',
     category: 'animals',
     emoji: '🐄',
     phonetic: 'gah-ee',
@@ -316,6 +329,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'seta',
     ho: 'सेता (seta)',
     mundari: 'सेता (seta)',
+    kurukh: 'अल्ला (Alla)',
     category: 'animals',
     emoji: '🐕',
     phonetic: 'seh-tah',
@@ -337,6 +351,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'ayo / go',
     ho: 'इङ्गा (inga)',
     mundari: 'एङ्गा (enga)',
+    kurukh: 'अयंग / मई (Ayang / Mai)',
     category: 'family',
     emoji: '👩‍👧',
     phonetic: 'ah-yoh',
@@ -357,6 +372,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'baba',
     ho: 'आपु (apu)',
     mundari: 'आपु (apu)',
+    kurukh: 'तम्बस / बाबा (Tambas / Baba)',
     category: 'family',
     emoji: '👨‍👧',
     phonetic: 'bah-bah',
@@ -377,6 +393,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'boyha',
     ho: 'हागा (haga)',
     mundari: 'हागा (haga)',
+    kurukh: 'भैया / जोड़ी (Bhaiya / Jori)',
     category: 'family',
     emoji: '👦',
     phonetic: 'boy-hah',
@@ -398,6 +415,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'durub me',
     ho: 'दुबुं में (dubung me)',
     mundari: 'दुब में (dub me)',
+    kurukh: 'उक्का (Ukka)',
     category: 'actions',
     emoji: '🪑',
     phonetic: 'doo-roob meh',
@@ -418,6 +436,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'tingun me',
     ho: 'तिंगु में (tingu me)',
     mundari: 'तिंगु में (tingu me)',
+    kurukh: 'इत्थरा / सोंगे (Itthra / Songe)',
     category: 'actions',
     emoji: '🧍',
     phonetic: 'ting-goon meh',
@@ -438,6 +457,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'anjom me',
     ho: 'आयूम में (ayum me)',
     mundari: 'आयूम में (ayum me)',
+    kurukh: 'मेना / मेनके (Mena / Menke)',
     category: 'actions',
     emoji: '👂',
     phonetic: 'ahn-jom meh',
@@ -458,6 +478,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'parhaw me',
     ho: 'पई में (pai me)',
     mundari: 'पई में (pai me)',
+    kurukh: 'पड़हा / पड़हके (Parha / Parhke)',
     category: 'actions',
     emoji: '📖',
     phonetic: 'par-how meh',
@@ -478,6 +499,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'ol me',
     ho: 'ओल में (ol me)',
     mundari: 'ओल में (ol me)',
+    kurukh: 'टुड़ा / टुड़के (Tura / Turke)',
     category: 'actions',
     emoji: '✏️',
     phonetic: 'ohl meh',
@@ -500,6 +522,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: "mit' (1)",
     ho: 'मियद (miyad)',
     mundari: 'मियद (miyad)',
+    kurukh: 'ओंद (Ond - 1)',
     category: 'numbers',
     emoji: '1️⃣',
     phonetic: 'meet',
@@ -520,6 +543,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'bar (2)',
     ho: 'बारिया (bariya)',
     mundari: 'बारिया (bariya)',
+    kurukh: 'इर्र / एंड (Irr / End - 2)',
     category: 'numbers',
     emoji: '2️⃣',
     phonetic: 'bahr',
@@ -540,6 +564,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'pe (3)',
     ho: 'अपिया (apiya)',
     mundari: 'अपिया (apiya)',
+    kurukh: 'मूंद (Moond - 3)',
     category: 'numbers',
     emoji: '3️⃣',
     phonetic: 'pay',
@@ -560,6 +585,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'mone (5)',
     ho: 'मोड़े (mode)',
     mundari: 'मोड़े (mode)',
+    kurukh: 'पंचे (Panche - 5)',
     category: 'numbers',
     emoji: '5️⃣',
     phonetic: 'moh-nay',
@@ -580,6 +606,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'gel (10)',
     ho: 'गेल (gel)',
     mundari: 'गेल (gel)',
+    kurukh: 'दसे (Dase - 10)',
     category: 'numbers',
     emoji: '🔟',
     phonetic: 'gell',
@@ -600,6 +627,7 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
     santali_latin: 'isi (20)',
     ho: 'हिसि (hisi)',
     mundari: 'हिसि (hisi)',
+    kurukh: 'कुड़ी / बीस (Kuri / Bees - 20)',
     category: 'numbers',
     emoji: '2️⃣0️⃣',
     phonetic: 'ee-see',
@@ -610,9 +638,773 @@ export const VERIFIED_VOCABULARY: VocabItem[] = [
       english: 'Twenty rupees.'
     }
   }
+,
+// Colours (FLN Visual Theme)
+  {
+    id: 'colour_1',
+    hindi: 'लाल',
+    english: 'Red',
+    santali_olchiki: 'ᱟᱨᱟᱜ',
+    santali_odia: 'ଆରାଗ',
+    santali_deva: 'आराग',
+    santali_latin: 'arag',
+    ho: 'आराः (ara)',
+    mundari: 'आराः (ara)',
+    kurukh: 'खेंखो / लाल (Khenkho / Lal)',
+    category: 'colours',
+    emoji: '🔴',
+    phonetic: 'ah-rahg',
+    culturalNote: 'Color of palash flower and festive sindur.',
+    exampleSentence: {
+      hindi: 'यह लाल फूल है।',
+      olchiki: 'ᱱᱚᱶᱟ ᱫᱚ ᱟᱨᱟᱜ ᱵᱟᱦᱟ ᱠᱟᱱᱟ᱾',
+      english: 'This is a red flower.'
+    }
+  },
+  {
+    id: 'colour_2',
+    hindi: 'हरा',
+    english: 'Green',
+    santali_olchiki: 'ᱦᱟᱹᱨᱤᱭᱟᱹᱲ',
+    santali_odia: 'ହାରିୟାଡ଼',
+    santali_deva: 'हारियाड़',
+    santali_latin: 'hariyad',
+    ho: 'हरियर (hariyar)',
+    mundari: 'हरियर (hariyar)',
+    kurukh: 'हरियर (Hariyar)',
+    category: 'colours',
+    emoji: '🟢',
+    phonetic: 'hah-ree-yad',
+    culturalNote: 'Color of forest sal canopy and fresh crops.',
+    exampleSentence: {
+      hindi: 'पेड़ के पत्ते हरे हैं।',
+      olchiki: 'ᱫᱟᱨᱮ ᱨᱮᱱᱟᱜ ᱥᱟᱠᱟᱢ ᱦᱟᱹᱨᱤᱭᱟᱹᱲ ᱜᱮᱭᱟ᱾',
+      english: 'The leaves of the tree are green.'
+    }
+  },
+  {
+    id: 'colour_3',
+    hindi: 'नीला',
+    english: 'Blue',
+    santali_olchiki: 'ᱞᱤᱞ',
+    santali_odia: 'ଲିଲ',
+    santali_deva: 'लील',
+    santali_latin: 'lil',
+    ho: 'लील (lil)',
+    mundari: 'लील (lil)',
+    kurukh: 'लील (Lil)',
+    category: 'colours',
+    emoji: '🔵',
+    phonetic: 'leel',
+    culturalNote: 'Color of the clear sky (serma).',
+    exampleSentence: {
+      hindi: 'आसमान नीला है।',
+      olchiki: 'ᱥᱮᱨᱢᱟ ᱫᱚ ᱞᱤᱞ ᱜᱮᱭᱟ᱾',
+      english: 'The sky is blue.'
+    }
+  },
+  {
+    id: 'colour_4',
+    hindi: 'पीला',
+    english: 'Yellow',
+    santali_olchiki: 'ᱥᱟᱥᱟᱝ',
+    santali_odia: 'ସାସାଙ୍ଗ',
+    santali_deva: 'सासांग',
+    santali_latin: 'sasang',
+    ho: 'ससंग (sasang)',
+    mundari: 'ससंग (sasang)',
+    kurukh: 'पियर / ससंग (Piyar / Sasang)',
+    category: 'colours',
+    emoji: '🟡',
+    phonetic: 'sah-sahng',
+    culturalNote: 'Sasang (turmeric) is sacred in marriage and welcoming rituals.',
+    exampleSentence: {
+      hindi: 'हल्दी पीली है।',
+      olchiki: 'ᱥᱟᱥᱟᱝ ᱫᱚ ᱥᱟᱥᱟᱝ ᱜᱮᱭᱟ᱾',
+      english: 'Turmeric is yellow.'
+    }
+  },
+  {
+    id: 'colour_5',
+    hindi: 'सफेद',
+    english: 'White',
+    santali_olchiki: 'ᱯᱩᱸᱰ',
+    santali_odia: 'ପୁଣ୍ଡ',
+    santali_deva: 'पुण्ड',
+    santali_latin: 'pund',
+    ho: 'पुंडी (pundi)',
+    mundari: 'पुंडी (pundi)',
+    kurukh: 'पंदरा (Pandra)',
+    category: 'colours',
+    emoji: '⚪',
+    phonetic: 'poond',
+    culturalNote: 'White cockerel offered in sacred groves.',
+    exampleSentence: {
+      hindi: 'सफेद पक्षी उड़ रहा है।',
+      olchiki: 'ᱯᱩᱸᱰ ᱪᱮᱬᱮ ᱩᱰᱟᱹᱣᱜ ᱠᱟᱱᱟᱭ᱾',
+      english: 'A white bird is flying.'
+    }
+  },
+  {
+    id: 'colour_6',
+    hindi: 'काला',
+    english: 'Black',
+    santali_olchiki: 'ᱦᱮᱸᱫᱮ',
+    santali_odia: 'ହେନ୍ଦେ',
+    santali_deva: 'हेंदे',
+    santali_latin: 'hende',
+    ho: 'हेंदे (hende)',
+    mundari: 'हेंदे (hende)',
+    kurukh: 'करिया / हेकड़ा (Kariya / Hekda)',
+    category: 'colours',
+    emoji: '⚫',
+    phonetic: 'hen-day',
+    culturalNote: 'Rich dark soil in monsoon fields.',
+    exampleSentence: {
+      hindi: 'काली गाय चर रही है।',
+      olchiki: 'ᱦᱮᱸᱫᱮ ᱜᱟᱹᱭ ᱜᱚᱴᱟ ᱮᱫᱟᱭ᱾',
+      english: 'The black cow is grazing.'
+    }
+  },
+  // Fruits & Flora
+  {
+    id: 'fruit_1',
+    hindi: 'आम',
+    english: 'Mango',
+    santali_olchiki: 'ᱩᱞ',
+    santali_odia: 'ଉଲ',
+    santali_deva: 'उल',
+    santali_latin: 'ul',
+    ho: 'उली (uli)',
+    mundari: 'उली (uli)',
+    kurukh: 'ततखा / आम (Tatkha / Aam)',
+    category: 'fruits',
+    emoji: '🥭',
+    phonetic: 'ool',
+    culturalNote: 'Summer king fruit across tribal orchards.',
+    exampleSentence: {
+      hindi: 'यह आम मीठा है।',
+      olchiki: 'ᱱᱚᱶᱟ ᱩᱞ ᱫᱚ ᱦᱮᱲᱮᱢ ᱜᱮᱭᱟ᱾',
+      english: 'This mango is sweet.'
+    }
+  },
+  {
+    id: 'fruit_2',
+    hindi: 'केला',
+    english: 'Banana',
+    santali_olchiki: 'ᱠᱟᱭᱨᱟ',
+    santali_odia: 'କାୟରା',
+    santali_deva: 'कायरा',
+    santali_latin: 'kayra',
+    ho: 'कदेरा (kadera)',
+    mundari: 'कदेरा (kadera)',
+    kurukh: 'केरा (Kera)',
+    category: 'fruits',
+    emoji: '🍌',
+    phonetic: 'kahy-rah',
+    culturalNote: 'Banana leaves used in community feast pangat.',
+    exampleSentence: {
+      hindi: 'मुझे केला खाना पसंद है।',
+      olchiki: 'ᱤᱧ ᱠᱟᱭᱨᱟ ᱡᱚᱢ ᱠᱩᱥᱤᱭᱟᱜᱼᱟᱹᱧ᱾',
+      english: 'I like eating banana.'
+    }
+  },
+  {
+    id: 'fruit_3',
+    hindi: 'सेब',
+    english: 'Apple',
+    santali_olchiki: 'ᱥᱮᱣ',
+    santali_odia: 'ସେୱ',
+    santali_deva: 'सेव',
+    santali_latin: 'sew',
+    ho: 'सेव (sev)',
+    mundari: 'सेव (sev)',
+    kurukh: 'सेब (Seb)',
+    category: 'fruits',
+    emoji: '🍎',
+    phonetic: 'seh-w',
+    culturalNote: 'Nutritious orchard fruit in Midday Meal.',
+    exampleSentence: {
+      hindi: 'सेब लाल है।',
+      olchiki: 'ᱥᱮᱣ ᱫᱚ ᱟᱨᱟᱜ ᱜᱮᱭᱟ᱾',
+      english: 'The apple is red.'
+    }
+  },
+  {
+    id: 'fruit_4',
+    hindi: 'महुआ',
+    english: 'Mahua Blossom',
+    santali_olchiki: 'ᱢᱟᱛᱠᱚᱢ',
+    santali_odia: 'ମାତକମ',
+    santali_deva: 'मातकोम',
+    santali_latin: 'matkom',
+    ho: 'मदकम (madkam)',
+    mundari: 'मदकम (madkam)',
+    kurukh: 'महूवा (Mahuwa)',
+    category: 'flora',
+    emoji: '🌼',
+    phonetic: 'maht-kom',
+    culturalNote: 'Lifeline edible blossom dried for sweet traditional porridge.',
+    exampleSentence: {
+      hindi: 'महुआ का फूल मीठा होता है।',
+      olchiki: 'ᱢᱟᱛᱠᱚᱢ ᱵᱟᱦᱟ ᱫᱚ ᱦᱮᱲᱮᱢ ᱜᱮᱭᱟ᱾',
+      english: 'Mahua flower is sweet.'
+    }
+  },
+  // 2D & 3D Shapes (FLN Math Geometry)
+  {
+    id: 'shape_1',
+    hindi: 'गोल / वृत्त',
+    english: 'Circle / Round',
+    santali_olchiki: 'ᱜᱳᱞ',
+    santali_odia: 'ଗୋଲ',
+    santali_deva: 'गोल',
+    santali_latin: 'gol',
+    ho: 'गोल (gol)',
+    mundari: 'गोल (gol)',
+    kurukh: 'गोल (Gol)',
+    category: 'shapes',
+    emoji: '⭕',
+    phonetic: 'gohl',
+    culturalNote: 'Shape of the sun and traditional village akhra circle.',
+    exampleSentence: {
+      hindi: 'सूरज गोल है।',
+      olchiki: 'ᱥᱤᱧ ᱪᱟᱸᱫᱚ ᱫᱚ ᱜᱳᱞ ᱜᱮᱭᱟᱭ᱾',
+      english: 'The sun is round/circular.'
+    }
+  },
+  {
+    id: 'shape_2',
+    hindi: 'चौकोर / वर्ग',
+    english: 'Square',
+    santali_olchiki: 'ᱪᱟᱹᱣᱠᱟᱹ',
+    santali_odia: 'ଚୌକା',
+    santali_deva: 'चौका',
+    santali_latin: 'chawka',
+    ho: 'चौका (chowka)',
+    mundari: 'चौका (chowka)',
+    kurukh: 'चौकोन (Chowkon)',
+    category: 'shapes',
+    emoji: '⏹️',
+    phonetic: 'chow-kah',
+    culturalNote: 'Square courtyard in traditional mud house architecture.',
+    exampleSentence: {
+      hindi: 'यह कैरम बोर्ड चौकोर है।',
+      olchiki: 'ᱱᱚᱶᱟ ᱠᱮᱨᱚᱢ ᱵᱚᱨᱰ ᱫᱚ ᱪᱟᱹᱣᱠᱟᱹ ᱜᱮᱭᱟ᱾',
+      english: 'This carrom board is square.'
+    }
+  },
+  {
+    id: 'shape_3',
+    hindi: 'त्रिकोण / तिकोना',
+    english: 'Triangle',
+    santali_olchiki: 'ᱯᱮ ᱠᱳᱬ',
+    santali_odia: 'ପେ କୋଣ',
+    santali_deva: 'पे कोण',
+    santali_latin: 'pe kon',
+    ho: 'अपी कोना (api kona)',
+    mundari: 'अपी कोना (api kona)',
+    kurukh: 'मूंद कोना (Moond Kona)',
+    category: 'shapes',
+    emoji: '🔺',
+    phonetic: 'pay kohn',
+    culturalNote: 'Three-cornered roof thatch in hilly villages.',
+    exampleSentence: {
+      hindi: 'समोसा तिकोना होता है।',
+      olchiki: 'ᱥᱟᱢᱚᱥᱟ ᱫᱚ ᱯᱮ ᱠᱳᱬ ᱜᱮᱭᱟ᱾',
+      english: 'Samosa is triangular.'
+    }
+  },
+  // Additional Fauna (Animals)
+  {
+    id: 'animals_5',
+    hindi: 'बिल्ली',
+    english: 'Cat',
+    santali_olchiki: 'ᱯᱩᱥᱤ',
+    santali_odia: 'ପୁସି',
+    santali_deva: 'पुसी',
+    santali_latin: 'pusi',
+    ho: 'पुसी (pusi)',
+    mundari: 'पुसी (pusi)',
+    kurukh: 'बिली / पुसी (Billi / Pusi)',
+    category: 'animals',
+    emoji: '🐱',
+    phonetic: 'poo-see',
+    culturalNote: 'Friendly pet keeping granaries safe from pests.',
+    exampleSentence: {
+      hindi: 'बिल्ली दूध पी रही है।',
+      olchiki: 'ᱯᱩᱥᱤ ᱛᱳᱣᱟ ᱮ ᱧᱩ ᱮᱫᱟ᱾',
+      english: 'The cat is drinking milk.'
+    }
+  },
+  {
+    id: 'animals_6',
+    hindi: 'बाघ / शेर',
+    english: 'Tiger',
+    santali_olchiki: 'ᱛᱟᱹᱨᱩᱵ / ᱠᱩᱞ',
+    santali_odia: 'ତାରୁବ',
+    santali_deva: 'तारुब',
+    santali_latin: 'tarub',
+    ho: 'कुला (kula)',
+    mundari: 'कुला (kula)',
+    kurukh: 'लखरा (Lakhra)',
+    category: 'animals',
+    emoji: '🐅',
+    phonetic: 'tah-roob',
+    culturalNote: 'Revered forest sovereign in Saranda and Similipal woods.',
+    exampleSentence: {
+      hindi: 'बाघ जंगल में रहता है।',
+      olchiki: 'ᱛᱟᱹᱨᱩᱵ ᱵᱤᱨ ᱨᱮ ᱛᱟᱦᱮᱸᱱᱟᱭ᱾',
+      english: 'The tiger lives in the forest.'
+    }
+  },
+  {
+    id: 'animals_7',
+    hindi: 'बकरी',
+    english: 'Goat',
+    santali_olchiki: 'ᱢᱮᱨᱚᱢ',
+    santali_odia: 'ମେରମ',
+    santali_deva: 'मेरम',
+    santali_latin: 'merom',
+    ho: 'मेरों (merom)',
+    mundari: 'मेरों (merom)',
+    kurukh: 'एड़ा (Eda)',
+    category: 'animals',
+    emoji: '🐐',
+    phonetic: 'meh-rom',
+    culturalNote: 'Pastoral companion grazed by village youth.',
+    exampleSentence: {
+      hindi: 'बकरी पत्ती खाती है।',
+      olchiki: 'ᱢᱮᱨᱚᱢ ᱥᱟᱠᱟᱢ ᱮ ᱡᱚᱢ ᱮᱫᱟ᱾',
+      english: 'The goat eats leaves.'
+    }
+  },
+  {
+    id: 'animals_8',
+    hindi: 'मछली',
+    english: 'Fish',
+    santali_olchiki: 'ᱦᱟᱠᱚ',
+    santali_odia: 'ହାକ',
+    santali_deva: 'हाको',
+    santali_latin: 'hako',
+    ho: 'हाइ (hai)',
+    mundari: 'हाइ (hai)',
+    kurukh: 'इंजो (Injo)',
+    category: 'animals',
+    emoji: '🐟',
+    phonetic: 'hah-koh',
+    culturalNote: 'Fresh catch from river stream with traditional bamboo traps.',
+    exampleSentence: {
+      hindi: 'मछली पानी में तैरती है।',
+      olchiki: 'ᱦᱟᱠᱚ ᱫᱟᱜ ᱨᱮ ᱯᱟᱹᱭᱨᱟᱹᱜ ᱠᱟᱱᱟᱭ᱾',
+      english: 'The fish swims in the water.'
+    }
+  },
+  // High-Frequency Classroom Dialogues & Imperatives
+  {
+    id: 'dialogue_1',
+    hindi: 'ब्लैकबोर्ड पर देखो',
+    english: 'Look at the blackboard',
+    santali_olchiki: 'ᱠᱟᱞᱤ ᱵᱚᱨᱰ ᱨᱮ ᱧᱮᱞ ᱢᱮ',
+    santali_odia: 'କାଲି ବୋର୍ଡ ରେ ଞେଲ ମେ',
+    santali_deva: 'काली बोर्ड रे ञेल मे',
+    santali_latin: 'kali bord re nel me',
+    ho: 'बोर्ड रे लेल मे (board re lel me)',
+    mundari: 'बोर्ड रे नेल मे (board re nel me)',
+    kurukh: 'बोर्ड तर एरा (Board tar era)',
+    category: 'dialogues',
+    emoji: '👨‍🏫',
+    phonetic: 'kah-lee bord reh nyel meh',
+    culturalNote: 'Direct teacher visual attention cue.',
+    exampleSentence: {
+      hindi: 'सब बच्चे ब्लैकबोर्ड पर देखो।',
+      olchiki: 'ᱥᱟᱱᱟᱢ ᱜᱤᱫᱽᱨᱟᱹ ᱠᱟᱞᱤ ᱵᱚᱨᱰ ᱨᱮ ᱧᱮᱞ ᱯᱮ᱾',
+      english: 'All children look at the blackboard.'
+    }
+  },
+  {
+    id: 'dialogue_2',
+    hindi: 'क्या आप समझ गए?',
+    english: 'Do you understand?',
+    santali_olchiki: 'ᱪᱮᱫ ᱟᱢᱮᱢ ᱵᱩᱡᱷᱟᱹᱣ ᱠᱮᱫᱼᱟ?',
+    santali_odia: 'ଚେଦ ଆମେମ ବୁଝାୱ କେଦ-ଆ?',
+    santali_deva: 'चेद आमेम बुझाव केद-आ?',
+    santali_latin: 'ched amem bujhaw ked-a?',
+    ho: 'चिना आम बुझौ केदाम? (china aam bujhau kedam?)',
+    mundari: 'चिना आम बुझाव केदाम? (china aam bujhaw kedam?)',
+    kurukh: 'एन बुझरकाय? (En bujharkay?)',
+    category: 'dialogues',
+    emoji: '💡',
+    phonetic: 'ched ah-mem booj-how kayd-ah',
+    culturalNote: 'FLN formative comprehension check during interactive lessons.',
+    exampleSentence: {
+      hindi: 'क्या आपने कहानी समझी?',
+      olchiki: 'ᱪᱮᱫ ᱟᱢ ᱠᱟᱹᱦᱱᱤᱢ ᱵᱩᱡᱷᱟᱹᱣ ᱠᱮᱫᱼᱟ?',
+      english: 'Did you understand the story?'
+    }
+  },
+  {
+    id: 'dialogue_3',
+    hindi: 'नमस्ते / प्रणाम',
+    english: 'Greetings / Hello',
+    santali_olchiki: 'ᱡᱚᱦᱟᱨ',
+    santali_odia: 'ଜୋହାର',
+    santali_deva: 'जोहार',
+    santali_latin: 'johar',
+    ho: 'जोहार (johar)',
+    mundari: 'जोहार (johar)',
+    kurukh: 'जोहार (Johar)',
+    category: 'dialogues',
+    emoji: '🙏',
+    phonetic: 'joh-hahr',
+    culturalNote: 'Universal tribal greeting expressing deep mutual respect.',
+    exampleSentence: {
+      hindi: 'नमस्ते गुरुजी।',
+      olchiki: 'ᱡᱚᱦᱟᱨ ᱢᱟᱪᱮᱛ ᱜᱚᱢᱠᱮ᱾',
+      english: 'Greetings teacher.'
+    }
+  },
+  {
+    id: 'dialogue_4',
+    hindi: 'हाथ उठाओ',
+    english: 'Raise your hand',
+    santali_olchiki: 'ᱛᱤ ᱛᱩᱞ ᱢᱮ',
+    santali_odia: 'ତି ତୁଲ ମେ',
+    santali_deva: 'ती तुल मे',
+    santali_latin: 'ti tul me',
+    ho: 'ती तुल मे (ti tul me)',
+    mundari: 'ती तुल मे (ti tul me)',
+    kurukh: 'खेकल ओथरा (Khekhal othra)',
+    category: 'dialogues',
+    emoji: '🙋',
+    phonetic: 'tee tool meh',
+    culturalNote: 'Classroom turn-taking protocol.',
+    exampleSentence: {
+      hindi: 'उत्तर देने के लिए हाथ उठाओ।',
+      olchiki: 'ᱛᱮᱞᱟ ᱮᱢ ᱞᱟᱹᱜᱤᱫ ᱛᱤ ᱛᱩᱞ ᱢᱮ᱾',
+      english: 'Raise your hand to give an answer.'
+    }
+  }
+,
+// Daily Life, Produce & Flora (FLN Contextual Vocabulary)
+  {
+    id: 'food_1',
+    hindi: 'आलू',
+    english: 'Potato',
+    santali_olchiki: 'ᱟᱹᱞᱩ',
+    santali_odia: 'ଆଲୁ',
+    santali_deva: 'आलु',
+    santali_latin: 'alu',
+    ho: 'आलु (alu)',
+    mundari: 'आलु (alu)',
+    kurukh: 'आलू (Aalu)',
+    category: 'flora',
+    emoji: '🥔',
+    phonetic: 'ah-loo',
+    culturalNote: 'Essential staple tuber cooked with lentils.',
+    exampleSentence: {
+      hindi: 'आलू की सब्जी बनी है।',
+      olchiki: 'ᱟᱹᱞᱩ ᱩᱛᱩ ᱵᱮᱱᱟᱣ ᱟᱠᱟᱱᱟ᱾',
+      english: 'Potato curry is prepared.'
+    }
+  },
+  {
+    id: 'food_2',
+    hindi: 'टमाटर',
+    english: 'Tomato',
+    santali_olchiki: 'ᱵᱤᱞᱟᱹᱛᱤ',
+    santali_odia: 'ବିଲାତି',
+    santali_deva: 'बिलाती',
+    santali_latin: 'bilati',
+    ho: 'टोको (toko)',
+    mundari: 'टोको (toko)',
+    kurukh: 'टमाटर / बिलाती (Tamatar / Bilati)',
+    category: 'flora',
+    emoji: '🍅',
+    phonetic: 'bee-lah-tee',
+    culturalNote: 'Fresh sour vegetable used in daily curries.',
+    exampleSentence: {
+      hindi: 'टमाटर लाल और ताजा है।',
+      olchiki: 'ᱵᱤᱞᱟᱹᱛᱤ ᱫᱚ ᱟᱨᱟᱜ ᱟᱨ ᱥᱚᱡᱽ ᱜᱮᱭᱟ᱾',
+      english: 'The tomato is red and fresh.'
+    }
+  },
+  {
+    id: 'food_3',
+    hindi: 'बैंगन',
+    english: 'Brinjal / Eggplant',
+    santali_olchiki: 'ᱵᱮᱸᱜᱟᱲ',
+    santali_odia: 'ବେଙ୍ଗାଡ଼',
+    santali_deva: 'बेंग़ाड़',
+    santali_latin: 'bengad',
+    ho: 'जनुम टोको (janum toko)',
+    mundari: 'जनुम टोको (janum toko)',
+    kurukh: 'भंटा (Bhanta)',
+    category: 'flora',
+    emoji: '🍆',
+    phonetic: 'ben-gahd',
+    culturalNote: 'Native seasonal vegetable grown in homestead bari gardens.',
+    exampleSentence: {
+      hindi: 'बैंगन खेत में फला है।',
+      olchiki: 'ᱵᱮᱸᱜᱟᱲ ᱵᱟᱹᱫᱽ ᱨᱮ ᱡᱚ ᱟᱠᱟᱱᱟ᱾',
+      english: 'Brinjal has grown in the farm.'
+    }
+  },
+  {
+    id: 'food_4',
+    hindi: 'लहसुन',
+    english: 'Garlic',
+    santali_olchiki: 'ᱨᱟᱹᱥᱩᱬ',
+    santali_odia: 'ରାସୁଣ',
+    santali_deva: 'रासुण',
+    santali_latin: 'rasun',
+    ho: 'रसुंडी (rasundi)',
+    mundari: 'रसुंडि (rasundi)',
+    kurukh: 'रसुन (Rasun)',
+    category: 'flora',
+    emoji: '🧄',
+    phonetic: 'rah-soon',
+    culturalNote: 'Medicinal and aromatic kitchen herb.',
+    exampleSentence: {
+      hindi: 'लहसुन स्वाद बढ़ाता है।',
+      olchiki: 'ᱨᱟᱹᱥᱩᱬ ᱥᱤᱵᱤᱞ ᱮ ᱵᱟᱹᱲᱛᱤᱭᱟ᱾',
+      english: 'Garlic enhances taste.'
+    }
+  },
+  {
+    id: 'food_5',
+    hindi: 'भिंडी',
+    english: 'Ladyfinger / Okra',
+    santali_olchiki: 'ᱵᱷᱮᱰᱣᱟ',
+    santali_odia: 'ଭେଡୱା',
+    santali_deva: 'भेडवा',
+    santali_latin: 'bhedwa',
+    ho: 'भेडवा (bhedwa)',
+    mundari: 'भेडवा (bhedwa)',
+    kurukh: 'रामझिंझरी (Ramjhinjhari)',
+    category: 'flora',
+    emoji: '🥬',
+    phonetic: 'bhed-wah',
+    culturalNote: 'Monsoon garden produce.',
+    exampleSentence: {
+      hindi: 'भिंडी हरी होती है।',
+      olchiki: 'ᱵᱷᱮᱰᱣᱟ ᱫᱚ ᱦᱟᱹᱨᱤᱭᱟᱹᱲ ᱜᱮᱭᱟ᱾',
+      english: 'Ladyfinger is green.'
+    }
+  },
+  {
+    id: 'food_6',
+    hindi: 'कटहल',
+    english: 'Jackfruit',
+    santali_olchiki: 'ᱠᱟᱱᱴᱷᱟᱲ',
+    santali_odia: 'କାଣ୍ଠାଡ଼',
+    santali_deva: 'कान्ठाड़',
+    santali_latin: 'kanthar',
+    ho: 'कंठड़ (kanthad)',
+    mundari: 'कंठड़ (kanthad)',
+    kurukh: 'कटर (Katar)',
+    category: 'fruits',
+    emoji: '🍈',
+    phonetic: 'kahn-thahr',
+    culturalNote: 'Tree fruit eaten raw as vegetable and ripe as sweet fruit.',
+    exampleSentence: {
+      hindi: 'कटहल का पेड़ बड़ा है।',
+      olchiki: 'ᱠᱟᱱᱴᱷᱟᱲ ᱫᱟᱨᱮ ᱫᱚ ᱢᱟᱨᱟᱝ ᱜᱮᱭᱟ᱾',
+      english: 'The jackfruit tree is big.'
+    }
+  },
+  {
+    id: 'food_7',
+    hindi: 'अमरूद',
+    english: 'Guava',
+    santali_olchiki: 'ᱴᱟᱢᱨᱟᱥ',
+    santali_odia: 'ଟାମରାସ',
+    santali_deva: 'टामरास',
+    santali_latin: 'tamras',
+    ho: 'टमरस (tamras)',
+    mundari: 'टमरस (tamras)',
+    kurukh: 'अमरुत (Amrut)',
+    category: 'fruits',
+    emoji: '🍈',
+    phonetic: 'tahm-rahs',
+    culturalNote: 'Winter orchard fruit rich in Vitamin C.',
+    exampleSentence: {
+      hindi: 'अमरूद मीठा फल है।',
+      olchiki: 'ᱴᱟᱢᱨᱟᱥ ᱫᱚ ᱦᱮᱲᱮᱢ ᱡᱚ ᱠᱟᱱᱟ᱾',
+      english: 'Guava is a sweet fruit.'
+    }
+  },
+  {
+    id: 'food_8',
+    hindi: 'जामुन',
+    english: 'Black Plum / Jamun',
+    santali_olchiki: 'ᱠᱩᱫᱽ',
+    santali_odia: 'କୁଦ',
+    santali_deva: 'कुद',
+    santali_latin: 'kud',
+    ho: 'कुदा (kuda)',
+    mundari: 'कुदा (kuda)',
+    kurukh: 'जंबु / कुदा (Jambu / Kuda)',
+    category: 'fruits',
+    emoji: '🫐',
+    phonetic: 'kood',
+    culturalNote: 'Monsoon black berry picked in forest groves.',
+    exampleSentence: {
+      hindi: 'जामुन का रंग काला-बैंगनी है।',
+      olchiki: 'ᱠᱩᱫᱽ ᱨᱮᱱᱟᱜ ᱨᱚᱝ ᱫᱚ ᱦᱮᱸᱫᱮ ᱜᱮᱭᱟ᱾',
+      english: 'Jamun is dark purple.'
+    }
+  },
+  {
+    id: 'food_9',
+    hindi: 'इमली',
+    english: 'Tamarind',
+    santali_olchiki: 'ᱡᱚᱡᱚ',
+    santali_odia: 'ଜୋଜୋ',
+    santali_deva: 'जोजो',
+    santali_latin: 'jojo',
+    ho: 'जोजो (jojo)',
+    mundari: 'जोजो (jojo)',
+    kurukh: 'तिंतली (Tintli)',
+    category: 'fruits',
+    emoji: '🌰',
+    phonetic: 'joh-joh',
+    culturalNote: 'Sour pod used in sour soup and village recipes.',
+    exampleSentence: {
+      hindi: 'इमली खट्टी होती है।',
+      olchiki: 'ᱡᱚᱡᱚ ᱫᱚ ᱡᱚᱡᱚ ᱜᱮᱭᱟ᱾',
+      english: 'Tamarind is sour.'
+    }
+  },
+  {
+    id: 'food_10',
+    hindi: 'केकड़ा',
+    english: 'Crab',
+    santali_olchiki: 'ᱠᱟᱴᱠᱚᱢ',
+    santali_odia: 'କାଟକମ',
+    santali_deva: 'काटकोम',
+    santali_latin: 'katkom',
+    ho: 'कटकोम (katkom)',
+    mundari: 'कटकोम (katkom)',
+    kurukh: 'खंखरा (Khankhra)',
+    category: 'animals',
+    emoji: '🦀',
+    phonetic: 'kaht-kom',
+    culturalNote: 'Stream freshwater crab collected from paddy fields.',
+    exampleSentence: {
+      hindi: 'केकड़ा पानी के किनारे रहता है।',
+      olchiki: 'ᱠᱟᱴᱠᱚᱢ ᱫᱟᱜ ᱟᱲᱮ ᱨᱮ ᱛᱟᱦᱮᱸᱱᱟᱭ᱾',
+      english: 'The crab stays near the water bank.'
+    }
+  },
+  {
+    id: 'time_1',
+    hindi: 'सुबह',
+    english: 'Morning',
+    santali_olchiki: 'ᱥᱮᱛᱟᱜ',
+    santali_odia: 'ସେତାଗ',
+    santali_deva: 'सेताग',
+    santali_latin: 'setag',
+    ho: 'सेतअ (seta)',
+    mundari: 'सेतअ (seta)',
+    kurukh: 'पैरी (Pairi)',
+    category: 'dialogues',
+    emoji: '🌅',
+    phonetic: 'say-tahg',
+    culturalNote: 'Dawn when village starts daily duties with "Sagun Setag".',
+    exampleSentence: {
+      hindi: 'सुबह हो गई है।',
+      olchiki: 'ᱥᱮᱛᱟᱜ ᱮᱱᱟ᱾',
+      english: 'It is morning.'
+    }
+  },
+  {
+    id: 'time_2',
+    hindi: 'शाम',
+    english: 'Evening',
+    santali_olchiki: 'ᱟᱹᱭᱩᱵ',
+    santali_odia: 'ଆୟୁବ',
+    santali_deva: 'आयुब',
+    santali_latin: 'ayub',
+    ho: 'नुदुम (nudum)',
+    mundari: 'नुदुम (nudum)',
+    kurukh: 'पुतबेरी (Putberi)',
+    category: 'dialogues',
+    emoji: '🌇',
+    phonetic: 'ah-yoob',
+    culturalNote: 'Dusk when cattle return home from grazing.',
+    exampleSentence: {
+      hindi: 'शाम को सब घर लौटते हैं।',
+      olchiki: 'ᱟᱹᱭᱩᱵ ᱡᱚᱛᱚ ᱦᱚᱲ ᱚᱲᱟᱜ ᱠᱚ ᱨᱩᱣᱟᱹᱲᱟ᱾',
+      english: 'Everyone returns home in the evening.'
+    }
+  },
+  {
+    id: 'time_3',
+    hindi: 'रात',
+    english: 'Night',
+    santali_olchiki: 'ᱧᱤᱫᱟᱹ',
+    santali_odia: 'ଞିଦା',
+    santali_deva: 'ञिदा',
+    santali_latin: 'nida',
+    ho: 'निदा (nida)',
+    mundari: 'निदा (nida)',
+    kurukh: 'माखा (Makha)',
+    category: 'dialogues',
+    emoji: '🌙',
+    phonetic: 'nyee-dah',
+    culturalNote: 'Night when community gathers for fireside folk tales.',
+    exampleSentence: {
+      hindi: 'रात में तारे चमकते हैं।',
+      olchiki: 'ᱧᱤᱫᱟᱹ ᱤᱯᱤᱞ ᱠᱚ ᱡᱩᱞᱩᱜᱼᱟ᱾',
+      english: 'Stars shine at night.'
+    }
+  }
+,
+{
+    id: 'dialogue_5',
+    hindi: 'धन्यवाद / आभार',
+    english: 'Thank you',
+    santali_olchiki: 'ᱥᱟᱨᱦᱟᱣ',
+    santali_odia: 'ସାରହାୱ',
+    santali_deva: 'सारहाव',
+    santali_latin: 'sarhaw',
+    ho: 'सराहा (saraha)',
+    mundari: 'सराहा (saraha)',
+    kurukh: 'धंया / गोड़े (Dhanya / Gode)',
+    category: 'dialogues',
+    emoji: '🙏',
+    phonetic: 'sar-how',
+    culturalNote: 'Traditional expression of deep gratitude and appreciation.',
+    exampleSentence: {
+      hindi: 'आपकी मदद के लिए धन्यवाद।',
+      olchiki: 'ᱟᱢᱟᱜ ᱜᱚᱲᱚ ᱞᱟᱹᱜᱤᱫ ᱥᱟᱨᱦᱟᱣ᱾',
+      english: 'Thank you for your help.'
+    }
+  },
+  {
+    id: 'school_7',
+    hindi: 'घर',
+    english: 'House / Home',
+    santali_olchiki: 'ᱚᱲᱟᱜ',
+    santali_odia: 'ଅଡ଼ାଗ',
+    santali_deva: 'ओड़ाग',
+    santali_latin: 'orag',
+    ho: 'ओड़ाः (ora)',
+    mundari: 'ओड़ाः (ora)',
+    kurukh: 'एर्पा (Erpa)',
+    category: 'school',
+    emoji: '🏠',
+    phonetic: 'oh-rahg',
+    culturalNote: 'Family household and sanctuary in tribal hamlets (tola).',
+    exampleSentence: {
+      hindi: 'मेरा घर पास में है।',
+      olchiki: 'ᱤᱧᱟᱜ ᱚᱲᱟᱜ ᱥᱩᱨ ᱨᱮ ᱢᱮᱱᱟᱜᱼᱟ᱾',
+      english: 'My house is nearby.'
+    }
+  }
 ];
 
-// Digits 0 to 10 in Ol Chiki and Odia
 export const OL_CHIKI_DIGITS = [
   { val: 0, olchiki: '᱐', odia: '୦', deva: '०', santali_name: 'ᱥᱩᱱ', english_name: 'Zero', hindi_name: 'शून्य', tactile: '⚪' },
   { val: 1, olchiki: '᱑', odia: '୧', deva: '१', santali_name: 'ᱢᱤᱫ', english_name: 'One', hindi_name: 'एक', tactile: '🍃' },
@@ -684,7 +1476,191 @@ export const PARALLEL_CORPUS_RECORDS: Record<string, {
   sat_Latn: string;
   ho?: string;
   mundari?: string;
+  kurukh?: string;
 }> = {
+'dhanyavaad': {
+    sat_Olck: 'ᱥᱟᱨᱦᱟᱣ᱾',
+    sat_Orya: 'ସାରହାୱ।',
+    sat_Deva: 'सारहाव।',
+    sat_Latn: 'sarhaw.',
+    ho: 'सराहा। (saraha.)',
+    mundari: 'सराहा। (saraha.)',
+    kurukh: 'धंया। (Dhanya.)'
+  },
+  'aapki madad ke liye dhanyavaad': {
+    sat_Olck: 'ᱟᱢᱟᱜ ᱜᱚᱲᱚ ᱞᱟᱹᱜᱤᱫ ᱥᱟᱨᱦᱟᱣ᱾',
+    sat_Orya: 'ଆମାଗ ଗଡ଼ ଲାଗିଦ ସାରହାୱ।',
+    sat_Deva: 'आमाग गोड़ो लागिद सारहाव।',
+    sat_Latn: 'amag goro lagid sarhaw.',
+    ho: 'आमाः मदद लागीद सराहा। (ama madad lagid saraha.)',
+    mundari: 'आमाः मदद लागीद सराहा। (ama madad lagid saraha.)',
+    kurukh: 'नींग्हय मदद गही धंया। (Ninghai madad gahi dhanya.)'
+  },
+  'mera ghar pas me hai': {
+    sat_Olck: 'ᱤᱧᱟᱜ ᱚᱲᱟᱜ ᱥᱩᱨ ᱨᱮ ᱢᱮᱱᱟᱜᱼᱟ᱾',
+    sat_Orya: 'ଇଞାଗ ଅଡ଼ାଗ ସୁର ରେ ମେନାଗ-ଆ।',
+    sat_Deva: 'इञाग ओड़ाग सुर रे मेनाग-आ।',
+    sat_Latn: 'inag orag sur re menag-a.',
+    ho: 'ऐंयाः ओड़ाः सोपोर रे मेनाःआ। (enya ora sopor re mena-a.)',
+    mundari: 'ऐंयाः ओड़ाः सोपोर रे मेनाःआ। (enya ora sopor re mena-a.)',
+    kurukh: 'एंग्हय एर्पा हेद्दे रई। (Enghai erpa hedde ra-ee.)'
+  },
+  'kripya mujhe pani dijiye': {
+    sat_Olck: 'ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱤᱧ ᱫᱟᱜ ᱮᱢᱟᱹᱧ ᱢᱮ᱾',
+    sat_Orya: 'ଦାୟା କାତେ ଇଞ ଦାଗ ଏମାଞ ମେ।',
+    sat_Deva: 'दाया काते इञ दाग़ एमाञ मे।',
+    sat_Latn: 'daya kate in daah eman me.',
+    ho: 'दाः ऐमाईं मे। (da ema-in me.)',
+    mundari: 'दाः ऐमाईं मे। (da ema-in me.)',
+    kurukh: 'अम्म चीके। (Amm chike.)'
+  },
+
+'aalu ki sabzi bani hai': {
+    sat_Olck: 'ᱟᱹᱞᱩ ᱩᱛᱩ ᱵᱮᱱᱟᱣ ᱟᱠᱟᱱᱟ᱾',
+    sat_Orya: 'ଆଲୁ ଉତୁ ବେନାୱ ଆକାନା।',
+    sat_Deva: 'आलु उतु बेनाव आकाना।',
+    sat_Latn: 'alu utu benaw akana.',
+    ho: 'आलु उतु बाई आकाना। (alu utu bai akana.)',
+    mundari: 'आलु उतु बाई आकाना। (alu utu bai akana.)',
+    kurukh: 'आलू तिहन बंजरकी रई। (Aalu tihan banjarki ra-ee.)'
+  },
+  'tamatar lal hai': {
+    sat_Olck: 'ᱵᱤᱞᱟᱹᱛᱤ ᱫᱚ ᱟᱨᱟᱜ ᱜᱮᱭᱟ᱾',
+    sat_Orya: 'ବିଲାତି ଦୋ ଆରାଗ ଗେୟା।',
+    sat_Deva: 'बिलाती दो आराग गेया।',
+    sat_Latn: 'bilati do arag geya.',
+    ho: 'टोको आराः गेया। (toko ara geya.)',
+    mundari: 'टोको आराः गेया। (toko ara geya.)',
+    kurukh: 'टमाटर खेंखो रई। (Tamatar khenkho ra-ee.)'
+  },
+  'kathal ka ped bada hai': {
+    sat_Olck: 'ᱠᱟᱱᱴᱷᱟᱲ ᱫᱟᱨᱮ ᱫᱚ ᱢᱟᱨᱟᱝ ᱜᱮᱭᱟ᱾',
+    sat_Orya: 'କାଣ୍ଠାଡ଼ ଦାରେ ଦୋ ମାରାଙ୍ଗ ଗେୟା।',
+    sat_Deva: 'कान्ठाड़ दारे दो मारांग गेया।',
+    sat_Latn: 'kanthar dare do marang geya.',
+    ho: 'कंठड़ दारू मारांग गेया। (kanthad daru marang geya.)',
+    mundari: 'कंठड़ दारू मारांग गेया। (kanthad daru marang geya.)',
+    kurukh: 'कटर मन कोहा रई। (Katar mann koha ra-ee.)'
+  },
+  'amrood meetha fal hai': {
+    sat_Olck: 'ᱴᱟᱢᱨᱟᱥ ᱫᱚ ᱦᱮᱲᱮᱢ ᱡᱚ ᱠᱟᱱᱟ᱾',
+    sat_Orya: 'ଟାମରାସ ଦୋ ହେଡ଼େମ ଜ କାନା।',
+    sat_Deva: 'टामरास दो हेड़ेम जो काना।',
+    sat_Latn: 'tamras do herem jo kana.',
+    ho: 'टमरस सिबिल जो ताना। (tamras sibil jo tana.)',
+    mundari: 'टमरस सिबिल जो ताना। (tamras sibil jo tana.)',
+    kurukh: 'अमरुत एमबा फल तली। (Amrut emba phal tali.)'
+  },
+  'imli khatti hoti hai': {
+    sat_Olck: 'ᱡᱚᱡᱚ ᱫᱚ ᱡᱚᱡᱚ ᱜᱮᱭᱟ᱾',
+    sat_Orya: 'ଜୋଜୋ ଦୋ ଜୋଜୋ ଗେୟା।',
+    sat_Deva: 'जोजो दो जोजो गेया।',
+    sat_Latn: 'jojo do jojo geya.',
+    ho: 'जोजो जोजो गेया। (jojo jojo geya.)',
+    mundari: 'जोजो जोजो गेया। (jojo jojo geya.)',
+    kurukh: 'तिंतली तितखा रई। (Tintli titkha ra-ee.)'
+  },
+  'subah ho gayi hai': {
+    sat_Olck: 'ᱥᱮᱛᱟᱜ ᱮᱱᱟ᱾',
+    sat_Orya: 'ସେତାଗ ଏନା।',
+    sat_Deva: 'सेताग एना।',
+    sat_Latn: 'setag ena.',
+    ho: 'सेतअ याना। (seta yana.)',
+    mundari: 'सेतअ याना। (seta yana.)',
+    kurukh: 'पैरी मंजा। (Pairi manja.)'
+  },
+  'nashta taiyar hai': {
+    sat_Olck: 'ᱥᱮᱛᱟᱜ ᱫᱟᱠᱟ ᱥᱟᱯᱲᱟᱣ ᱟᱠᱟᱱᱟ᱾',
+    sat_Orya: 'ସେତାଗ ଦାକା ସାପଡ଼ାୱ ଆକାନା।',
+    sat_Deva: 'सेताग दाका सापड़ाव आकाना।',
+    sat_Latn: 'setag daka sapraw akana.',
+    ho: 'लोअड़ि बाई आकाना। (loari bai akana.)',
+    mundari: 'लोअड़ि बाई आकाना। (loari bai akana.)',
+    kurukh: 'बिहांडी तय्यार रई। (Bihandi tayyar ra-ee.)'
+  },
+  'dophar ka bhojan': {
+    sat_Olck: 'ᱛᱤᱠᱤᱱ ᱫᱟᱠᱟ',
+    sat_Orya: 'ତିକିନ ଦାକା',
+    sat_Deva: 'तिकिन दाका',
+    sat_Latn: 'tikin daka',
+    ho: 'तिकिन मन्डी (tikin mandi)',
+    mundari: 'तिकिन मनडि (tikin mandi)',
+    kurukh: 'कलवा ओना (Kalwa ona)'
+  },
+
+'yeh lal phool hai': {
+    sat_Olck: 'ᱱᱚᱶᱟ ᱫᱚ ᱟᱨᱟᱜ ᱵᱟᱦᱟ ᱠᱟᱱᱟ᱾',
+    sat_Orya: 'ନୋୱା ଦୋ ଆରାଗ ବାହା କାନା।',
+    sat_Deva: 'नोवा दो आराग बाहा काना।',
+    sat_Latn: 'nowa do arag baha kana.',
+    ho: 'नेया आराः बा ताना। (neya ara ba tana.)',
+    mundari: 'नेया आराः बा ताना। (neya ara ba tana.)',
+    kurukh: 'ई खेंखो पुम्प तली। (Ee khenkho pump tali.)'
+  },
+  'asman neela hai': {
+    sat_Olck: 'ᱥᱮᱨᱢᱟ ᱫᱚ ᱞᱤᱞ ᱜᱮᱭᱟ᱾',
+    sat_Orya: 'ସେରମା ଦୋ ଲିଲ ଗେୟା।',
+    sat_Deva: 'सेरमा दो लील गेया।',
+    sat_Latn: 'serma do lil geya.',
+    ho: 'सिरमा लील गेया। (sirma lil geya.)',
+    mundari: 'सिरमा लील गेया। (sirma lil geya.)',
+    kurukh: 'मेरखा लील रई। (Merkha lil ra-ee.)'
+  },
+  'ped ke patte hare hain': {
+    sat_Olck: 'ᱫᱟᱨᱮ ᱨᱮᱱᱟᱜ ᱥᱟᱠᱟᱢ ᱦᱟᱹᱨᱤᱭᱟᱹᱲ ᱜᱮᱭᱟ᱾',
+    sat_Orya: 'ଦାରେ ରେନାଗ ସାକାମ ହାରିୟାଡ଼ ଗେୟା।',
+    sat_Deva: 'दारे रेनाग साकाम हारियाड़ गेया।',
+    sat_Latn: 'dare renag sakam hariyad geya.',
+    ho: 'दारू राः साकाम हरियर ताना। (daru ra sakam hariyar tana.)',
+    mundari: 'दारू राः साकाम हरियर ताना। (daru ra sakam hariyar tana.)',
+    kurukh: 'मन ता अत्खा हरियर रई। (Mann ta atkha hariyar ra-ee.)'
+  },
+  'yeh aam meetha hai': {
+    sat_Olck: 'ᱱᱚᱶᱟ ᱩᱞ ᱫᱚ ᱦᱮᱲᱮᱢ ᱜᱮᱭᱟ᱾',
+    sat_Orya: 'ନୋୱା ଉଲ ଦୋ ହେଡ଼େମ ଗେୟା।',
+    sat_Deva: 'नोवा उल दो हेड़ेम गेया।',
+    sat_Latn: 'nowa ul do herem geya.',
+    ho: 'नेया उली सिबिल गेया। (neya uli sibil geya.)',
+    mundari: 'नेया उली सिबिल गेया। (neya uli sibil geya.)',
+    kurukh: 'ई ततखा एमबा रई। (Ee tatkha emba ra-ee.)'
+  },
+  'blackboard par dekho': {
+    sat_Olck: 'ᱠᱟᱞᱤ ᱵᱚᱨᱰ ᱨᱮ ᱧᱮᱞ ᱢᱮ᱾',
+    sat_Orya: 'କାଲି ବୋର୍ଡ ରେ ଞେଲ ମେ।',
+    sat_Deva: 'काली बोर्ड रे ञेल मे।',
+    sat_Latn: 'kali bord re nel me.',
+    ho: 'बोर्ड रे लेल मे। (board re lel me.)',
+    mundari: 'बोर्ड रे नेल मे। (board re nel me.)',
+    kurukh: 'बोर्ड तर एरा। (Board tar era.)'
+  },
+  'kya aap samajh gaye': {
+    sat_Olck: 'ᱪᱮᱫ ᱟᱢᱮᱢ ᱵᱩᱡᱷᱟᱹᱣ ᱠᱮᱫᱼᱟ?',
+    sat_Orya: 'ଚେଦ ଆମେମ ବୁଝାୱ କେଦ-ଆ?',
+    sat_Deva: 'चेद आमेम बुझाव केद-आ?',
+    sat_Latn: 'ched amem bujhaw ked-a?',
+    ho: 'चिना आम बुझौ केदाम? (china aam bujhau kedam?)',
+    mundari: 'चिना आम बुझाव केदाम? (china aam bujhaw kedam?)',
+    kurukh: 'एन बुझरकाय? (En bujharkay?)'
+  },
+  'namaste guruji': {
+    sat_Olck: 'ᱡᱚᱦᱟᱨ ᱢᱟᱪᱮᱛ ᱜᱚᱢᱠᱮ᱾',
+    sat_Orya: 'ଜୋହାର ମାଚେତ ଗମକେ।',
+    sat_Deva: 'जोहार माचेत गोमके।',
+    sat_Latn: 'johar machet gomke.',
+    ho: 'जोहार माचेत। (johar machet.)',
+    mundari: 'जोहार माचेत। (johar machet.)',
+    kurukh: 'जोहार गुरुजी। (Johar Guruji.)'
+  },
+  'hath uthao': {
+    sat_Olck: 'ᱛᱤ ᱛᱩᱞ ᱢᱮ᱾',
+    sat_Orya: 'ତି ତୁଲ ମେ।',
+    sat_Deva: 'ती तुल मे।',
+    sat_Latn: 'ti tul me.',
+    ho: 'ती तुल मे। (ti tul me.)',
+    mundari: 'ती तुल मे। (ti tul me.)',
+    kurukh: 'खेकल ओथरा। (Khekhal othra.)'
+  },
+
   'asman se gire to khajur me atke wali halat ho gayi hai ek taraf kuan hai to dusri taraf khai aur jin par bharosa kiya tha unhone bhi ain waqt par hath khade kar diye': {
     sat_Olck: 'ᱥᱮᱨᱢᱟ ᱠᱷᱚᱱ ᱧᱩᱨ ᱠᱟᱛᱮ ᱠᱷᱤᱡᱩᱨ ᱫᱟᱨᱮ ᱨᱮ ᱟᱴᱠᱟᱣ ᱞᱮᱠᱟᱱ ᱚᱵᱚᱥᱛᱟ ᱦᱩᱭ ᱟᱠᱟᱱᱟ—ᱢᱤᱫ ᱯᱟᱦᱴᱟ ᱨᱮ ᱠᱩᱧ ᱢᱮᱱᱟᱜᱼᱟ ᱛᱚ ᱮᱴᱟᱜ ᱯᱟᱦᱴᱟ ᱨᱮ ᱫᱚ ᱠᱷᱟᱞ, ᱟᱨ ᱡᱟᱦᱟᱸᱭ ᱠᱚ ᱪᱮᱛᱟᱱ ᱨᱮ ᱯᱟᱹᱛᱭᱟᱹᱣ ᱛᱟᱦᱮᱸ ᱠᱟᱱᱟ ᱩᱱᱠᱩ ᱦᱚᱸ ᱴᱷᱤᱠ ᱚᱠᱛᱚ ᱨᱮ ᱛᱤ ᱠᱚ ᱛᱩᱞ ᱠᱮᱫᱼᱟ᱾',
     sat_Orya: 'ସେରମା ଖନ ଞୁର କାତେ ଖିଜୁର ଦାରେ ରେ ଆଟକାୱ ଲେକାନ ଅବସ୍ତା ହୁୟ ଆକାନା—ମିଦ ପାହଟା ରେ କୁଞ ମେନାଗ-ଆ ତ ଏଟାଗ ପାହଟା ରେ ଦ ଖାଲ, ଆର ଜାହାଁୟ କ ଚେତାନ ରେ ପାᱹᱛୟାᱹୱ ତାହେଁ କାନା ଉନକୁ ହଁ ଠିକ ଅକ୍ତ ରେ ᱛି କ ତୁଲ କେଦ-ଆ।',

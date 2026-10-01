@@ -42,6 +42,8 @@ export const TranslationHub: React.FC<{ language?: IndigenousLanguage }> = ({
         return 'ho_Wara';
       case 'mundari':
         return 'mun_Bani';
+      case 'kurukh':
+        return 'kru_Deva';
       case 'santali':
       default:
         return 'sat_Olck';
@@ -595,11 +597,11 @@ export const TranslationHub: React.FC<{ language?: IndigenousLanguage }> = ({
             </p>
           </div>
           <span className="text-xs px-2.5 py-1 rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/20 font-mono">
-            4 Languages • 8 Scripts
+            5 Languages • 10 Indigenous Scripts
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3.5">
           {/* Card 1: English (Classroom Default) */}
           <div
             className={`p-4 rounded-xl border transition flex flex-col justify-between ${
@@ -758,6 +760,49 @@ export const TranslationHub: React.FC<{ language?: IndigenousLanguage }> = ({
               <button
                 onClick={() => handleSpeak(result.transliterations.mun_Deva || '', 'mun_Deva')}
                 className="text-cyan-400 hover:underline cursor-pointer"
+              >
+                Listen
+              </button>
+            </div>
+          </div>
+
+          {/* Card 5: Kurukh (Tolong Siki & Devanagari) */}
+          <div
+            className={`p-4 rounded-xl border transition flex flex-col justify-between ${
+              targetLang === 'kurukh'
+                ? 'bg-emerald-950/40 border-emerald-500/50 shadow-md ring-1 ring-emerald-500/30'
+                : 'bg-slate-950 border-slate-800/80 hover:border-slate-700'
+            }`}
+          >
+            <div>
+              <div className="flex items-center justify-between text-xs mb-2">
+                <span className="font-bold text-emerald-400 flex items-center gap-1.5">
+                  <span>🌳</span> Kurukh (कुड़ुख़)
+                </span>
+                <button
+                  onClick={() =>
+                    handleCopy(
+                      result.transliterations.kru_Tolo || result.transliterations.kru_Deva || '',
+                      'kru'
+                    )
+                  }
+                  className="text-slate-500 hover:text-slate-300 text-[11px] cursor-pointer"
+                >
+                  {copiedKey === 'kru' ? 'Copied!' : 'Copy'}
+                </button>
+              </div>
+              <div className="text-lg font-bold text-emerald-300 font-mono tracking-wide">
+                {result.transliterations.kru_Tolo || result.transliterations.kru_Deva || '—'}
+              </div>
+              <div className="mt-1.5 text-xs text-slate-300 font-deva">
+                देवनागरी: {result.transliterations.kru_Deva || result.kurukh_equivalent}
+              </div>
+            </div>
+            <div className="mt-3 pt-2 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-center justify-between">
+              <span>Tolong Siki (Dr. Narayan Oraon)</span>
+              <button
+                onClick={() => handleSpeak(result.transliterations.kru_Deva || '', 'kru_Deva')}
+                className="text-emerald-400 hover:underline cursor-pointer"
               >
                 Listen
               </button>

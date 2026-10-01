@@ -16,7 +16,17 @@ export function generateWorksheet(
   const scriptLabel =
     targetScript === 'sat_Olck' ? 'Santali (Ol Chiki - ᱚᱞ ᱪᱤᱠᱤ)' :
     targetScript === 'sat_Orya' ? 'Santali (Odia Script - ଓଡ଼ିଆ)' :
-    targetScript === 'sat_Deva' ? 'Santali (Devanagari - संताली)' : 'Santali (Latin)';
+    targetScript === 'sat_Deva' ? 'Santali (Devanagari - संताली)' :
+    targetScript === 'sat_Latn' ? 'Santali (Latin)' :
+    targetScript === 'ho_Wara' ? 'Ho (Warang Citi - 𑢹𑣉𑣉 𑣎𑣂𑣑𑣂)' :
+    targetScript === 'ho_Deva' ? 'Ho (Devanagari - हो)' :
+    targetScript === 'ho_Latn' ? 'Ho (Latin)' :
+    targetScript === 'mun_Bani' ? 'Mundari (Mundari Bani - 𞓚𞓝𞓙𞓞)' :
+    targetScript === 'mun_Deva' ? 'Mundari (Devanagari - मुण्डारी)' :
+    targetScript === 'mun_Latn' ? 'Mundari (Latin)' :
+    targetScript === 'kru_Deva' ? 'Kurukh (Devanagari - कुड़ुख़)' :
+    targetScript === 'kru_Tolo' ? 'Kurukh (Tolong Siki - 𑑎𑑚𑑎𑑙)' :
+    targetScript === 'kru_Latn' ? 'Kurukh (Latin)' : 'Santali (Ol Chiki)';
 
   switch (type) {
     case 'counting':
@@ -40,7 +50,8 @@ export function generateWorksheet(
       };
 
     case 'matching':
-      const matchingVocab = VERIFIED_VOCABULARY.slice(0, 6);
+      const filteredMatching = category ? VERIFIED_VOCABULARY.filter(v => v.category === category || category.toLowerCase().includes(v.category)) : [];
+      const matchingVocab = (filteredMatching.length >= 3 ? filteredMatching : VERIFIED_VOCABULARY).slice(0, 6);
       return {
         title: `FLN Bilingual Vocabulary & Object Connect Worksheet (${grade})`,
         type: 'matching',
@@ -55,22 +66,29 @@ export function generateWorksheet(
           english: v.english,
           santali: targetScript === 'sat_Olck' ? v.santali_olchiki :
                    targetScript === 'sat_Orya' ? v.santali_odia :
-                   targetScript === 'sat_Deva' ? v.santali_deva : v.santali_latin,
+                   targetScript === 'sat_Deva' ? v.santali_deva :
+                   targetScript === 'sat_Latn' ? v.santali_latin :
+                   (targetScript === 'ho_Wara' || targetScript === 'ho_Deva' || targetScript === 'ho_Latn') ? (v.ho || v.santali_olchiki) :
+                   (targetScript === 'mun_Bani' || targetScript === 'mun_Deva' || targetScript === 'mun_Latn') ? (v.mundari || v.santali_olchiki) :
+                   (targetScript === 'kru_Deva' || targetScript === 'kru_Tolo' || targetScript === 'kru_Latn') ? (v.kurukh || v.santali_deva) :
+                   v.santali_olchiki,
           emoji: v.emoji,
           phonetic: v.phonetic
         }))
       };
 
     case 'flashcards':
+      const filteredCards = category ? VERIFIED_VOCABULARY.filter(v => v.category === category || category.toLowerCase().includes(v.category)) : [];
+      const cardVocab = (filteredCards.length >= 4 ? filteredCards : VERIFIED_VOCABULARY).slice(0, 8);
       return {
-        title: `Pocket Visual Flashcard Deck (2x4 Cut-and-Fold Grid)`,
+        title: `Pocket Visual Flashcard Deck (${category ? category.toUpperCase() : 'FLN Themes'})`,
         type: 'flashcards',
         grade,
         category,
         target_lang: targetScript,
         lang_label: scriptLabel,
         generated_at: dateStr,
-        items: VERIFIED_VOCABULARY.slice(0, 8).map(v => ({
+        items: cardVocab.map(v => ({
           id: v.id,
           emoji: v.emoji,
           olchiki: v.santali_olchiki,

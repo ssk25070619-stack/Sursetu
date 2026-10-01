@@ -59,17 +59,17 @@ export const SUPPORTED_LANGUAGES: LanguageConfig[] = [
   },
   {
     id: 'kurukh',
-    name: 'Kurukh',
-    nativeName: 'कुड़ुख़ (Kurux)',
+    name: 'Kurukh (Oraon)',
+    nativeName: 'कुड़ुख़ (᱀ᱩᱨᱩᱠᱷ)',
     scriptLabel: 'Tolong Siki • Devanagari',
-    nativeScript: 'Tolong Siki (ᱛᱚᱞᱚᱝ ᱥᱤᱠᱤ) / Devanagari',
+    nativeScript: 'Tolong Siki (ᱛᱚᱞᱚᱝ ᱥᱤᱠᱤ)',
     scriptCreator: 'Dr. Narayan Oraon (1999)',
-    scriptHistory: 'Invented by Dr. Narayan Oraon in 1999 for the Dravidian Kurukh/Oraon language; officially recognized by the Govt. of Jharkhand.',
-    secondaryScripts: ['Tolong Siki', 'Devanagari', 'Latin'],
-    shortCode: 'KUR',
-    region: 'Gumla, Lohardaga, Latehar, Simdega, Ranchi & Odisha',
-    icon: '🪶',
-    greeting: 'जय धरमे (Jai Dharme / Johar)'
+    scriptHistory: 'Dravidian tribal language spoken by ~2 Million Oraon / Kurukh people across Jharkhand, Chhattisgarh, and Odisha. Tolong Siki was developed to capture Kurukh phonetics natively alongside Devanagari.',
+    secondaryScripts: ['Tolong Siki', 'Devanagari', 'Latin', 'Odia'],
+    shortCode: 'KRU',
+    region: 'Ranchi, Gumla, Lohardaga, Latehar, Simdega, Sundargarh',
+    icon: '🌳',
+    greeting: 'जोहार (Johar! Nin ek-se ra\'aday?)'
   }
 ];
 
@@ -174,7 +174,7 @@ export const UI_LOCALIZATION: Record<IndigenousLanguage, UILabels> = {
   kurukh: {
     bannerBadge: 'SurSetu • Kurukh',
     nativeBadge: 'Kurukh (कुड़ुख़ • Tolong Siki)',
-    subTitle: 'Indigenous Language AI & Pedagogical Assistant for Oraon Tribal Belt',
+    subTitle: 'Indigenous Language AI & Pedagogical Bridge for Oraon Tribal Communities',
     learnWord: 'Learn Word',
     tabs: {
       speech: 'Speech Studio',
@@ -188,7 +188,7 @@ export const UI_LOCALIZATION: Record<IndigenousLanguage, UILabels> = {
     offlinePill: '100% Offline Ready',
     edgeLatency: '0ms Edge Loopback',
     corpusCount: 'Kurukh Multilingual Corpus Active',
-    greetingLabel: 'जय धरमे'
+    greetingLabel: 'Welcome'
   }
 };
 
@@ -615,7 +615,7 @@ export const LOGIN_LOCALIZATION: Record<IndigenousLanguage, LoginTranslations> =
     }
   },
   kurukh: {
-    badge: 'SIH 2026 • 100% Offline Edge Native Authentication (Kurukh / Oraon Belt)',
+    badge: 'SIH 2026 • 100% Offline Edge Native Authentication (Kurukh Belt)',
     portalTitle: 'SurSetu',
     portalSubtitle: 'Role-Based Access Portal for Mother Tongue-Based Primary Education across Kurukh, Santali, Ho, and Mundari.',
     roles: {
@@ -636,7 +636,7 @@ export const LOGIN_LOCALIZATION: Record<IndigenousLanguage, LoginTranslations> =
       },
       student: {
         title: 'Tribal Learner / Student',
-        nativeTitle: 'Tribal Learner • विद्यार्थी (कुड़ुख़)',
+        nativeTitle: 'Tribal Learner • विद्यार्थी (Kurukh)',
         desc: 'Visual, safe, child-friendly reading, 3D animated flashcards, and gamified tribal quest learning.',
         pickAvatar: 'Pick Your Learning Avatar',
         nameLabel: 'Student / Learner Name',
@@ -653,7 +653,7 @@ export const LOGIN_LOCALIZATION: Record<IndigenousLanguage, LoginTranslations> =
         namePlaceholder: 'Enter official full name',
         designationLabel: 'Designation / Role',
         districtLabel: 'Administrative District',
-        districtPlaceholder: 'Gumla / Lohardaga / Ranchi',
+        districtPlaceholder: 'Gumla / Lohardaga / Latehar / Ranchi',
         pinLabel: 'Admin Security PIN',
         setPinLabel: 'Set 4-Digit Security PIN',
         button: 'Enter Official Portal'

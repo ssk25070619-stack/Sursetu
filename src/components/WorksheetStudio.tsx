@@ -195,10 +195,27 @@ export const WorksheetStudio: React.FC<{ initialType?: string }> = ({ initialTyp
               onChange={(e) => setTargetScript(e.target.value as TargetScript)}
               className="bg-slate-950 border border-slate-800 text-emerald-300 rounded-lg px-2.5 py-1 text-xs cursor-pointer font-medium"
             >
-              <option value="sat_Olck">Ol Chiki (ᱚᱞ ᱪᱤᱠᱤ)</option>
-              <option value="sat_Orya">Odia Script (ଓଡ଼ିଆ)</option>
-              <option value="sat_Deva">Devanagari (संताली)</option>
-              <option value="sat_Latn">Latin Phonetic</option>
+              <optgroup label="Santali (ᱥᱟᱱᱛᱟᱲᱤ)">
+                <option value="sat_Olck">Santali - Ol Chiki (ᱚᱞ ᱪᱤᱠᱤ)</option>
+                <option value="sat_Orya">Santali - Odia Script (ଓଡ଼ିଆ)</option>
+                <option value="sat_Deva">Santali - Devanagari (संताली)</option>
+                <option value="sat_Latn">Santali - Latin Roman</option>
+              </optgroup>
+              <optgroup label="Ho (हो भाषा)">
+                <option value="ho_Wara">Ho - Warang Citi (𑢹𑣉𑣉 𑣎𑣂𑣑𑣂)</option>
+                <option value="ho_Deva">Ho - Devanagari (हो)</option>
+                <option value="ho_Latn">Ho - Latin Roman</option>
+              </optgroup>
+              <optgroup label="Mundari (मुण्डारी)">
+                <option value="mun_Bani">Mundari - Mundari Bani (𞓚𞓝𞓙𞓞)</option>
+                <option value="mun_Deva">Mundari - Devanagari (मुण्डारी)</option>
+                <option value="mun_Latn">Mundari - Latin Roman</option>
+              </optgroup>
+              <optgroup label="Kurukh (कुड़ुख़ / Oraon)">
+                <option value="kru_Deva">Kurukh - Devanagari (कुड़ुख़)</option>
+                <option value="kru_Tolo">Kurukh - Tolong Siki (𑑎𑑚𑑎𑑙)</option>
+                <option value="kru_Latn">Kurukh - Latin Roman</option>
+              </optgroup>
             </select>
           </div>
         </div>

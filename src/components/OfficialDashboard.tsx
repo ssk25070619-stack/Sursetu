@@ -151,6 +151,9 @@ export const OfficialDashboard: React.FC<OfficialDashboardProps> = ({ isOnline }
                 <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-semibold glow-indigo">
                   Official Audit View
                 </span>
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold">
+                  SIH26042 • Team VajraRaksha
+                </span>
                 <span className="text-xs px-2 py-0.5 rounded-lg bg-slate-800 text-slate-300 border border-slate-700">
                   {profile.district}, {profile.state}
                 </span>

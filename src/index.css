@@ -10,7 +10,42 @@
 
   body {
     font-family: var(--font-sans);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
   }
+}
+
+/* 2 GB RAM Mode: Lightweight high-performance styling replacements */
+.low-ram-mode * {
+  /* Throttle expensive blur filters and complex box shadows on low-spec GPUs/RAM */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.low-ram-mode .glass-panel,
+.low-ram-mode .glass-card {
+  background: rgba(15, 23, 42, 0.95) !important;
+  box-shadow: none !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.low-ram-mode .animate-pulse-glow {
+  animation: none !important;
+}
+
+/* Mobile Safe Area & Hardware Acceleration */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 16px);
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .font-olchiki {

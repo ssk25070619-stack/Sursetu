@@ -32,7 +32,6 @@ import {
   Users,
   Cloud
 } from 'lucide-react';
-import confetti from 'canvas-confetti';
 
 interface LoginPageProps {
   onLoginSuccess: (role: UserRole, targetTab?: string) => void;

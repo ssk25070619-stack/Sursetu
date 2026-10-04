@@ -21,8 +21,12 @@ import { LoginPage } from './components/LoginPage';
 import { DatabaseGuideModal } from './components/DatabaseGuideModal';
 import { SupabaseModal } from './components/SupabaseModal';
 import { RestrictedAccessView } from './components/RestrictedAccessView';
+import { MobileBottomNav } from './components/MobileBottomNav';
+import { MobileQuickDrawer } from './components/MobileQuickDrawer';
+import { MobileMemoryModal } from './components/MobileMemoryModal';
+import { lowMemoryService } from './services/lowMemoryService';
 import { loadLearnedWords } from './engine/nlpEngine';
-import { ShieldCheck, Heart, Sparkles, BookOpen, WifiOff, Globe, Layers, Database, Cloud } from 'lucide-react';
+import { ShieldCheck, Heart, Sparkles, BookOpen, WifiOff, Globe, Layers, Database, Cloud, Cpu } from 'lucide-react';
 import { IndigenousLanguage } from './types';
 import { SUPPORTED_LANGUAGES } from './data/languages';
 import { rbacService, UserRole, ROLE_CONFIGS } from './services/rbacService';
@@ -33,15 +37,18 @@ export default function App() {
   const [selectedLanguage, setSelectedLanguage] = useState<IndigenousLanguage>('english');
   const [currentRole, setCurrentRole] = useState<UserRole>(rbacService.getRole());
 
-
-
-
   const [isLearnModalOpen, setIsLearnModalOpen] = useState<boolean>(false);
   const [isOfflineCacheOpen, setIsOfflineCacheOpen] = useState<boolean>(false);
   const [isRoleSwitchOpen, setIsRoleSwitchOpen] = useState<boolean>(false);
   const [isHybridConfigOpen, setIsHybridConfigOpen] = useState<boolean>(false);
   const [isDatabaseGuideOpen, setIsDatabaseGuideOpen] = useState<boolean>(false);
   const [isSupabaseModalOpen, setIsSupabaseModalOpen] = useState<boolean>(false);
+  const [isMemoryModalOpen, setIsMemoryModalOpen] = useState<boolean>(false);
+  const [isQuickDrawerOpen, setIsQuickDrawerOpen] = useState<boolean>(false);
+  const [isLowRamMode, setIsLowRamMode] = useState<boolean>(
+    lowMemoryService.getMemoryStats().isUltraLowMode
+  );
+
   const [learnedCount, setLearnedCount] = useState<number>(loadLearnedWords().length);
   const [saathiQuery, setSaathiQuery] = useState<string>('');
   const [worksheetType, setWorksheetType] = useState<string>('counting');
@@ -52,20 +59,25 @@ export default function App() {
 
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
+    const handleOffline = () => setIsOffline(false);
 
     window.addEventListener('online', handleOnline);
     window.addEventListener('offline', handleOffline);
 
-    const unsubscribe = rbacService.subscribe((profile) => {
+    const unsubscribeRbac = rbacService.subscribe((profile) => {
       setCurrentRole(profile.role);
       setIsAuthenticated(profile.isAuthenticated);
+    });
+
+    const unsubscribeMemory = lowMemoryService.subscribe((stats) => {
+      setIsLowRamMode(stats.isUltraLowMode);
     });
 
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
-      unsubscribe();
+      unsubscribeRbac();
+      unsubscribeMemory();
     };
   }, []);
 
@@ -123,6 +135,10 @@ export default function App() {
           isOpen={isSupabaseModalOpen}
           onClose={() => setIsSupabaseModalOpen(false)}
         />
+        <MobileMemoryModal
+          isOpen={isMemoryModalOpen}
+          onClose={() => setIsMemoryModalOpen(false)}
+        />
       </>
     );
   }
@@ -133,8 +149,12 @@ export default function App() {
   return (
     <div className="min-h-screen aurora-bg text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-white relative overflow-x-hidden">
       {/* Ambient background glows */}
-      <div className="fixed top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow" />
-      <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      {!isLowRamMode && (
+        <>
+          <div className="fixed top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow" />
+          <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+        </>
+      )}
 
       {/* Global Navigation Header with Language Toggle & RBAC Badge */}
       <Header
@@ -153,10 +173,11 @@ export default function App() {
         onLogout={handleLogout}
         onOpenDatabaseGuide={() => setIsDatabaseGuideOpen(true)}
         onOpenSupabase={() => setIsSupabaseModalOpen(true)}
+        onOpenMemoryModal={() => setIsMemoryModalOpen(true)}
       />
 
-      {/* Main Content Viewport */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      {/* Main Content Viewport with mobile padding */}
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 pb-24 md:pb-8">
         {/* If user tries to access a restricted tab */}
         {!isCurrentTabAllowed ? (
           <RestrictedAccessView
@@ -232,6 +253,40 @@ export default function App() {
         )}
       </main>
 
+      {/* Mobile Dedicated Bottom Navigation Bar */}
+      <MobileBottomNav
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        onOpenQuickMenu={() => setIsQuickDrawerOpen(true)}
+        onOpenMemoryModal={() => setIsMemoryModalOpen(true)}
+        isLowRamActive={isLowRamMode}
+      />
+
+      {/* Mobile Quick Drawer (Slide-Over Drawer) */}
+      <MobileQuickDrawer
+        isOpen={isQuickDrawerOpen}
+        onClose={() => setIsQuickDrawerOpen(false)}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        currentRole={currentRole}
+        onOpenRoleSwitch={() => setIsRoleSwitchOpen(true)}
+        onOpenMemoryModal={() => setIsMemoryModalOpen(true)}
+        onOpenOfflineCache={() => setIsOfflineCacheOpen(true)}
+        onOpenHybridConfig={() => setIsHybridConfigOpen(true)}
+        onOpenDatabaseGuide={() => setIsDatabaseGuideOpen(true)}
+        onOpenSupabase={() => setIsSupabaseModalOpen(true)}
+        onLogout={handleLogout}
+        selectedLanguage={selectedLanguage}
+        onSelectLanguage={setSelectedLanguage}
+        isLowRamMode={isLowRamMode}
+      />
+
+      {/* 2 GB RAM Mobile Engine Diagnostics & Heap Purge Modal */}
+      <MobileMemoryModal
+        isOpen={isMemoryModalOpen}
+        onClose={() => setIsMemoryModalOpen(false)}
+      />
+
       {/* Dynamic Learn Modal (Teacher Memory) */}
       <DynamicLearnModal
         isOpen={isLearnModalOpen}
@@ -282,8 +337,8 @@ export default function App() {
         onToggleSimulateOffline={() => setIsSimulatedOffline((prev) => !prev)}
       />
 
-      {/* Footer (Hidden during printing) */}
-      <footer className="no-print mt-auto border-t border-slate-900 bg-slate-950/80 backdrop-blur-md py-6 text-xs text-slate-500">
+      {/* Footer (Hidden during printing and padded for mobile nav) */}
+      <footer className="no-print mt-auto border-t border-slate-900 bg-slate-950/80 backdrop-blur-md py-6 text-xs text-slate-500 mb-16 md:mb-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="text-emerald-400 font-semibold">🌿 SurSetu 3.0 (सुर सेतु • ᱥᱩᱨ ᱥᱮᱛᱩ)</span>
@@ -297,7 +352,15 @@ export default function App() {
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-slate-400 text-[11px]">
+          <div className="flex items-center gap-3 sm:gap-4 text-slate-400 text-[11px] flex-wrap justify-center">
+            <button
+              onClick={() => setIsMemoryModalOpen(true)}
+              className="hover:text-emerald-400 transition cursor-pointer flex items-center gap-1 text-[11px] text-emerald-400 font-semibold"
+            >
+              <Cpu className="w-3 h-3" />
+              <span>2 GB RAM: {isLowRamMode ? 'Active' : 'Standby'}</span>
+            </button>
+            <span>•</span>
             <button
               onClick={() => setIsRoleSwitchOpen(true)}
               className="hover:text-emerald-400 transition cursor-pointer flex items-center gap-1 text-[11px]"

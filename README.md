@@ -1,20 +1,46 @@
 # 🌿 SurSetu (सुर सेतु • ᱥᱩᱨ ᱥᱮᱛᱩ • ସୁର ସେତୁ • 𑢹𑣉 𑣞𑣄𑣞𑣄 • 𞓚𞓟𞓗 𞓞𞓎𞓞𞓎)
 
+### 🏆 Smart India Hackathon (SIH 2026) Submission
+* **Problem Statement ID:** `SIH26042`
+* **Problem Statement Title:** `AI-Powered Vernacular Pedagogy and Real-Time Translation Tool for Mother Tongue-Based Primary Education`
+* **Theme:** `Smart Education` | **Category:** `Software`
+* **Team ID:** `SIH2026-0120` | **Team Name:** `VajraRaksha`
+
 > **Offline-First Indigenous Translation, Speech & Primary Education Platform for Tribal India**  
 > Bridging foundational education across Eastern & Central India's indigenous mother tongues: **Santali** (*Ol Chiki* ᱚᱞ ᱪᱤᱠᱤ, *Odia* ଓଡ଼ିଆ, *Devanagari*, *Latin*), **Ho** (*Warang Citi* 𑢹𑣉, *Devanagari*, *Odia*), **Mundari** (*Mundari Bani* 𞓚𞓟𞓗, *Devanagari*, *Odia*), and **Kurukh / Oraon** (*Tolong Siki* ᱛᱚᱞᱚᱝ ᱥᱤᱠᱤ & *Devanagari*), seamlessly unified with **Hindi** and **English**.
 
 [![Demo Video](https://img.shields.io/badge/YouTube%20Demo-Watch%20Live-red.svg?logo=youtube)](https://youtu.be/uIZi-zK9w3M)
 [![CI Status](https://github.com/ssk25070619-stack/Sursetu/actions/workflows/ci.yml/badge.svg)](https://github.com/ssk25070619-stack/Sursetu/actions)
 [![Live Demo](https://img.shields.io/badge/Live%20Web%20App-Try%20SurSetu-emerald.svg)](https://ssk25070619-stack.github.io/Sursetu/)
-[![Status](https://img.shields.io/badge/Status-MVP%20%2F%20Pilot%20Ready-emerald.svg)](https://youtu.be/uIZi-zK9w3M)
-[![Android Tested](https://img.shields.io/badge/Android%20Target-2GB%20RAM%20%2F%20Android%209%2B-brightgreen.svg)](https://youtu.be/uIZi-zK9w3M)
+[![SIH 2026](https://img.shields.io/badge/SIH%202026-PS%20SIH26042-blue.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Team VajraRaksha](https://img.shields.io/badge/Team-VajraRaksha%20(SIH2026--0120)-gold.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Android Target](https://img.shields.io/badge/Android%20Mobile-Bare%20Minimum%202GB%20RAM-brightgreen.svg)](https://youtu.be/uIZi-zK9w3M)
 [![Dict Lookup](https://img.shields.io/badge/Lookup_Latency-0.08ms-blue.svg)](https://youtu.be/uIZi-zK9w3M)
-[![End-to-End Latency](https://img.shields.io/badge/End--to--End_Latency-Sub--second-orange.svg)](https://youtu.be/uIZi-zK9w3M)
-[![Dataset](https://img.shields.io/badge/Parallel%20Corpus-72%2C904%20Pairs-indigo.svg)](https://youtu.be/uIZi-zK9w3M)
-[![Offline Capable](https://img.shields.io/badge/Architecture-100%25%20Offline%20Edge-green.svg)](https://youtu.be/uIZi-zK9w3M)
-[![Languages](https://img.shields.io/badge/Indigenous%20Languages-4%20Tribal%20%2B%202%20Bridge-purple.svg)](https://youtu.be/uIZi-zK9w3M)
-[![Scripts](https://img.shields.io/badge/Native%20Scripts-10%20Writing%20Systems-teal.svg)](https://youtu.be/uIZi-zK9w3M)
-[![Policy Alignment](https://img.shields.io/badge/NEP%202020-NIPUN%20Bharat%20Aligned-amber.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Parallel Corpus](https://img.shields.io/badge/Parallel%20Corpus-72%2C904%20Pairs-indigo.svg)](https://youtu.be/uIZi-zK9w3M)
+[![Offline Edge](https://img.shields.io/badge/Architecture-100%25%20Offline%20Edge-green.svg)](https://youtu.be/uIZi-zK9w3M)
+[![NEP 2020](https://img.shields.io/badge/NEP%202020-NIPUN%20Bharat%20Aligned-amber.svg)](https://youtu.be/uIZi-zK9w3M)
+
+---
+
+## 📸 Application Screenshots (Mobile & Desktop)
+
+| 1. Persona & Login Gate | 2. Bilingual Story Reader (2GB RAM Mode) |
+| :---: | :---: |
+| ![Persona Gate](docs/screenshots/login_persona_gate.png) | ![Story Reader](docs/screenshots/story_reader_2gb_ram.png) |
+
+| 3. 2GB RAM Engine Diagnostics | 4. Real-Time Speech Studio |
+| :---: | :---: |
+| ![RAM Diagnostics](docs/screenshots/2gb_ram_engine_diagnostics.png) | ![Speech Studio](docs/screenshots/speech_studio.png) |
+
+| 5. 6-Layer Translation Hub | 6. 3D Flashcard TLM Deck |
+| :---: | :---: |
+| ![Translation Hub](docs/screenshots/translation_hub.png) | ![3D Flashcards](docs/screenshots/flashcards_3d.png) |
+
+| 7. District & CRP Audit Dashboard | 8. Offline Synced Telemetry |
+| :---: | :---: |
+| ![District Dashboard](docs/screenshots/district_audit_dashboard.png) | ![Synced Telemetry](docs/screenshots/district_data_synced.png) |
+
+---
 
 ---
 

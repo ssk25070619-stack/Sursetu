@@ -9,10 +9,13 @@
  * without re-synthesizing recurrent classroom phrases.
  */
 
+import { lowMemoryService } from './lowMemoryService';
+
 const DB_NAME = 'sursetu_voice_cache_db';
 const STORE_NAME = 'audio_blobs';
 const DB_VERSION = 1;
-const IN_MEMORY_LIMIT = 200;
+const DEFAULT_IN_MEMORY_LIMIT = 50;
+const LOW_RAM_IN_MEMORY_LIMIT = 15;
 
 interface CachedAudioRecord {
   key: string;
@@ -147,14 +150,21 @@ class AudioCacheService {
   }
 
   private setMemoryCache(key: string, url: string) {
-    if (this.memoryCache.size >= IN_MEMORY_LIMIT) {
+    const stats = lowMemoryService.getMemoryStats();
+    const limit = stats.isUltraLowMode ? LOW_RAM_IN_MEMORY_LIMIT : DEFAULT_IN_MEMORY_LIMIT;
+
+    if (this.memoryCache.size >= limit) {
       const firstKey = this.memoryCache.keys().next().value;
       if (firstKey) {
         const oldUrl = this.memoryCache.get(firstKey);
-        if (oldUrl) URL.revokeObjectURL(oldUrl);
+        if (oldUrl) {
+          URL.revokeObjectURL(oldUrl);
+          lowMemoryService.revokeObjectUrl(oldUrl);
+        }
         this.memoryCache.delete(firstKey);
       }
     }
+    lowMemoryService.registerObjectUrl(url);
     this.memoryCache.set(key, url);
   }
 

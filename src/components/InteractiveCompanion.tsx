@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { speechEngine } from '../engine/speechEngine';
+import { lowMemoryService } from '../services/lowMemoryService';
 
 export const InteractiveCompanion: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -115,9 +116,10 @@ export const InteractiveCompanion: React.FC = () => {
     if (!dailyGoalCompleted) {
       setXpPoints((prev) => prev + 50);
       setDailyGoalCompleted(true);
+      const isUltraLow = lowMemoryService.getMemoryStats().isUltraLowMode;
       confetti({
-        particleCount: 50,
-        spread: 60,
+        particleCount: isUltraLow ? 12 : 50,
+        spread: 50,
         origin: { y: 0.8 },
       });
       speechEngine.playMandarDrumBeat();
@@ -126,7 +128,7 @@ export const InteractiveCompanion: React.FC = () => {
   };
 
   return (
-    <div className="no-print fixed bottom-5 right-5 z-50 flex flex-col items-end">
+    <div className="no-print fixed bottom-20 md:bottom-5 right-4 md:right-5 z-40 flex flex-col items-end">
       {/* Expanded Interactive Card */}
       {isOpen && (
         <div className="mb-3 w-80 sm:w-96 rounded-3xl bg-slate-900/95 border-2 border-emerald-500/40 p-5 shadow-2xl backdrop-blur-2xl text-slate-100 space-y-4 animate-fadeIn">

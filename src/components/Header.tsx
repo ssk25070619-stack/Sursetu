@@ -17,7 +17,8 @@ import {
   LogOut,
   Clock,
   Timer,
-  Cloud
+  Cloud,
+  Cpu
 } from 'lucide-react';
 import { IndigenousLanguage } from '../types';
 import { SUPPORTED_LANGUAGES, UI_LOCALIZATION } from '../data/languages';
@@ -40,6 +41,7 @@ interface HeaderProps {
   onLogout?: () => void;
   onOpenDatabaseGuide?: () => void;
   onOpenSupabase?: () => void;
+  onOpenMemoryModal?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -58,6 +60,7 @@ export const Header: React.FC<HeaderProps> = ({
   onLogout,
   onOpenDatabaseGuide,
   onOpenSupabase,
+  onOpenMemoryModal,
 }) => {
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [demoRemaining, setDemoRemaining] = useState<number>(0);
@@ -297,6 +300,18 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <Cloud className="w-3.5 h-3.5 text-emerald-400" />
                 <span className="hidden md:inline">Supabase</span>
+              </button>
+            )}
+
+            {/* 2GB RAM Low-Memory Engine Diagnostics Trigger */}
+            {onOpenMemoryModal && (
+              <button
+                onClick={onOpenMemoryModal}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-850 border border-emerald-500/40 text-emerald-300 text-xs font-semibold transition cursor-pointer shadow-sm shadow-emerald-950/20"
+                title="2 GB RAM Engine Diagnostics & Memory Heap Purge"
+              >
+                <Cpu className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="hidden sm:inline">2GB RAM Mode</span>
               </button>
             )}
 

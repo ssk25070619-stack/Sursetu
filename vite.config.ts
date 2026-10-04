@@ -91,7 +91,30 @@ export default defineConfig(() => {
     ],
     resolve: {
       alias: {
-        '@': path.resolve(typeof __dirname !== 'undefined' ? __dirname : process.cwd(), '.'),
+        '@': path.resolve(import.meta.dirname || process.cwd(), '.'),
+      },
+    },
+    build: {
+      target: 'es2020',
+      cssCodeSplit: true,
+      chunkSizeWarningLimit: 800,
+      rollupOptions: {
+        output: {
+          manualChunks(id: string) {
+            if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+              return 'vendor-react';
+            }
+            if (id.includes('node_modules/lucide-react')) {
+              return 'vendor-icons';
+            }
+            if (id.includes('node_modules/canvas-confetti') || id.includes('node_modules/d3')) {
+              return 'vendor-visuals';
+            }
+            if (id.includes('node_modules/@supabase')) {
+              return 'vendor-supabase';
+            }
+          },
+        },
       },
     },
     server: {

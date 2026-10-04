@@ -32,6 +32,8 @@ import {
   Users,
   Cloud
 } from 'lucide-react';
+import confetti from 'canvas-confetti';
+import { lowMemoryService } from '../services/lowMemoryService';
 
 interface LoginPageProps {
   onLoginSuccess: (role: UserRole, targetTab?: string) => void;
